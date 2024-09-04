@@ -1,0 +1,35 @@
+### Summary of HTTP Packets
+
+#### Data Queried by HTTP Protocol:
+1. **GET Requests**:
+    - **/pub/**: General directory listing.
+    - **/pub/ftp.openssl.org/**: Specific subdirectory listings.
+    - **/pub/ftp.openssl.org/snapshot/**: Snapshot directory listings.
+    - **/pub/ftp.openssl.org/source/**: Source directory listings.
+    - **/pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz**: Specific file in the snapshot directory.
+    - **/pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz**: Specific file in the source directory.
+    - **/pub/ftp.openssl.org/source/README**: README file in the source directory.
+    - **/pub/ftp.openssl.org/source/.message**: Message file in the source directory.
+    - **/proprietary/dists/jammy/InRelease**: Debian package release metadata.
+    - **/release/dists/jammy/InRelease**: Another Debian package release metadata.
+    - **/ubuntu/dists/jammy/InRelease**: Ubuntu package release metadata.
+    - **/ubuntu/dists/jammy-security/InRelease**: Ubuntu security package release metadata.
+    - **/ubuntu/dists/jammy-updates/InRelease**: Ubuntu updates package release metadata.
+    - **/ubuntu/dists/jammy-backports/InRelease**: Ubuntu backports package release metadata.
+    - **/ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e**: Specific file hash in the Ubuntu updates universe.
+
+2. **POST Requests**:
+    - **/wr2**: The data seems to be an OCSP request, typically used for checking the revocation status of an X.509 digital certificate.
+
+#### Legitimacy of Browsing Behavior:
+- The browsing behavior appears to be related to accessing and downloading open-source software packages and their metadata from public repositories (e.g., OpenSSL, Debian, Ubuntu).
+- This type of activity is common for developers, system administrators, or automated systems that manage software dependencies and updates.
+
+#### Correctness of HTTP Methods:
+- **GET**: Used appropriately for retrieving resources such as directory listings, files, and metadata.
+- **POST**: Used correctly for submitting data to the server, in this case, an OCSP request.
+
+### Conclusion:
+- **Data Queried**: Primarily involves directory listings, file downloads, and package metadata from public repositories.
+- **Legitimacy**: The browsing behavior appears legitimate and consistent with activities such as software development or system administration.
+- **HTTP Methods**: Methods used (GET and POST) are appropriate and correctly implemented for the actions performed.

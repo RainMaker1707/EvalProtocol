@@ -1,0 +1,62 @@
+### Analysis of HTTP Methods and Their Purposes
+
+#### Methods Used:
+1. **GET**
+   - Purpose: Retrieve data from the server.
+   - Commonly used to request web pages, images, and other resources.
+   
+2. **POST**
+   - Purpose: Send data to the server to create/update resources.
+   - Commonly used for submitting form data, uploading files, etc.
+
+#### URIs and Method Combinations:
+1. **GET Requests:**
+   - `/pub/`
+   - `/pub/ftp.openssl.org/`
+   - `/pub/ftp.openssl.org/snapshot/`
+   - `/pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz`
+   - `/proprietary/dists/jammy/InRelease`
+   - `/release/dists/jammy/InRelease`
+   - `/ubuntu/dists/jammy/InRelease`
+   - `/ubuntu/dists/jammy-security/InRelease`
+   - `/ubuntu/dists/jammy-updates/InRelease`
+   - `/ubuntu/dists/jammy-backports/InRelease`
+   - `/ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+   - `/pub/ftp.openssl.org/source/`
+   - `/pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz`
+   - `/pub/ftp.openssl.org/source/README`
+   - `/pub/ftp.openssl.org/source/.message`
+   - `/pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz`
+
+2. **POST Requests:**
+   - `/wr2`
+
+#### Common Combinations:
+- **GET + URI**: This is a very common combination in HTTP traffic, used to request data from servers.
+- **POST + URI**: Also common, but typically used for sending data to the server.
+
+### User Perspective:
+From the user's perspective, the traffic indicates that the user is browsing FTP directories and downloading files. The URIs suggest that the user is accessing resources related to OpenSSL and some Linux distribution repositories.
+
+### Protocol Perspective:
+The HTTP traffic observed here is quite common:
+- **GET Requests**: Used to fetch web pages, directory listings, and files.
+- **POST Requests**: Used to send data to the server, possibly for some kind of form submission or API call.
+
+### User Actions:
+- The user is browsing directories on an FTP server, specifically related to OpenSSL.
+- The user is likely downloading files from these directories, as indicated by the GET requests to tar.gz files.
+- The user is also interacting with some repositories for a Linux distribution (e.g., Ubuntu), as seen from the GET requests to various `InRelease` files.
+- The POST request to `/wr2` could be related to some form submission or an API call, but without more context, it's hard to determine the exact purpose.
+
+### Browsing Activity:
+- The user visited several directories and subdirectories on an FTP server.
+- The user accessed and possibly downloaded various files related to OpenSSL.
+- The user also interacted with repositories for a Linux distribution, possibly to check for updates or download packages.
+
+### Summary:
+- **HTTP Methods**: GET and POST.
+- **URIs**: Mostly related to OpenSSL directories and Linux distribution repositories.
+- **Commonality**: The method and URI combinations are typical for browsing and downloading files.
+- **User Activity**: Browsing FTP directories, downloading files, and interacting with Linux distribution repositories.
+- **HTTP Traffic**: Common and indicative of typical browsing and downloading behavior.

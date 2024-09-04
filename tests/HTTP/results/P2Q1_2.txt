@@ -1,0 +1,50 @@
+### Methods Used and Their Purposes
+1. **GET**:
+   - **Purpose**: The GET method is used to request data from a specified resource. It retrieves information from the server without altering the server's state.
+   
+2. **POST**:
+   - **Purpose**: The POST method is used to send data to the server to create/update a resource. The data sent to the server with POST is stored in the request body.
+
+### URIs and Their Relations
+1. **GET Requests**:
+   - `/pub/`
+   - `/pub/ftp.openssl.org/`
+   - `/pub/ftp.openssl.org/snapshot/`
+   - `/pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz`
+   - `/proprietary/dists/jammy/InRelease`
+   - `/release/dists/jammy/InRelease`
+   - `/ubuntu/dists/jammy/InRelease`
+   - `/ubuntu/dists/jammy-security/InRelease`
+   - `/ubuntu/dists/jammy-updates/InRelease`
+   - `/ubuntu/dists/jammy-backports/InRelease`
+   - `/ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+   - `/pub/ftp.openssl.org/source/`
+   - `/pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz`
+   - `/pub/ftp.openssl.org/source/README`
+   - `/pub/ftp.openssl.org/source/.message`
+   - `/pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz`
+
+2. **POST Requests**:
+   - `/wr2`
+
+### Commonality of Method + URI Combination
+- **GET + URI**: Extremely common. GET requests are the default method for retrieving resources from a server.
+- **POST + URI**: Also common but typically used for form submissions, API calls, or sending data to the server.
+
+### Deductions from a User Perspective
+1. **Common HTTP Traffic**:
+   - The traffic includes multiple GET requests to directories and files, which is typical for browsing and downloading files from a server. The POST request seems to be related to some form of data submission or API interaction.
+
+2. **User Activity**:
+   - The user appears to be browsing and accessing resources related to OpenSSL, a software library for secure communications.
+   - The POST request to `/wr2` might indicate some form of interaction with a web application or service, potentially related to security or certificate validation given the context of other URIs.
+
+3. **User Browsing Behavior**:
+   - The user accessed directories and files within the OpenSSL repository, likely browsing through different versions and snapshots of OpenSSL libraries.
+   - The user also accessed various InRelease files related to different distributions and updates of Ubuntu, which suggests the user might be managing software packages or updating a system.
+
+### Conclusion
+- **Common HTTP Traffic**: The traffic observed is typical for a user browsing directories and downloading files from a web server, particularly in the context of software repositories.
+- **User Actions**: The user seems to be involved in activities related to software management, specifically around OpenSSL and Ubuntu package repositories. This includes browsing directories, downloading files, and possibly interacting with a web application for security-related purposes.
+
+Overall, the HTTP traffic is consistent with normal user behavior for someone managing or updating software packages and browsing a repository for specific files.

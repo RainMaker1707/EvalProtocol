@@ -1,0 +1,26 @@
+Based on the provided CSV file content, we can identify a few URIs with parameters. Here are the details:
+
+1. **URI with Parameters:**
+   - `/?C=N;O=D`
+   - `/?C=M;O=A`
+   - `/?C=S;O=A`
+   - `/?C=D;O=A`
+
+2. **Parameters and their usage:**
+   - `C`: This parameter likely stands for "Column" or "Criteria" and is used to specify the sorting criterion.
+   - `O`: This parameter likely stands for "Order" and specifies the order of sorting.
+
+   The values for these parameters are:
+   - `C=N`: Sort by Name.
+   - `C=M`: Sort by Last Modified date.
+   - `C=S`: Sort by Size.
+   - `C=D`: Sort by Description.
+   - `O=D`: Order in Descending.
+   - `O=A`: Order in Ascending.
+
+3. **User Experience:**
+   - These parameters are commonly used in directory listing pages on web servers to provide users with options to sort the displayed files and directories.
+   - For example, if a user clicks on a link to sort by name in descending order, the URI might include `/?C=N;O=D`.
+   - This enhances the user experience by allowing users to easily organize and find files based on their preferred sorting criteria.
+
+In summary, the parameters in the URIs extracted from the HTTP traffic refer to sorting options for directory listings on a web server. They are used to customize the order in which files and directories are displayed, improving the user's ability to navigate and find specific items.

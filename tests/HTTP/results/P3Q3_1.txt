@@ -1,0 +1,63 @@
+### Analysis of HTTP Data
+
+#### Queried Data
+
+From the provided CSV content, the following data were queried using the HTTP protocol:
+
+1. **Directory Listings and HTML Pages:**
+   - `/pub/`
+   - `/pub/ftp.openssl.org/`
+   - `/pub/ftp.openssl.org/snapshot/`
+   - `/pub/ftp.openssl.org/source/`
+   - `/pub/ftp.openssl.org/source/README`
+   - `/pub/ftp.openssl.org/source/.message`
+   - `/pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz`
+   - `/pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz`
+
+2. **Other Specific URLs:**
+   - `/wr2` (with POST method)
+   - `/proprietary/dists/jammy/InRelease`
+   - `/release/dists/jammy/InRelease`
+   - `/ubuntu/dists/jammy/InRelease`
+   - `/ubuntu/dists/jammy-security/InRelease`
+   - `/ubuntu/dists/jammy-updates/InRelease`
+   - `/ubuntu/dists/jammy-backports/InRelease`
+   - `/ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+
+#### Browsing Behavior
+
+The browsing behavior appears to be legitimate and consistent with someone navigating through file directories and downloading files from an FTP server, specifically from `ftp.openssl.org`. The user is accessing various directories and files related to OpenSSL snapshots and releases, which is typical behavior for someone downloading or checking updates for software packages.
+
+Additionally, there are requests related to Debian/Ubuntu package updates (e.g., `/ubuntu/dists/jammy/InRelease`), which is normal if the user is updating or maintaining a Debian-based system.
+
+#### Methods Used
+
+- **GET Method:**
+  - The GET method is used extensively for retrieving directory listings and files, which is appropriate for the type of data being accessed. Examples include:
+    - `GET /pub/`
+    - `GET /pub/ftp.openssl.org/`
+    - `GET /pub/ftp.openssl.org/snapshot/`
+    - `GET /pub/ftp.openssl.org/source/`
+    - `GET /pub/ftp.openssl.org/source/README`
+    - `GET /pub/ftp.openssl.org/source/.message`
+    - `GET /pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz`
+    - `GET /pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz`
+
+- **POST Method:**
+  - There is one instance of the POST method:
+    - `POST /wr2`
+      - The POST method is typically used for sending data to the server, such as form submissions or file uploads. Without additional context on the specific endpoint `/wr2`, it's hard to determine the exact purpose, but it could be part of a legitimate application process.
+
+### Summary
+
+- **Queried Data:**
+  - The data queried includes directory listings and files from an FTP server related to OpenSSL and Debian/Ubuntu package updates.
+
+- **Browsing Behavior:**
+  - The browsing behavior appears legitimate, consistent with someone downloading software updates or packages.
+
+- **Methods Used:**
+  - The GET method is used appropriately for retrieving files and directory listings.
+  - The POST method is used once, which could be legitimate depending on the context of the application.
+
+Overall, based on the given data, the HTTP traffic seems to indicate legitimate browsing behavior related to software updates and package management.

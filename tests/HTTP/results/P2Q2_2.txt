@@ -1,0 +1,50 @@
+### Status Codes Used and Associated Requests
+
+#### Status Codes and Requests
+1. **200 OK**
+   - **Requests:**
+     - GET /pub/ (Response: HTML directory listing)
+     - GET /pub/ftp.openssl.org/ (Response: HTML directory listing)
+     - GET /pub/ftp.openssl.org/snapshot/ (Response: HTML directory listing)
+     - GET /pub/ftp.openssl.org/source/ (Response: HTML directory listing)
+     - GET /proprietary/dists/jammy/InRelease (Response: binary data)
+     - GET /release/dists/jammy/InRelease (Response: binary data)
+     - GET /ubuntu/dists/jammy/InRelease (Response: binary data)
+     - GET /ubuntu/dists/jammy-security/InRelease (Response: binary data)
+     - GET /ubuntu/dists/jammy-updates/InRelease (Response: binary data)
+     - GET /ubuntu/dists/jammy-backports/InRelease (Response: binary data)
+     - GET /pub/ftp.openssl.org/source/README (Response: plain text)
+     - GET /pub/ftp.openssl.org/source/.message (Response: plain text)
+     - GET /pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz (Response: binary data)
+
+2. **304 Not Modified**
+   - **Requests:**
+     - GET /proprietary/dists/jammy/InRelease
+     - GET /release/dists/jammy/InRelease
+     - GET /ubuntu/dists/jammy/InRelease
+     - GET /ubuntu/dists/jammy-security/InRelease
+     - GET /ubuntu/dists/jammy-updates/InRelease
+     - GET /ubuntu/dists/jammy-backports/InRelease
+
+#### Meaning of Each Status Code
+
+1. **200 OK**
+   - **Meaning:** The request has succeeded. The information returned with the response is dependent on the method used in the request, for example:
+     - GET: an entity corresponding to the requested resource is sent in the response.
+   - **User Experience:** The user successfully receives the requested data. For example, a web page loads correctly or a file download starts.
+
+2. **304 Not Modified**
+   - **Meaning:** The resource has not been modified since the version specified by the request headers `If-Modified-Since` or `If-None-Match`. In this case, there is no need to retransmit the resource since the client still has a previously-downloaded copy.
+   - **User Experience:** The user’s browser uses the cached version of the resource, resulting in faster loading times as no data is transferred over the network for this resource.
+
+### User Experience Implications
+
+1. **200 OK**
+   - **Positive:** The user gets the requested data without issues. Pages load fully, files download successfully, and the interaction feels smooth.
+   - **Negative:** If the data is large, it might take some time to load or download, potentially leading to longer wait times.
+
+2. **304 Not Modified**
+   - **Positive:** Faster page load times and reduced bandwidth usage because the browser uses cached data instead of downloading the same data again.
+   - **Negative:** If the cached data is outdated or corrupted, it might lead to displaying incorrect information or errors, though this is rare and more often managed by cache invalidation strategies.
+
+In summary, the HTTP status codes 200 and 304 indicate successful interactions where data is either fetched from the server or retrieved from the cache, respectively. This generally leads to a positive user experience with efficient loading and reduced wait times.

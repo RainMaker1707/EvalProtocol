@@ -1,0 +1,63 @@
+### Status Codes Used and Their Associated Requests
+
+#### 1. **200 OK**
+- **Requests:**
+  - `GET /pub/`
+  - `GET /pub/ftp.openssl.org/`
+  - `GET /pub/ftp.openssl.org/snapshot/`
+  - `GET /pub/ftp.openssl.org/source/`
+  - `GET /pub/ftp.openssl.org/source/README`
+  - `GET /pub/ftp.openssl.org/source/.message`
+  - `GET /pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz`
+  - `POST /wr2`
+  - `GET /ubuntu/dists/jammy-security/InRelease`
+  - `GET /ubuntu/dists/jammy-updates/InRelease`
+  - `GET /ubuntu/dists/jammy-backports/InRelease`
+  - `GET /ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+
+- **Meaning:**
+  - The server successfully processed the request and returned the requested resource.
+
+- **User Experience:**
+  - The user receives the requested content without any issues.
+
+#### 2. **304 Not Modified**
+- **Requests:**
+  - `GET /proprietary/dists/jammy/InRelease`
+  - `GET /release/dists/jammy/InRelease`
+  - `GET /ubuntu/dists/jammy/InRelease`
+  - `GET /ubuntu/dists/jammy-backports/InRelease`
+
+- **Meaning:**
+  - The requested resource has not been modified since the last request. The client can use the cached version.
+
+- **User Experience:**
+  - The user experiences faster load times as the cached content is used instead of downloading the resource again.
+
+### Explanation of Status Codes in Terms of User Experience
+
+#### **200 OK**
+- **Description:**
+  - This status code indicates that the server has successfully processed the request and the resource is returned in the response body.
+  
+- **User Experience:**
+  - The user gets the requested content, such as a webpage, image, or file, without any issues. This is the ideal outcome for any HTTP request as it means everything worked as expected.
+
+#### **304 Not Modified**
+- **Description:**
+  - This status code is used for caching purposes. It tells the client that the resource has not changed since the last request and can be loaded from the cache.
+  
+- **User Experience:**
+  - The user benefits from faster load times because the browser or client application can use the locally cached version of the resource instead of downloading it again. This is particularly useful for large files or frequently accessed resources.
+
+### Summary
+
+- **Status Codes Used:**
+  - `200 OK`
+  - `304 Not Modified`
+
+- **User Experience:**
+  - **200 OK:** Users receive the requested content smoothly.
+  - **304 Not Modified:** Users experience faster access due to caching.
+
+These status codes ensure efficient and user-friendly interactions with web resources, enhancing the overall browsing experience.

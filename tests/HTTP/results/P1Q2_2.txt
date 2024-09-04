@@ -1,0 +1,49 @@
+### Status Codes Used and Their Associated Requests
+
+**1. Status Code: 200**
+- **Meaning:** OK
+- **Description:** The request has succeeded. The information returned with the response is dependent on the method used in the request.
+- **User Experience:** The user successfully receives the requested resource or data.
+- **Requests:**
+  - GET /pub/
+  - GET /pub/ftp.openssl.org/
+  - GET /pub/ftp.openssl.org/snapshot/
+  - GET /proprietary/dists/jammy/InRelease
+  - GET /release/dists/jammy/InRelease
+  - GET /ubuntu/dists/jammy/InRelease
+  - GET /ubuntu/dists/jammy-security/InRelease
+  - GET /ubuntu/dists/jammy-updates/InRelease
+  - GET /ubuntu/dists/jammy-backports/InRelease
+  - GET /ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e
+  - GET /pub/ftp.openssl.org/source/
+  - GET /pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz
+  - GET /pub/ftp.openssl.org/source/README
+  - GET /pub/ftp.openssl.org/source/.message
+  - GET /pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz
+  - POST /wr2
+
+**2. Status Code: 304**
+- **Meaning:** Not Modified
+- **Description:** Indicates that the resource has not been modified since the version specified by the request headers `If-Modified-Since` or `If-None-Match`.
+- **User Experience:** The user's browser can use the cached version of the resource, resulting in faster load times.
+- **Requests:**
+  - GET /proprietary/dists/jammy/InRelease
+  - GET /release/dists/jammy/InRelease
+  - GET /ubuntu/dists/jammy/InRelease
+  - GET /ubuntu/dists/jammy-updates/InRelease
+  - GET /ubuntu/dists/jammy-backports/InRelease
+
+**3. Status Code: 429**
+- **Meaning:** Too Many Requests
+- **Description:** The user has sent too many requests in a given amount of time ("rate limiting").
+- **User Experience:** The user might experience delays or be temporarily blocked from accessing the resource.
+- **Requests:**
+  - GET /pub/
+
+### Summary of Status Codes in Terms of User Experience
+
+- **200 OK:** Users receive the requested content without any issues, leading to a positive and seamless experience.
+- **304 Not Modified:** Users experience faster load times as the browser can use cached resources, enhancing the overall browsing speed.
+- **429 Too Many Requests:** Users might face delays or temporary blocks, which can be frustrating and disrupt their browsing experience.
+
+By analyzing the status codes and their implications, we can infer that most requests were successful (200 OK), which indicates a generally positive user experience. However, the presence of 429 Too Many Requests suggests some users might have faced rate limiting, which could negatively impact their experience.

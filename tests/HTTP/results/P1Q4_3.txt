@@ -1,0 +1,48 @@
+Based on the provided CSV file content, we can extract and analyze the URIs and their parameters from the HTTP traffic. Here are the URIs with parameters that we can identify:
+
+1. `GET /pub/`
+2. `GET /pub/ftp.openssl.org/`
+3. `GET /pub/ftp.openssl.org/snapshot/`
+4. `GET /pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz`
+5. `GET /pub/ftp.openssl.org/source/`
+6. `GET /pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz`
+7. `GET /pub/ftp.openssl.org/source/README`
+8. `GET /pub/ftp.openssl.org/source/.message`
+9. `GET /pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz`
+10. `GET /wr2`
+11. `GET /proprietary/dists/jammy/InRelease`
+12. `GET /release/dists/jammy/InRelease`
+13. `GET /ubuntu/dists/jammy/InRelease`
+14. `GET /ubuntu/dists/jammy-security/InRelease`
+15. `GET /ubuntu/dists/jammy-updates/InRelease`
+16. `GET /ubuntu/dists/jammy-backports/InRelease`
+17. `GET /ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+
+From the provided data, we can see that some URIs contain parameters. Here are the parameters and their potential meanings:
+
+1. `GET /pub/?C=N;O=D`
+   - `C=N`: This parameter likely refers to sorting by "Name".
+   - `O=D`: This parameter likely refers to sorting in "Descending" order.
+
+2. `GET /pub/ftp.openssl.org/snapshot/`
+   - No explicit parameters in the URI, but the URI indicates a request for a specific directory listing.
+
+3. `GET /wr2`
+   - The URI `/wr2` does not contain any clear parameters, and without additional context, it's not possible to determine its purpose.
+
+4. `GET /ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+   - This URI contains a hash value (`ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`) which is typically used for verifying the integrity of files or packages.
+
+### Purpose of Parameters
+
+- **Sorting Parameters (`C=N;O=D`)**: These are used to sort the directory listing by name in descending order. This enhances the user experience by allowing users to view files sorted in a specific order, making it easier to locate desired files.
+  
+- **Hash Values in URIs**: The hash value in the URI is used to ensure the integrity and authenticity of the requested file. It helps in verifying that the file has not been tampered with and is exactly what the server intended to provide. For the user, this means added security and trust in the downloaded content.
+
+### User Experience Implications
+
+- **Sorting Parameters**: Users can customize the view of directory listings based on their preferences, such as sorting by name, date, size, etc. This makes navigation and file retrieval more intuitive and efficient.
+  
+- **Hash Values**: Users benefit from enhanced security as the hash value ensures that the files they download are genuine and have not been altered. This is particularly important for software downloads where integrity is crucial.
+
+In summary, the identified parameters are primarily used for sorting directory listings and ensuring file integrity, both of which improve the user experience by providing customization options and security assurances.

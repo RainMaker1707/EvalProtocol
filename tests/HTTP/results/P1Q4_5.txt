@@ -1,0 +1,33 @@
+Based on the provided CSV content, here are the details regarding the parameters found in the URIs:
+
+### Parameters in URIs
+1. **`?C=N;O=D`**
+2. **`?C=M;O=A`**
+3. **`?C=S;O=A`**
+4. **`?C=D;O=A`**
+
+### What These Parameters Refer To
+These parameters are typically used in directory listing pages served by web servers, particularly those running Apache HTTP Server with directory indexing enabled. The parameters control the sorting of the files and directories listed.
+
+### Explanation of Parameters
+- **C**: This parameter specifies the criterion by which to sort the directory listing.
+  - **N**: Sort by name.
+  - **M**: Sort by last modified date.
+  - **S**: Sort by size.
+  - **D**: Sort by description.
+
+- **O**: This parameter specifies the order of sorting.
+  - **D**: Sort in descending order.
+  - **A**: Sort in ascending order.
+
+### What These Parameters Are Used For
+These parameters are used to customize the way files and directories are listed in a web directory. When a user accesses a directory on a web server, the server can present the contents of that directory in different orders based on these parameters.
+
+### User Experience
+- **Sorting by Name (`?C=N;O=A` or `?C=N;O=D`)**: Users can view files and directories alphabetically, either in ascending or descending order.
+- **Sorting by Last Modified Date (`?C=M;O=A` or `?C=M;O=D`)**: Users can see the most recently modified files at the top or bottom, which is useful for tracking changes or finding recent uploads.
+- **Sorting by Size (`?C=S;O=A` or `?C=S;O=D`)**: Users can easily identify the largest or smallest files, which can be helpful for managing storage or downloading large files.
+- **Sorting by Description (`?C=D;O=A` or `?C=D;O=D`)**: If descriptions are provided, users can sort based on those, although this is less common.
+
+### Conclusion
+The parameters found in the URIs are used to control the sorting of directory listings on a web server. They enhance user experience by allowing users to organize and view directory contents in a way that best suits their needs, whether it be by name, modification date, size, or description.

@@ -1,0 +1,40 @@
+Based on the provided CSV content, the URIs extracted from the HTTP packets contain parameters that appear to be used for sorting and filtering directory listings on a web server. Here are the parameters found and their potential uses:
+
+1. **`?C=N;O=D`**
+   - **Parameter Breakdown**:
+     - `C=N`: This likely stands for "Column=Name", indicating that the directory listing should be sorted by the name of the files.
+     - `O=D`: This likely stands for "Order=Descending", indicating that the sorting should be in descending order.
+   - **Usage**: This parameter combination is used to sort the directory listing by file names in descending order.
+   - **User Experience**: The user sees the directory contents sorted by file names from Z to A.
+
+2. **`?C=M;O=A`**
+   - **Parameter Breakdown**:
+     - `C=M`: This likely stands for "Column=Modified", indicating that the directory listing should be sorted by the last modified date of the files.
+     - `O=A`: This likely stands for "Order=Ascending", indicating that the sorting should be in ascending order.
+   - **Usage**: This parameter combination is used to sort the directory listing by the last modified date in ascending order.
+   - **User Experience**: The user sees the directory contents sorted by the oldest modified files first.
+
+3. **`?C=S;O=A`**
+   - **Parameter Breakdown**:
+     - `C=S`: This likely stands for "Column=Size", indicating that the directory listing should be sorted by the size of the files.
+     - `O=A`: This likely stands for "Order=Ascending", indicating that the sorting should be in ascending order.
+   - **Usage**: This parameter combination is used to sort the directory listing by file size in ascending order.
+   - **User Experience**: The user sees the directory contents sorted from the smallest to the largest files.
+
+4. **`?C=D;O=A`**
+   - **Parameter Breakdown**:
+     - `C=D`: This likely stands for "Column=Description", indicating that the directory listing should be sorted by file description.
+     - `O=A`: This likely stands for "Order=Ascending", indicating that the sorting should be in ascending order.
+   - **Usage**: This parameter combination is used to sort the directory listing by file description in ascending order.
+   - **User Experience**: The user sees the directory contents sorted by description from A to Z.
+
+### Summary of Parameters and Their Usage:
+- These parameters (`C` and `O`) are used to control the sorting order of directory listings on the web server.
+- `C` specifies the column to sort by (Name, Modified, Size, Description).
+- `O` specifies the order (Ascending or Descending).
+
+### Impact on User Experience:
+- The user can navigate the directory more efficiently by sorting the contents based on specific attributes such as name, modification date, size, or description.
+- This improves the usability of the directory listing, making it easier for users to find the files they are looking for based on their sorting preferences.
+
+If there are other parameters in the URIs that are not covered here, they are not apparent in the provided CSV content. If any specific parameters were missed, please point them out for further analysis.

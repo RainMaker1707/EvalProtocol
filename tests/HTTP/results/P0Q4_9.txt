@@ -1,0 +1,33 @@
+From the provided CSV content, we can identify a few URIs that contain parameters. The parameters in these URIs typically serve various purposes depending on the context of their use. Let's break down the parameters found and their likely purposes:
+
+1. **URI with Parameters:**
+   ```
+   /pub/?C=N;O=D
+   /pub/?C=M;O=A
+   /pub/?C=S;O=A
+   /pub/?C=D;O=A
+   ```
+   - **Parameters:**
+     - `C=N`, `C=M`, `C=S`, `C=D`: These parameters determine the sorting criterion (Name, Modification date, Size, Description).
+     - `O=D`, `O=A`: These parameters specify the sorting order (Descending, Ascending).
+
+   **Purpose:**
+   - These parameters are used to sort the directory listing on the server. For example, `C=N;O=D` would sort the directory contents by name in descending order, while `C=M;O=A` would sort by modification date in ascending order.
+
+   **User Experience:**
+   - These parameters enhance the user's ability to navigate and find files within the directory by allowing them to sort the files based on different criteria. This improves usability, especially when dealing with large directories.
+
+2. **URI with Parameters:**
+   ```
+   /ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e
+   ```
+   - **Parameter:**
+     - `by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`: This part of the URI likely refers to a specific file or resource identified by its SHA256 hash.
+
+   **Purpose:**
+   - The use of a hash in the URI is typically for ensuring data integrity and consistency. By fetching a resource via its hash, the system can verify that the content has not been altered.
+
+   **User Experience:**
+   - For the end-user, this ensures that the files they download and use are authentic and have not been tampered with, thereby providing a secure and reliable experience.
+
+In summary, the parameters found in the URIs are primarily used for sorting directory listings or ensuring data integrity. These parameters enhance the user experience by providing better navigation and security.

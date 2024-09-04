@@ -1,0 +1,52 @@
+### Methods Used in the File and Their Purposes
+
+1. **GET**
+   - **Purpose**: The `GET` method is used to request data from a specified resource.
+   - **URIs**:
+     - `/pub/`
+     - `/pub/ftp.openssl.org/`
+     - `/pub/ftp.openssl.org/snapshot/`
+     - `/pub/ftp.openssl.org/source/`
+     - `/pub/ftp.openssl.org/source/README`
+     - `/pub/ftp.openssl.org/source/.message`
+     - `/proprietary/dists/jammy/InRelease`
+     - `/release/dists/jammy/InRelease`
+     - `/ubuntu/dists/jammy/InRelease`
+     - `/ubuntu/dists/jammy-security/InRelease`
+     - `/ubuntu/dists/jammy-updates/InRelease`
+     - `/ubuntu/dists/jammy-backports/InRelease`
+     - `/ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+
+2. **POST**
+   - **Purpose**: The `POST` method is used to send data to a server to create/update a resource. The data sent to the server with `POST` is stored in the request body.
+   - **URI**:
+     - `/wr2`
+
+### Commonality of Method + URI Combinations
+
+- **GET** requests on URIs that point to directories or files (e.g., `/pub/`, `/pub/ftp.openssl.org/`, `/ubuntu/dists/jammy/InRelease`) are very common. These are standard operations for fetching content from a server.
+- **POST** requests are typically used for submitting forms or uploading data. The URI `/wr2` does not provide enough context to determine its specific purpose, but using `POST` for data submission is a standard practice.
+
+### User Perspective Deductions
+
+1. **Common HTTP Traffic**:
+   - The traffic captured appears to be standard HTTP traffic involving requests to fetch resources from a server.
+   - The `GET` requests are used to navigate directories and download files, while the single `POST` request is likely for submitting some form of data.
+
+2. **User Actions**:
+   - The user appears to be browsing directories and downloading files from an FTP server (e.g., `ftp.openssl.org`).
+   - The user accessed various directories and files related to OpenSSL, including snapshots and source distributions.
+   - The user also made some requests to URIs related to Ubuntu distributions, indicating they might be fetching updates or packages.
+
+3. **Browsing Activity**:
+   - The user browsed through directories such as `/pub/`, `/pub/ftp.openssl.org/`, `/pub/ftp.openssl.org/snapshot/`, and `/pub/ftp.openssl.org/source/`.
+   - They downloaded specific files like `openssl-3.2-SNAP-20231220.tar.gz` and `openssl-3.1.4.tar.gz`.
+   - They viewed README and .message files in the source directory, indicating they were looking for information or instructions.
+
+### Conclusions
+
+- **Common HTTP Traffic**: The traffic patterns are typical for a user browsing an FTP server and downloading files. The use of `GET` and `POST` methods is standard and expected.
+- **User Activity**: The user was likely exploring and downloading various OpenSSL files, possibly for development or testing purposes. They also interacted with some Ubuntu repositories, suggesting they might be managing or updating a system.
+- **Browsing Details**: The user accessed and downloaded multiple files from the OpenSSL directories, indicating a focused activity on OpenSSL resources.
+
+Overall, the captured traffic reflects normal browsing and downloading behavior on an FTP server, with specific interest in OpenSSL files and some interaction with Ubuntu repositories.

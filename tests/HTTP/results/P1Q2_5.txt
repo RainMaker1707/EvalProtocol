@@ -1,0 +1,54 @@
+### Status Codes Used and Associated Requests
+
+From the provided CSV content, the status codes used are:
+
+1. **200 OK**
+2. **304 Not Modified**
+
+#### Requests Linked to Each Status Code
+
+- **200 OK:**
+  - `/pub/`
+  - `/pub/ftp.openssl.org/`
+  - `/pub/ftp.openssl.org/snapshot/`
+  - `/pub/ftp.openssl.org/source/`
+  - `/pub/ftp.openssl.org/source/README`
+  - `/pub/ftp.openssl.org/source/.message`
+  - `/proprietary/dists/jammy/InRelease`
+  - `/release/dists/jammy/InRelease`
+  - `/ubuntu/dists/jammy/InRelease`
+  - `/ubuntu/dists/jammy-security/InRelease`
+  - `/ubuntu/dists/jammy-updates/InRelease`
+  - `/ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+  - `/ubuntu/dists/jammy-backports/InRelease`
+  - `/pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz`
+  - `/pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz`
+
+- **304 Not Modified:**
+  - `/proprietary/dists/jammy/InRelease`
+  - `/release/dists/jammy/InRelease`
+  - `/ubuntu/dists/jammy/InRelease`
+  - `/ubuntu/dists/jammy-updates/InRelease`
+  - `/ubuntu/dists/jammy-backports/InRelease`
+
+### Meaning of Each Status Code
+
+- **200 OK:**
+  - **Definition:** This status code indicates that the request has succeeded. The information returned with the response is dependent on the method used in the request.
+  - **User Experience:** The user successfully receives the requested resource. This is a positive outcome, indicating that the server has processed the request and returned the expected content.
+
+- **304 Not Modified:**
+  - **Definition:** This status code indicates that the resource has not been modified since the version specified by the request headers (If-Modified-Since or If-None-Match). The server does not return any content with this response.
+  - **User Experience:** The user’s browser or client does not need to download the resource again because it has not changed. This results in faster load times and reduced bandwidth usage, enhancing the user experience by making the application more responsive.
+
+### User Experience Implications
+
+- **200 OK:**
+  - **Positive Impact:** The user gets the content they requested without issues. This means that the web page, file, or API response is successfully delivered, leading to a seamless and smooth interaction.
+  - **Example:** When a user navigates to a webpage or downloads a file, they see the content they expect.
+
+- **304 Not Modified:**
+  - **Positive Impact:** The user experiences faster load times since the browser uses the cached version of the resource. This reduces the need to re-download the same data, making the application more efficient.
+  - **Example:** When a user revisits a webpage, the content loads quickly because the browser uses the cached data instead of fetching it from the server again.
+
+By understanding these status codes and their implications, you can better interpret the network behavior and user experience associated with the HTTP(S) requests in your network traffic.

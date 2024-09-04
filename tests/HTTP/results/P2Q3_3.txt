@@ -1,0 +1,61 @@
+### Summary of HTTP Packets
+
+#### Data Queried by HTTP Protocol
+
+1. **General Browsing:**
+   - The user accessed directories and files on an FTP server, specifically:
+     - `/pub/`
+     - `/pub/ftp.openssl.org/`
+     - `/pub/ftp.openssl.org/snapshot/`
+     - `/pub/ftp.openssl.org/source/`
+
+2. **Specific Files:**
+   - The user downloaded specific files, such as:
+     - `openssl-3.2-SNAP-20231220.tar.gz`
+     - `openssl-3.1.4.tar.gz`
+     - `README`
+     - `.message`
+
+3. **APT Requests:**
+   - The user made several APT-related HTTP requests to update package lists:
+     - `/proprietary/dists/jammy/InRelease`
+     - `/release/dists/jammy/InRelease`
+     - `/ubuntu/dists/jammy/InRelease`
+     - `/ubuntu/dists/jammy-security/InRelease`
+     - `/ubuntu/dists/jammy-updates/InRelease`
+     - `/ubuntu/dists/jammy-backports/InRelease`
+     - `/ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+
+4. **OCSP Requests:**
+   - There was an OCSP (Online Certificate Status Protocol) request and response:
+     - POST to `/wr2`
+     - Response with `application/ocsp-response`
+
+#### Legitimacy of Browsing Behavior
+
+- **Legit Browsing Behavior:**
+  - The accessed URLs and directories are common for users who might be downloading open-source software or updates.
+  - The APT requests indicate that the user might be updating or installing packages on a Linux system, which is a typical activity for maintaining software.
+  - The OCSP request is part of the certificate validation process, which is a normal part of secure browsing.
+
+#### Correctness of HTTP Methods Used
+
+1. **GET Requests:**
+   - Used for retrieving resources like directories and files.
+   - Examples:
+     - `GET /pub/`
+     - `GET /pub/ftp.openssl.org/snapshot/`
+     - `GET /ubuntu/dists/jammy/InRelease`
+
+2. **POST Request:**
+   - Used for the OCSP request, which is appropriate as it involves sending data to the server for certificate validation.
+   - Example:
+     - `POST /wr2`
+
+### Conclusion
+
+- **Data Queried:** The user queried directories and files related to open-source software, particularly OpenSSL, and performed package updates.
+- **Browsing Behavior:** The browsing behavior appears legitimate, consistent with activities like downloading software and updating system packages.
+- **HTTP Methods:** The methods used (GET for retrieving resources and POST for OCSP requests) are appropriate and correctly applied.
+
+Overall, the HTTP packets reflect normal and legitimate browsing behavior with correctly used HTTP methods.

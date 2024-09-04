@@ -1,0 +1,32 @@
+Based on the provided CSV file content, there are a few URIs with parameters that can be extracted. Here are the details:
+
+### Extracted URIs with Parameters:
+1. `/?C=N;O=D`
+2. `/?C=M;O=A`
+3. `/?C=S;O=A`
+4. `/?C=D;O=A`
+
+### What Do These Parameters Refer To?
+These parameters are typically used in directory listing pages of web servers, especially those serving files over HTTP. The parameters are often used to control the sorting and ordering of the files and directories listed on the webpage.
+
+- `C=N;O=D`: Sort by Name in Descending order.
+- `C=M;O=A`: Sort by Last Modified date in Ascending order.
+- `C=S;O=A`: Sort by Size in Ascending order.
+- `C=D;O=A`: Sort by Description in Ascending order.
+
+### What Are These Parameters Used For?
+These parameters are used to customize the view of the directory listing:
+
+- **Sorting by Name (C=N;O=D)**: This would display the files and directories sorted by their names in descending order.
+- **Sorting by Last Modified Date (C=M;O=A)**: This would show the files and directories sorted by the last modified date in ascending order, which means the oldest files will appear first.
+- **Sorting by Size (C=S;O=A)**: This would list the files and directories sorted by their size in ascending order, showing the smallest files first.
+- **Sorting by Description (C=D;O=A)**: This would sort the files and directories by their description in ascending order.
+
+### What Does It Mean in Terms of User Experience?
+In terms of user experience, these parameters allow users to view the directory listing in a way that best suits their needs:
+
+- **Flexibility**: Users can quickly find files based on name, modification date, size, or description.
+- **Efficiency**: Sorting by different criteria can help users locate specific files faster, especially in directories with a large number of files.
+- **Customization**: Users have control over how the information is displayed, which can improve the overall usability of the directory listing.
+
+Overall, these parameters enhance the user experience by providing customizable sorting options, making it easier to navigate and find files within a directory.

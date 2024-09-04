@@ -1,0 +1,47 @@
+### Analysis of HTTP Methods and URIs
+
+#### Methods Used:
+1. **GET**:
+   - Purpose: The GET method is used to request data from a specified resource. It retrieves information from the server without making any changes to the resource.
+   - Commonly Used: Yes, GET is the most commonly used HTTP method for retrieving data.
+
+2. **POST**:
+   - Purpose: The POST method is used to send data to the server to create/update a resource. The data sent to the server with POST is stored in the request body.
+   - Commonly Used: Yes, POST is commonly used for submitting form data, uploading files, and interacting with APIs.
+
+#### URIs and Their Related Methods:
+1. **GET Requests**:
+   - `/pub/`
+   - `/pub/ftp.openssl.org/`
+   - `/pub/ftp.openssl.org/snapshot/`
+   - `/pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz`
+   - `/pub/ftp.openssl.org/source/`
+   - `/pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz`
+   - `/pub/ftp.openssl.org/source/README`
+   - `/pub/ftp.openssl.org/source/.message`
+
+2. **POST Requests**:
+   - `/wr2`
+
+#### Common Combination (Method + URI):
+- **GET + URI**: This combination is very common as GET is the standard method for retrieving resources from a server.
+- **POST + URI**: Also common, especially for actions like form submissions or API interactions.
+
+### User Perspective Deductions:
+1. **Common HTTP Traffic**:
+   - From a protocol perspective, the traffic appears to be typical HTTP traffic. The use of GET for retrieving resources and POST for sending data is standard practice.
+
+2. **User Actions**:
+   - The user browsed directories and files on a server, specifically related to OpenSSL resources.
+   - The user accessed various directories (`/pub/`, `/pub/ftp.openssl.org/`, etc.) and specific files like `openssl-3.2-SNAP-20231220.tar.gz` and `README`.
+   - The user also made a POST request to `/wr2`, which could indicate an interaction with a form or an API endpoint.
+
+3. **User Browsing Behavior**:
+   - The user appears to be interested in OpenSSL resources, as evidenced by multiple requests to directories and files related to OpenSSL.
+   - The user browsed through different versions and snapshots of OpenSSL tarballs.
+   - The user accessed metadata files like `README` and `.message`, possibly to get more information about the resources available in the directories.
+
+### Conclusion:
+- The HTTP traffic in the CSV file reflects standard browsing behavior, with GET requests to retrieve resources and a POST request likely for data submission or interaction.
+- The user was exploring and downloading resources related to OpenSSL, indicating an interest in this software library.
+- The combination of methods and URIs observed is typical and aligns with common HTTP usage patterns.

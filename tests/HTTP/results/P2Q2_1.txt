@@ -1,0 +1,53 @@
+### Status Codes Used and Associated Requests
+
+#### Status Codes
+1. **200 OK**
+2. **304 Not Modified**
+
+#### Requests Linked to Status Codes
+
+1. **200 OK**
+   - GET /pub/
+   - GET /pub/ftp.openssl.org/
+   - GET /pub/ftp.openssl.org/snapshot/
+   - GET /proprietary/dists/jammy/InRelease
+   - GET /release/dists/jammy/InRelease
+   - GET /ubuntu/dists/jammy/InRelease
+   - GET /ubuntu/dists/jammy-security/InRelease
+   - GET /ubuntu/dists/jammy-updates/InRelease
+   - GET /ubuntu/dists/jammy-backports/InRelease
+   - GET /ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e
+   - GET /pub/ftp.openssl.org/source/
+   - GET /pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz
+   - GET /pub/ftp.openssl.org/source/README
+   - GET /pub/ftp.openssl.org/source/.message
+   - GET /pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz
+
+2. **304 Not Modified**
+   - GET /proprietary/dists/jammy/InRelease
+   - GET /release/dists/jammy/InRelease
+   - GET /ubuntu/dists/jammy/InRelease
+   - GET /ubuntu/dists/jammy-security/InRelease
+   - GET /ubuntu/dists/jammy-backports/InRelease
+
+### Meaning of Each Status Code
+
+1. **200 OK**
+   - **Definition:** The request has succeeded. The information returned with the response is dependent on the method used in the request.
+   - **User Experience:** The requested resource (e.g., a webpage or file) is successfully retrieved and displayed or downloaded as expected. The user can interact with the content without any issues.
+
+2. **304 Not Modified**
+   - **Definition:** Indicates that the resource has not been modified since the version specified by the request headers `If-Modified-Since` or `If-None-Match`. The server does not return any content with this response.
+   - **User Experience:** The browser can use the cached version of the resource, improving load times and reducing bandwidth usage. The user experience remains seamless as the content is loaded quickly from the cache.
+
+### User Experience Implications
+
+1. **200 OK**
+   - **Positive Experience:** The user gets the requested content without any errors or interruptions. This status code ensures that the user can access the latest version of the resource.
+   - **Usage:** Commonly seen when accessing webpages, downloading files, or submitting forms successfully.
+
+2. **304 Not Modified**
+   - **Positive Experience:** The user benefits from faster load times as the browser uses the cached content. This status code helps in optimizing performance and reducing network load.
+   - **Usage:** Typically seen when the browser checks if the cached version of a resource is still valid, reducing the need to download the same content repeatedly.
+
+By understanding these status codes and their implications, one can appreciate how they contribute to a smooth and efficient web browsing experience.

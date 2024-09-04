@@ -1,0 +1,54 @@
+### Status Codes Used and Associated Requests
+
+From the provided CSV content, the status codes used are:
+- **200**
+- **304**
+
+### Requests Linked to These Status Codes
+
+1. **200 OK**
+    - `GET /pub/`
+    - `GET /pub/ftp.openssl.org/`
+    - `GET /pub/ftp.openssl.org/snapshot/`
+    - `GET /proprietary/dists/jammy/InRelease`
+    - `GET /release/dists/jammy/InRelease`
+    - `GET /ubuntu/dists/jammy/InRelease`
+    - `GET /ubuntu/dists/jammy-security/InRelease`
+    - `GET /ubuntu/dists/jammy-updates/InRelease`
+    - `GET /ubuntu/dists/jammy-backports/InRelease`
+    - `GET /ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+    - `GET /pub/ftp.openssl.org/source/`
+    - `GET /pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz`
+    - `GET /pub/ftp.openssl.org/source/README`
+    - `GET /pub/ftp.openssl.org/source/.message`
+    - `GET /pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz`
+
+2. **304 Not Modified**
+    - `GET /proprietary/dists/jammy/InRelease`
+    - `GET /release/dists/jammy/InRelease`
+    - `GET /ubuntu/dists/jammy/InRelease`
+    - `GET /ubuntu/dists/jammy-security/InRelease`
+    - `GET /ubuntu/dists/jammy-updates/InRelease`
+    - `GET /ubuntu/dists/jammy-backports/InRelease`
+
+### Meaning of Each Status Code
+
+1. **200 OK**
+    - **Meaning**: The request has succeeded. The information returned with the response is dependent on the method used in the request.
+    - **User Experience**: The user successfully retrieves the requested resource. This usually means that the webpage or file they requested is displayed or downloaded without any issues.
+
+2. **304 Not Modified**
+    - **Meaning**: Indicates that the resource has not been modified since the version specified by the request headers `If-Modified-Since` or `If-None-Match`. In such a case, there is no need to retransmit the resource since the client still has a previously-downloaded copy.
+    - **User Experience**: The user experience is optimized as the browser uses the cached version of the resource, leading to faster load times and reduced bandwidth usage. The webpage or resource appears to load instantly because it is retrieved from the local cache instead of being downloaded again from the server.
+
+### User Experience Implications of These Status Codes
+
+1. **200 OK**
+    - **Positive Implication**: The user gets the content they requested without any errors. This ensures a smooth and expected interaction with the website or service.
+    - **Example**: When a user clicks on a link to download a file, and the download starts immediately without any error messages.
+
+2. **304 Not Modified**
+    - **Positive Implication**: Enhances performance by reducing the amount of data that needs to be transferred over the network. This results in quicker page loads and a more responsive user experience.
+    - **Example**: When a user revisits a webpage, and the page loads almost instantly because the browser uses the cached version of the page instead of downloading it again from the server.
+
+In summary, the status codes 200 and 304 indicate successful interactions with the server, either by providing the requested resource or optimizing the experience by using cached data. Both contribute to a seamless and efficient user experience.

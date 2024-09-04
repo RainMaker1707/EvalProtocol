@@ -1,0 +1,26 @@
+Based on the provided CSV content, the URIs extracted from the HTTP requests contain parameters that appear to be used for sorting and ordering directory listings on an FTP server. Here are the parameters found and their likely purposes:
+
+1. **Parameters in URIs:**
+    - `?C=N;O=D`
+    - `?C=M;O=A`
+    - `?C=S;O=A`
+    - `?C=D;O=A`
+
+2. **What these parameters are used for:**
+    - `C`: This parameter likely stands for "Column" and specifies the column by which the directory listing should be sorted.
+        - `N`: Name
+        - `M`: Last modified
+        - `S`: Size
+        - `D`: Description
+    - `O`: This parameter likely stands for "Order" and specifies the order of sorting.
+        - `A`: Ascending
+        - `D`: Descending
+
+3. **What does it mean in terms of user experience:**
+    - These parameters allow users to sort the directory listings on the FTP server in different ways for easier navigation and finding files. For example:
+        - `?C=N;O=D` would sort the directory listing by name in descending order.
+        - `?C=M;O=A` would sort the directory listing by last modified date in ascending order.
+        - `?C=S;O=A` would sort the directory listing by size in ascending order.
+        - `?C=D;O=A` would sort the directory listing by description in ascending order.
+
+In summary, these parameters enhance the user experience by providing flexible sorting options for viewing the contents of directories on the FTP server. This can help users quickly locate files based on their preferences, such as finding the most recently modified files or the largest files in a directory.

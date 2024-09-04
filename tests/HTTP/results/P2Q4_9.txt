@@ -1,0 +1,33 @@
+Based on the provided CSV content, the URIs extracted contain the following parameters:
+
+1. `?C=N;O=D`
+2. `?C=M;O=A`
+3. `?C=S;O=A`
+4. `?C=D;O=A`
+
+### What do these parameters refer to?
+
+These parameters are typically used in directory listing pages to sort the displayed files and directories. Here’s what each parameter means:
+
+- `C=N`: Sort by Name.
+- `O=D`: Order by Descending.
+- `C=M`: Sort by Last Modified.
+- `O=A`: Order by Ascending.
+- `C=S`: Sort by Size.
+- `C=D`: Sort by Description.
+
+### What are these parameters used for?
+
+These parameters are used to control the sorting of files and directories in the listing. They allow the user to sort the directory contents based on different criteria, such as name, last modified date, size, or description, and in either ascending or descending order.
+
+### What does it mean in terms of user experience?
+
+In terms of user experience, these parameters enhance the usability of directory listing pages by providing users with the flexibility to view the contents in a way that best suits their needs. For example:
+
+- A user looking for the most recently modified files might sort by last modified date in descending order (`C=M;O=D`).
+- A user looking for the largest files might sort by size in descending order (`C=S;O=D`).
+- A user wanting to browse files alphabetically might sort by name in ascending order (`C=N;O=A`).
+
+This functionality is particularly useful in directories with a large number of files, as it helps users quickly find the files they are interested in.
+
+In summary, these parameters improve the user experience by providing customizable sorting options for directory listings, making it easier for users to navigate and find specific files.

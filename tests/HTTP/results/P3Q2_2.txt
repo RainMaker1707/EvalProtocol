@@ -1,0 +1,120 @@
+### Status Codes Used and Corresponding Requests
+
+Based on the provided CSV content, the HTTP status codes used are:
+
+1. **200 OK**
+2. **304 Not Modified**
+
+#### Requests Linked to Status Codes
+
+1. **200 OK:**
+    - **Request 1:**
+        - **Request Method:** GET
+        - **Request URI:** `/pub/`
+        - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+    - **Request 2:**
+        - **Request Method:** GET
+        - **Request URI:** `/pub/ftp.openssl.org/`
+        - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+    - **Request 3:**
+        - **Request Method:** GET
+        - **Request URI:** `/pub/ftp.openssl.org/snapshot/`
+        - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+    - **Request 4:**
+        - **Request Method:** GET
+        - **Request URI:** `/proprietary/dists/jammy/InRelease`
+        - **User Agent:** Debian APT-HTTP/1.3 (2.4.11) non-interactive
+
+    - **Request 5:**
+        - **Request Method:** GET
+        - **Request URI:** `/ubuntu/dists/jammy/InRelease`
+        - **User Agent:** Debian APT-HTTP/1.3 (2.4.11) non-interactive
+
+    - **Request 6:**
+        - **Request Method:** GET
+        - **Request URI:** `/ubuntu/dists/jammy-security/InRelease`
+        - **User Agent:** Debian APT-HTTP/1.3 (2.4.11) non-interactive
+
+    - **Request 7:**
+        - **Request Method:** GET
+        - **Request URI:** `/ubuntu/dists/jammy-updates/InRelease`
+        - **User Agent:** Debian APT-HTTP/1.3 (2.4.11) non-interactive
+
+    - **Request 8:**
+        - **Request Method:** GET
+        - **Request URI:** `/ubuntu/dists/jammy-backports/InRelease`
+        - **User Agent:** Debian APT-HTTP/1.3 (2.4.11) non-interactive
+
+    - **Request 9:**
+        - **Request Method:** GET
+        - **Request URI:** `/ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+        - **User Agent:** Debian APT-HTTP/1.3 (2.4.11) non-interactive
+
+    - **Request 10:**
+        - **Request Method:** GET
+        - **Request URI:** `/pub/ftp.openssl.org/source/`
+        - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+    - **Request 11:**
+        - **Request Method:** GET
+        - **Request URI:** `/pub/ftp.openssl.org/source/README`
+        - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+    - **Request 12:**
+        - **Request Method:** GET
+        - **Request URI:** `/pub/ftp.openssl.org/source/.message`
+        - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+    - **Request 13:**
+        - **Request Method:** GET
+        - **Request URI:** `/pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz`
+        - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+2. **304 Not Modified:**
+    - **Request 1:**
+        - **Request Method:** GET
+        - **Request URI:** `/proprietary/dists/jammy/InRelease`
+        - **User Agent:** Debian APT-HTTP/1.3 (2.4.11) non-interactive
+
+    - **Request 2:**
+        - **Request Method:** GET
+        - **Request URI:** `/release/dists/jammy/InRelease`
+        - **User Agent:** Debian APT-HTTP/1.3 (2.4.11) non-interactive
+
+    - **Request 3:**
+        - **Request Method:** GET
+        - **Request URI:** `/ubuntu/dists/jammy/InRelease`
+        - **User Agent:** Debian APT-HTTP/1.3 (2.4.11) non-interactive
+
+    - **Request 4:**
+        - **Request Method:** GET
+        - **Request URI:** `/ubuntu/dists/jammy-security/InRelease`
+        - **User Agent:** Debian APT-HTTP/1.3 (2.4.11) non-interactive
+
+    - **Request 5:**
+        - **Request Method:** GET
+        - **Request URI:** `/ubuntu/dists/jammy-updates/InRelease`
+        - **User Agent:** Debian APT-HTTP/1.3 (2.4.11) non-interactive
+
+    - **Request 6:**
+        - **Request Method:** GET
+        - **Request URI:** `/ubuntu/dists/jammy-backports/InRelease`
+        - **User Agent:** Debian APT-HTTP/1.3 (2.4.11) non-interactive
+
+#### Meaning of Each Status Code
+
+1. **200 OK:**
+    - **Meaning:** The request has succeeded. The information returned with the response depends on the method used in the request.
+    - **User Experience:** The requested resource (e.g., a webpage, a file) is successfully retrieved and displayed in the user's browser or application.
+
+2. **304 Not Modified:**
+    - **Meaning:** The resource has not been modified since the version specified by the request headers `If-Modified-Since` or `If-None-Match`. The server does not return the resource, saving bandwidth.
+    - **User Experience:** The cached version of the resource will be used, making the response faster since no new data is downloaded. The user will see the same content as before.
+
+### Summary in Terms of User Experience
+
+- **200 OK:** Users successfully retrieve and interact with the requested resources. The pages load as expected, and any files requested are downloaded without issues.
+- **304 Not Modified:** Users experience faster loading times due to the use of cached resources. This improves the efficiency of the network and reduces latency, leading to a smoother and quicker browsing experience.

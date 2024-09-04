@@ -1,0 +1,88 @@
+### Status Codes Used
+
+The network flow data includes the following HTTP status codes:
+1. **200 OK**
+2. **304 Not Modified**
+
+### Requests Linked to These Status Codes
+
+#### 1. **200 OK**
+- **Request 1:**
+  - **Request Method:** GET
+  - **Request URI:** /pub/
+  - **Response Data:** HTML content of directory listing
+- **Request 2:**
+  - **Request Method:** GET
+  - **Request URI:** /pub/ftp.openssl.org/
+  - **Response Data:** HTML content of directory listing
+- **Request 3:**
+  - **Request Method:** GET
+  - **Request URI:** /pub/ftp.openssl.org/snapshot/
+  - **Response Data:** HTML content of directory listing
+- **Request 4:**
+  - **Request Method:** GET
+  - **Request URI:** /ubuntu/dists/jammy-security/InRelease
+  - **Response Data:** application/octet-stream
+- **Request 5:**
+  - **Request Method:** GET
+  - **Request URI:** /ubuntu/dists/jammy-updates/InRelease
+  - **Response Data:** application/octet-stream
+- **Request 6:**
+  - **Request Method:** GET
+  - **Request URI:** /pub/ftp.openssl.org/source/
+  - **Response Data:** HTML content of directory listing
+- **Request 7:**
+  - **Request Method:** GET
+  - **Request URI:** /pub/ftp.openssl.org/source/README
+  - **Response Data:** Text content of README file
+- **Request 8:**
+  - **Request Method:** GET
+  - **Request URI:** /pub/ftp.openssl.org/source/.message
+  - **Response Data:** Text content of .message file
+- **Request 9:**
+  - **Request Method:** GET
+  - **Request URI:** /pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz
+  - **Response Data:** application/x-gzip
+
+#### 2. **304 Not Modified**
+- **Request 1:**
+  - **Request Method:** GET
+  - **Request URI:** /proprietary/dists/jammy/InRelease
+- **Request 2:**
+  - **Request Method:** GET
+  - **Request URI:** /release/dists/jammy/InRelease
+- **Request 3:**
+  - **Request Method:** GET
+  - **Request URI:** /ubuntu/dists/jammy/InRelease
+- **Request 4:**
+  - **Request Method:** GET
+  - **Request URI:** /ubuntu/dists/jammy-backports/InRelease
+
+### Meaning of Each Status Code
+
+#### 1. **200 OK**
+- **Definition:** The request has succeeded. The meaning of success depends on the HTTP method:
+  - **GET:** The resource has been fetched and is transmitted in the message body.
+  - **POST:** The resource describing the result of the action is transmitted in the message body.
+- **User Experience:** The user successfully receives the requested content. In this context, the user would see the directory listings, files, or other requested resources.
+
+#### 2. **304 Not Modified**
+- **Definition:** Indicates that the resource has not been modified since the version specified by the request headers `If-Modified-Since` or `If-None-Match`. In such a case, there is no need to retransmit the resource since the client still has a previously-downloaded copy.
+- **User Experience:** The user will not see any change because the content has not been modified since the last access. This can improve loading times and reduce bandwidth usage, as the browser uses cached content.
+
+### User Experience Implications
+
+#### 1. **200 OK**
+- **Positive Experience:** The user gets the requested resources without issues. This leads to a seamless browsing or downloading experience.
+- **Use Cases:**
+  - Viewing directory listings on a server.
+  - Downloading files such as tar.gz archives.
+  - Accessing updated content.
+
+#### 2. **304 Not Modified**
+- **Positive Experience:** Faster load times since the browser uses cached versions of the resources.
+- **Use Cases:**
+  - Repeated visits to the same page without any changes.
+  - Efficient use of bandwidth by avoiding unnecessary data transfer.
+
+In summary, the HTTP packets indicate successful retrieval of resources (status code 200) and efficient use of caching mechanisms (status code 304), leading to a positive user experience in terms of content retrieval and load times.

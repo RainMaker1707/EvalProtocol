@@ -1,0 +1,47 @@
+### Status Codes Used and Associated Requests
+
+1. **200 OK**
+   - **Requests:**
+     - GET `/pub/`
+     - GET `/pub/ftp.openssl.org/`
+     - GET `/pub/ftp.openssl.org/snapshot/`
+     - GET `/pub/ftp.openssl.org/source/`
+     - GET `/pub/ftp.openssl.org/source/README`
+     - GET `/pub/ftp.openssl.org/source/.message`
+     - GET `/pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz`
+     - GET `/ubuntu/dists/jammy-security/InRelease`
+     - GET `/ubuntu/dists/jammy-updates/InRelease`
+     - GET `/ubuntu/dists/jammy-backports/InRelease`
+     - GET `/ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+     - POST `/wr2`
+   - **Meaning:**
+     - The request was successful, and the server returned the requested resource.
+   - **User Experience:**
+     - The user successfully receives the requested content without any issues.
+
+2. **304 Not Modified**
+   - **Requests:**
+     - GET `/proprietary/dists/jammy/InRelease`
+     - GET `/release/dists/jammy/InRelease`
+     - GET `/ubuntu/dists/jammy/InRelease`
+   - **Meaning:**
+     - The requested resource has not been modified since the last request. The client can use the cached version.
+   - **User Experience:**
+     - The user will see the cached version of the resource, leading to faster load times and reduced bandwidth usage.
+
+### Detailed Explanation of Status Codes
+
+1. **200 OK**
+   - **Definition:** The HTTP 200 OK success status response code indicates that the request has succeeded. A 200 response is cacheable by default.
+   - **User Experience:** Users receive the requested resource (webpage, file, etc.) without any errors. This is the ideal scenario for both the user and the server.
+
+2. **304 Not Modified**
+   - **Definition:** The HTTP 304 Not Modified client redirection response code indicates that there is no need to retransmit the requested resources. It is an implicit redirection to a cached resource.
+   - **User Experience:** Users will load the resource from their cache, which speeds up the browsing experience and reduces data usage. This is particularly useful for static resources that do not change frequently.
+
+### Summary in Terms of User Experience
+
+- **200 OK:** The user gets the requested content, resulting in a seamless and smooth experience.
+- **304 Not Modified:** The user gets the content from their cache, leading to faster load times and a more efficient browsing experience.
+
+In both cases, the user experience is positive as the requested resources are delivered effectively, either directly from the server or from the local cache.

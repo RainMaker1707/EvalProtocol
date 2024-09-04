@@ -1,0 +1,55 @@
+Based on the provided CSV content, the status codes used in the HTTP(S) traffic are:
+
+1. **200 OK**
+2. **304 Not Modified**
+
+### Status Codes and Their Associated Requests
+
+#### 1. **200 OK**
+- **Request:** `GET /pub/`
+  - **User-Agent:** `Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0`
+- **Request:** `GET /pub/ftp.openssl.org/`
+  - **User-Agent:** `Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0`
+- **Request:** `GET /pub/ftp.openssl.org/snapshot/`
+  - **User-Agent:** `Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0`
+- **Request:** `GET /pub/ftp.openssl.org/source/`
+  - **User-Agent:** `Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0`
+- **Request:** `GET /pub/ftp.openssl.org/source/README`
+  - **User-Agent:** `Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0`
+- **Request:** `GET /pub/ftp.openssl.org/source/.message`
+  - **User-Agent:** `Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0`
+- **Request:** `GET /pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz`
+  - **User-Agent:** `Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0`
+- **Request:** `GET /ubuntu/dists/jammy-security/InRelease`
+  - **User-Agent:** `Debian APT-HTTP/1.3 (2.4.11) non-interactive`
+- **Request:** `GET /ubuntu/dists/jammy-updates/InRelease`
+  - **User-Agent:** `Debian APT-HTTP/1.3 (2.4.11) non-interactive`
+- **Request:** `GET /ubuntu/dists/jammy-backports/InRelease`
+  - **User-Agent:** `Debian APT-HTTP/1.3 (2.4.11) non-interactive`
+- **Request:** `GET /ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+  - **User-Agent:** `Debian APT-HTTP/1.3 (2.4.11) non-interactive`
+
+#### 2. **304 Not Modified**
+- **Request:** `GET /proprietary/dists/jammy/InRelease`
+  - **User-Agent:** `Debian APT-HTTP/1.3 (2.4.11) non-interactive`
+- **Request:** `GET /release/dists/jammy/InRelease`
+  - **User-Agent:** `Debian APT-HTTP/1.3 (2.4.11) non-interactive`
+- **Request:** `GET /ubuntu/dists/jammy/InRelease`
+  - **User-Agent:** `Debian APT-HTTP/1.3 (2.4.11) non-interactive`
+
+### Meaning of Each Status Code
+
+1. **200 OK**
+   - **Meaning:** The request has succeeded. The information returned with the response is dependent on the method used in the request.
+   - **User Experience:** The user receives the requested resource (e.g., webpage, file) without any issues. This is the most common and expected response for successful HTTP requests.
+
+2. **304 Not Modified**
+   - **Meaning:** The resource has not been modified since the version specified by the request headers `If-Modified-Since` or `If-None-Match`. The server does not return any content with this response.
+   - **User Experience:** The user’s browser or client application can use the cached version of the resource, leading to faster load times and reduced bandwidth usage. This status indicates that the resource has not changed and thus does not need to be downloaded again.
+
+### User Experience Implications
+
+- **200 OK:** Indicates that the user successfully retrieved the requested content. This is a positive user experience as it means the server has fulfilled the request and provided the desired resource.
+- **304 Not Modified:** Enhances user experience by speeding up the loading process and saving bandwidth. The user sees the cached version of the resource, which is typically indistinguishable from a new download, resulting in a seamless experience.
+
+In summary, both status codes indicate a smooth and efficient interaction with the server, either by providing the requested resource directly or by confirming that the cached version is still valid.

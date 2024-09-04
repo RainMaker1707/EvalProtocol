@@ -1,0 +1,51 @@
+### Status Codes Used and Associated Requests
+
+1. **200 OK**
+    - **Requests:**
+        - URI: `/pub/` (Response: HTML directory listing)
+        - URI: `/pub/ftp.openssl.org/` (Response: HTML directory listing)
+        - URI: `/pub/ftp.openssl.org/snapshot/` (Response: HTML directory listing)
+        - URI: `/proprietary/dists/jammy/InRelease` (Response: data stream)
+        - URI: `/ubuntu/dists/jammy-updates/InRelease` (Response: data stream)
+        - URI: `/ubuntu/dists/jammy-backports/InRelease` (Response: data stream)
+        - URI: `/pub/ftp.openssl.org/source/` (Response: HTML directory listing)
+        - URI: `/pub/ftp.openssl.org/source/README` (Response: text content)
+        - URI: `/pub/ftp.openssl.org/source/.message` (Response: text content)
+        - URI: `/pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz` (Response: binary content)
+        - URI: `/pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz` (Response: binary content)
+        - URI: `/ubuntu/dists/jammy-security/InRelease` (Response: data stream)
+        - URI: `/ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e` (Response: data stream)
+        - URI: `/pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz` (Response: binary content)
+
+2. **304 Not Modified**
+    - **Requests:**
+        - URI: `/proprietary/dists/jammy/InRelease`
+        - URI: `/release/dists/jammy/InRelease`
+        - URI: `/ubuntu/dists/jammy/InRelease`
+        - URI: `/ubuntu/dists/jammy-backports/InRelease`
+
+3. **OCSP Specific Status Codes (200 OK)**
+    - **Requests:**
+        - URI: `/wr2` (Response: OCSP response)
+
+### Meaning of Each Status Code
+
+1. **200 OK**
+    - **Definition:** The request has succeeded. The information returned with the response is dependent on the method used in the request.
+    - **User Experience:** The resource requested by the user is successfully retrieved and displayed. For example, a webpage loading correctly, a file being downloaded, or data being fetched successfully.
+
+2. **304 Not Modified**
+    - **Definition:** The resource has not been modified since the version specified by the request headers `If-Modified-Since` or `If-None-Match`. The server does not return any message-body in the response.
+    - **User Experience:** The user's browser or client already has a cached version of the resource, so the resource does not need to be downloaded again. This results in faster load times as the client uses the cached version instead.
+
+### User Experience Implications
+
+1. **200 OK**
+    - **Positive Experience:** The user gets the requested resource, whether it's a webpage, a file, or some data. This status code indicates that everything is working as expected.
+    - **Example:** When a user navigates to a webpage, the page loads fully and correctly.
+
+2. **304 Not Modified**
+    - **Positive Experience:** The user experiences faster load times because the browser uses the cached version of the resource instead of downloading it again.
+    - **Example:** When a user revisits a webpage, the page loads quickly because the browser uses previously cached resources.
+
+In summary, the HTTP status codes observed in the network flow indicate successful retrieval of resources and efficient use of caching mechanisms, leading to a smooth and quick user experience.

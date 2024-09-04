@@ -1,0 +1,51 @@
+### Methods Used and Their Purposes
+
+1. **GET**:
+   - **Purpose**: The GET method is used to request data from a specified resource.
+   - **URIs**:
+     - `/pub/`
+     - `/pub/ftp.openssl.org/`
+     - `/pub/ftp.openssl.org/snapshot/`
+     - `/pub/ftp.openssl.org/source/`
+     - `/pub/ftp.openssl.org/source/README`
+     - `/pub/ftp.openssl.org/source/.message`
+     - `/proprietary/dists/jammy/InRelease`
+     - `/release/dists/jammy/InRelease`
+     - `/ubuntu/dists/jammy/InRelease`
+     - `/ubuntu/dists/jammy-security/InRelease`
+     - `/ubuntu/dists/jammy-updates/InRelease`
+     - `/ubuntu/dists/jammy-backports/InRelease`
+     - `/ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+  
+2. **POST**:
+   - **Purpose**: The POST method is used to send data to a server to create/update a resource.
+   - **URIs**:
+     - `/wr2`
+
+### Common Combinations (Method + URI)
+
+- **GET** requests are commonly used to fetch resources or data from the server. This is the most common method for browsing web pages or downloading files.
+- **POST** requests are used less frequently in typical browsing but are common in form submissions or API interactions.
+
+### User Perspective Analysis
+
+- **Common HTTP Traffic**:
+  - The traffic consists mainly of GET requests, which is typical for browsing web pages and downloading files. 
+  - There is one POST request, which is less common but not unusual, especially if the user is interacting with a web application or submitting data.
+
+- **User Activities**:
+  - The user is primarily browsing directories and files on a server, specifically related to OpenSSL and various Linux distributions.
+  - The user is also interacting with an OCSP (Online Certificate Status Protocol) server, as indicated by the POST request to `/wr2` and the corresponding OCSP response.
+
+- **User Browsing Behavior**:
+  - The user visited directories and files related to OpenSSL (e.g., `/pub/ftp.openssl.org/`, `/pub/ftp.openssl.org/source/`, `/pub/ftp.openssl.org/snapshot/`).
+  - The user accessed files such as `README` and `.message` in the OpenSSL source directory.
+  - The user also browsed various Linux distribution repositories, such as Debian and Ubuntu, indicating possible package updates or installations.
+
+### Conclusion
+
+- **Common HTTP Traffic**: The traffic is typical of someone browsing and downloading files from a server, particularly related to software development or system administration.
+- **User Actions**: The user appears to be exploring and possibly downloading various software packages and updates, especially related to OpenSSL and Linux distributions.
+- **User Browsing**: The user browsed directories and accessed specific files within those directories, likely for the purpose of downloading or reviewing the content.
+
+Overall, this traffic indicates typical behavior for a user involved in software development, system administration, or similar technical roles. The combination of GET and POST methods with the specific URIs suggests a mix of browsing, downloading, and interacting with web applications or APIs.

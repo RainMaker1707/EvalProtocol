@@ -1,0 +1,47 @@
+### Summary of HTTP Status Codes Used
+
+#### Status Codes Observed:
+1. **200 OK**
+2. **304 Not Modified**
+
+#### Requests Linked to These Status Codes:
+1. **200 OK**
+   - GET /pub/
+   - GET /pub/ftp.openssl.org/
+   - GET /pub/ftp.openssl.org/snapshot/
+   - GET /pub/ftp.openssl.org/source/
+   - GET /pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz
+   - GET /pub/ftp.openssl.org/source/README
+   - GET /pub/ftp.openssl.org/source/.message
+   - GET /pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz
+   - POST /wr2 (with application/ocsp-request)
+   - GET /ubuntu/dists/jammy-security/InRelease
+   - GET /ubuntu/dists/jammy-updates/InRelease
+   - GET /ubuntu/dists/jammy-backports/InRelease
+   - GET /ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e
+   
+2. **304 Not Modified**
+   - GET /proprietary/dists/jammy/InRelease
+   - GET /release/dists/jammy/InRelease
+   - GET /ubuntu/dists/jammy/InRelease
+   - GET /ubuntu/dists/jammy-security/InRelease
+   - GET /ubuntu/dists/jammy-updates/InRelease
+   - GET /ubuntu/dists/jammy-backports/InRelease
+
+### Explanation of Each Status Code
+
+1. **200 OK**
+   - **Meaning:** The request has succeeded. The information returned with the response depends on the method used in the request.
+   - **User Experience:** The user successfully receives the requested resource, such as a webpage or file. This is the most common and expected response when accessing web resources.
+
+2. **304 Not Modified**
+   - **Meaning:** The resource has not been modified since the version specified by the request headers (If-Modified-Since or If-None-Match). The server does not return the resource but indicates that the client can use the cached version.
+   - **User Experience:** The user experiences faster load times because the browser uses the cached version of the resource instead of downloading it again. This status code helps in optimizing bandwidth and improving performance.
+
+### User Experience Interpretation
+
+- **200 OK:** Indicates normal operation where the user successfully retrieves the requested content. For example, when a user visits a webpage or downloads a file, they get the content they requested.
+  
+- **304 Not Modified:** Indicates that the user’s browser can use the cached version of a resource, leading to faster load times and a more efficient browsing experience. This is particularly beneficial when dealing with resources that do not change frequently, such as images, scripts, and stylesheets.
+
+In the context of the provided CSV data, the worker was primarily accessing various resources on an FTP server, and the server responded appropriately with either the actual data (200 OK) or an indication that the cached data could be used (304 Not Modified). This behavior is typical for activities involving browsing or downloading files from a server.

@@ -1,0 +1,81 @@
+### Summary of HTTP Packets
+
+Based on the provided CSV content, here are the details of the HTTP packets:
+
+1. **GET Requests:**
+   - **Request 1:**
+     - **Source:** 2a02:2788:624:76f:314a:cdca:821b:6da5
+     - **Destination:** 2001:770:18:aa40::c101:c10a
+     - **Request URI:** /pub/
+     - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+   - **Request 2:**
+     - **Source:** 2a02:2788:624:76f:314a:cdca:821b:6da5
+     - **Destination:** 2001:770:18:aa40::c101:c10a
+     - **Request URI:** /pub/ftp.openssl.org/
+     - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+   - **Request 3:**
+     - **Source:** 2a02:2788:624:76f:314a:cdca:821b:6da5
+     - **Destination:** 2001:770:18:aa40::c101:c10a
+     - **Request URI:** /pub/ftp.openssl.org/snapshot/
+     - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+   - **Request 4:**
+     - **Source:** 2a02:2788:624:76f:314a:cdca:821b:6da5
+     - **Destination:** 2001:770:18:aa40::c101:c10a
+     - **Request URI:** /pub/ftp.openssl.org/source/
+     - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+   - **Request 5:**
+     - **Source:** 2a02:2788:624:76f:314a:cdca:821b:6da5
+     - **Destination:** 2001:770:18:aa40::c101:c10a
+     - **Request URI:** /pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz
+     - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+   - **Request 6:**
+     - **Source:** 2a02:2788:624:76f:314a:cdca:821b:6da5
+     - **Destination:** 2001:770:18:aa40::c101:c10a
+     - **Request URI:** /pub/ftp.openssl.org/source/README
+     - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+2. **POST Requests:**
+   - **Request 1:**
+     - **Source:** 2a02:2788:624:76f:314a:cdca:821b:6da5
+     - **Destination:** 2a00:1450:400c:c09::5e
+     - **Request URI:** /wr2
+     - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+     - **Content Type:** application/ocsp-request
+     - **Content Length:** 84.0
+
+3. **Responses:**
+   - **Response 1:**
+     - **Source:** 2001:770:18:aa40::c101:c10a
+     - **Destination:** 2a02:2788:624:76f:314a:cdca:821b:6da5
+     - **Response Code:** 200
+     - **Content Type:** text/html;charset=ISO-8859-1
+
+   - **Response 2:**
+     - **Source:** 2001:770:18:aa40::c101:c10a
+     - **Destination:** 2a02:2788:624:76f:314a:cdca:821b:6da5
+     - **Response Code:** 200
+     - **Content Type:** application/x-gzip
+     - **Content Length:** 15799601.0
+
+### Analysis:
+
+1. **Queried Data:**
+   - The HTTP GET requests are querying directories and files related to OpenSSL from an FTP server (ftp.openssl.org).
+   - The HTTP POST request is sending an OCSP (Online Certificate Status Protocol) request, which is related to checking the revocation status of an SSL/TLS certificate.
+
+2. **Legitimacy of Browsing Behavior:**
+   - The GET requests appear to be legitimate and consistent with browsing or downloading files from an FTP server.
+   - The POST request for OCSP is also legitimate and a normal part of web browsing where SSL/TLS certificates are used.
+
+3. **Correctness of Method Used:**
+   - The GET method is correctly used for retrieving resources from the server.
+   - The POST method is correctly used for sending data to the server, in this case, an OCSP request.
+
+### Conclusion:
+
+The HTTP packets show legitimate browsing behavior involving accessing and downloading files from an FTP server related to OpenSSL. The methods used (GET and POST) are appropriate for the actions being performed.

@@ -1,0 +1,51 @@
+### Analyzing HTTP Queries
+
+#### Data Queried by HTTP Protocol
+Based on the provided CSV content, the following data have been queried using the HTTP protocol:
+
+1. **Index Pages**
+   - `/pub/`
+   - `/pub/ftp.openssl.org/`
+   - `/pub/ftp.openssl.org/snapshot/`
+   - `/pub/ftp.openssl.org/source/`
+
+2. **Files**
+   - `/pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz`
+   - `/pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz`
+   - `/pub/ftp.openssl.org/source/README`
+   - `/pub/ftp.openssl.org/source/.message`
+   - `/pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz`
+
+3. **APT Repositories**
+   - `/proprietary/dists/jammy/InRelease`
+   - `/release/dists/jammy/InRelease`
+   - `/ubuntu/dists/jammy/InRelease`
+   - `/ubuntu/dists/jammy-security/InRelease`
+   - `/ubuntu/dists/jammy-updates/InRelease`
+   - `/ubuntu/dists/jammy-backports/InRelease`
+   - `/ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+
+#### Legit Browsing Behavior
+The behavior appears to be consistent with typical browsing and downloading activities, especially for users who may be downloading software packages, updates, or browsing FTP directories. Here are some observations:
+
+1. **Directory Listings**: Multiple requests for directory listings (`/pub/`, `/pub/ftp.openssl.org/`, etc.) suggest that the user is browsing through directories to locate specific files.
+2. **File Downloads**: Requests for specific files like `openssl-3.2-SNAP-20231220.tar.gz` and `README` indicate that the user is downloading files, which is a common activity on FTP sites.
+3. **APT Repositories**: Requests to various APT repositories (`/ubuntu/dists/jammy/InRelease`, etc.) suggest that the user might be updating or installing software on a Debian-based system.
+
+#### Correctness of Methods Used
+The HTTP methods used in the captured data are primarily `GET` and `POST`. Here's an analysis of their correctness:
+
+1. **GET Requests**: 
+   - Used for retrieving directory listings and files.
+   - Example: `GET /pub/`, `GET /pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz`
+   - **Correct Usage**: The use of the `GET` method for these actions is appropriate as `GET` is intended for retrieving data from the server.
+
+2. **POST Requests**:
+   - Used for sending data to the server, such as form submissions.
+   - Example: `POST /wr2`
+   - **Correct Usage**: Without additional context on what `/wr2` represents, it is not possible to definitively determine the correctness of the `POST` method in this instance. However, `POST` is generally used correctly when sending data to the server.
+
+### Summary
+- **Data Queried**: Directory listings and specific files from an FTP server, as well as APT repository metadata.
+- **Browsing Behavior**: Appears to be legitimate, consistent with browsing and downloading software.
+- **Methods Used**: `GET` and `POST` methods are correctly used for their respective purposes based on the provided data.

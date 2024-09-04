@@ -1,0 +1,113 @@
+### Status Codes Used and Their Associated Requests
+
+Based on the provided CSV data, the following HTTP status codes are used:
+
+1. **200 OK**
+2. **304 Not Modified**
+
+#### Requests Linked to Status Codes
+
+**1. 200 OK**
+
+- **Request 1:**
+  - **Request Method:** GET
+  - **Request URI:** /pub/
+  - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+- **Request 2:**
+  - **Request Method:** GET
+  - **Request URI:** /pub/ftp.openssl.org/
+  - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+- **Request 3:**
+  - **Request Method:** GET
+  - **Request URI:** /pub/ftp.openssl.org/snapshot/
+  - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+- **Request 4:**
+  - **Request Method:** GET
+  - **Request URI:** /pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz
+  - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+- **Request 5:**
+  - **Request Method:** GET
+  - **Request URI:** /pub/ftp.openssl.org/source/
+  - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+- **Request 6:**
+  - **Request Method:** GET
+  - **Request URI:** /pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz
+  - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+- **Request 7:**
+  - **Request Method:** GET
+  - **Request URI:** /pub/ftp.openssl.org/source/README
+  - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+- **Request 8:**
+  - **Request Method:** GET
+  - **Request URI:** /pub/ftp.openssl.org/source/.message
+  - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+- **Request 9:**
+  - **Request Method:** GET
+  - **Request URI:** /pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz
+  - **User Agent:** Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0
+
+**2. 304 Not Modified**
+
+- **Request 1:**
+  - **Request Method:** GET
+  - **Request URI:** /proprietary/dists/jammy/InRelease
+  - **User Agent:** Debian APT-HTTP/1.3 (2.4.11) non-interactive
+
+- **Request 2:**
+  - **Request Method:** GET
+  - **Request URI:** /release/dists/jammy/InRelease
+  - **User Agent:** Debian APT-HTTP/1.3 (2.4.11) non-interactive
+
+- **Request 3:**
+  - **Request Method:** GET
+  - **Request URI:** /ubuntu/dists/jammy/InRelease
+  - **User Agent:** Debian APT-HTTP/1.3 (2.4.11) non-interactive
+
+- **Request 4:**
+  - **Request Method:** GET
+  - **Request URI:** /ubuntu/dists/jammy-security/InRelease
+  - **User Agent:** Debian APT-HTTP/1.3 (2.4.11) non-interactive
+
+- **Request 5:**
+  - **Request Method:** GET
+  - **Request URI:** /ubuntu/dists/jammy-backports/InRelease
+  - **User Agent:** Debian APT-HTTP/1.3 (2.4.11) non-interactive
+
+- **Request 6:**
+  - **Request Method:** GET
+  - **Request URI:** /ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e
+  - **User Agent:** Debian APT-HTTP/1.3 (2.4.11) non-interactive
+
+### Meaning of Each Status Code
+
+**1. 200 OK**
+
+- **Meaning:** The request has succeeded. The information returned with the response is dependent on the method used in the request.
+- **User Experience:** The user successfully receives the requested data. For example, the webpage loads correctly, or the file download starts without issues.
+
+**2. 304 Not Modified**
+
+- **Meaning:** There is no need to retransmit the requested resources. It indicates that the resource has not been modified since the last request.
+- **User Experience:** The user will not notice any change because the browser will use the cached version of the resource. This results in faster load times and reduced bandwidth usage.
+
+### User Experience Implications
+
+**200 OK:**
+
+- **Positive:** The user successfully accesses the requested content, whether it's a webpage, a file, or other resources. This status code indicates a smooth and functional interaction with the server.
+- **Negative:** None inherently, but if the content is large, it may take time to load or download, affecting the perceived speed.
+
+**304 Not Modified:**
+
+- **Positive:** The user experiences faster load times because the browser uses cached data instead of downloading the content again. This improves the efficiency of resource usage.
+- **Negative:** None inherently, but if the cached content is outdated or incorrect, it could lead to issues until the cache is cleared or updated.
+
+In conclusion, the status codes 200 and 304 generally contribute to a positive user experience by ensuring successful data retrieval and efficient use of cached resources, respectively.

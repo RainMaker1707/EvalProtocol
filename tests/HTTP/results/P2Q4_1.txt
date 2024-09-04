@@ -1,0 +1,55 @@
+Based on the extracted HTTP(S) packets from the CSV content, we can observe some URIs with parameters. Here is the analysis:
+
+### Parameters in URIs
+
+1. **`/pub/`**
+   - **No parameters**: This is a simple directory listing request.
+
+2. **`/pub/ftp.openssl.org/`**
+   - **No parameters**: Another directory listing request.
+
+3. **`/pub/ftp.openssl.org/snapshot/`**
+   - **No parameters**: Directory listing request for the snapshot directory.
+
+4. **`/wr2`**
+   - **Parameters**: `0R0P0N0L0J0`
+   - **Usage**: This appears to be a POST request with some encoded parameters. Without additional context, it is unclear what these parameters specifically refer to.
+
+5. **`/proprietary/dists/jammy/InRelease`**
+   - **No parameters**: This is a GET request for a specific file related to the distribution 'jammy'.
+
+6. **`/release/dists/jammy/InRelease`**
+   - **No parameters**: Another GET request for a similar file in a different directory.
+
+7. **`/ubuntu/dists/jammy/InRelease`**
+   - **No parameters**: GET request for the 'InRelease' file for the 'jammy' distribution.
+
+8. **`/ubuntu/dists/jammy-security/InRelease`**
+   - **No parameters**: GET request for the 'InRelease' file for 'jammy-security'.
+
+9. **`/ubuntu/dists/jammy-updates/InRelease`**
+   - **No parameters**: GET request for the 'InRelease' file for 'jammy-updates'.
+
+10. **`/ubuntu/dists/jammy-backports/InRelease`**
+    - **No parameters**: GET request for the 'InRelease' file for 'jammy-backports'.
+
+11. **`/ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`**
+    - **No parameters**: This is a GET request for a specific file identified by a SHA256 hash.
+
+### What These Parameters Are Used For
+
+- **Directory Listings**: Requests without parameters generally seem to be for directory listings or specific files within directories. This is typical for browsing or downloading files from a file server or repository.
+  
+- **Encoded Parameters in POST Request (`/wr2`)**: The encoded parameters in the POST request (`0R0P0N0L0J0`) are not self-explanatory and could refer to anything from session tokens, user identifiers, or specific commands. Without additional context or decoding, it's challenging to determine their exact purpose.
+
+### User Experience Implications
+
+- **Browsing and Downloading**: The user appears to be browsing directories and downloading files from an FTP server. This is a straightforward and common activity for users needing specific files or software packages.
+
+- **Updates and Security**: The requests for various 'InRelease' files suggest that the user is likely updating or checking the status of software repositories. This is typical behavior for maintaining up-to-date software, especially in a Linux environment.
+
+- **POST Request with Parameters**: The POST request with encoded parameters indicates some form of interaction that might involve submitting data or triggering an action on the server. The user experience here would depend on what the action entails—could be anything from form submission to initiating a download.
+
+### Conclusion
+
+The parameters in the URIs are mostly absent, except for one encoded POST request. The browsing and downloading activities are typical for users interacting with file servers or updating software repositories. Without additional context, it's difficult to ascertain the exact meaning of the encoded parameters in the POST request.

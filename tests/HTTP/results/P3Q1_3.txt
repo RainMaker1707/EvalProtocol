@@ -1,0 +1,96 @@
+### Analysis of HTTP Methods and Their Purposes
+
+#### HTTP Methods Used:
+1. **GET**: This method is used to request data from a specified resource.
+2. **POST**: This method is used to send data to a server to create/update a resource.
+
+### URIs and Their Relations:
+
+#### GET Requests:
+1. **/pub/**: 
+   - Purpose: Accessing the directory listing of `/pub/`.
+   - Common Usage: Directory browsing on a web server.
+   
+2. **/pub/ftp.openssl.org/**:
+   - Purpose: Accessing the directory listing of `/pub/ftp.openssl.org/`.
+   - Common Usage: Directory browsing on a web server.
+
+3. **/pub/ftp.openssl.org/snapshot/**:
+   - Purpose: Accessing the directory listing of `/pub/ftp.openssl.org/snapshot/`.
+   - Common Usage: Directory browsing on a web server.
+
+4. **/pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz**:
+   - Purpose: Downloading the tar.gz file.
+   - Common Usage: File download.
+
+5. **/proprietary/dists/jammy/InRelease**:
+   - Purpose: Accessing the release information of a software distribution.
+   - Common Usage: Software package management.
+
+6. **/release/dists/jammy/InRelease**:
+   - Purpose: Accessing the release information of a software distribution.
+   - Common Usage: Software package management.
+
+7. **/ubuntu/dists/jammy/InRelease**:
+   - Purpose: Accessing the release information of a software distribution.
+   - Common Usage: Software package management.
+
+8. **/ubuntu/dists/jammy-security/InRelease**:
+   - Purpose: Accessing the security release information of a software distribution.
+   - Common Usage: Software package management.
+
+9. **/ubuntu/dists/jammy-updates/InRelease**:
+   - Purpose: Accessing the update release information of a software distribution.
+   - Common Usage: Software package management.
+
+10. **/ubuntu/dists/jammy-backports/InRelease**:
+    - Purpose: Accessing the backports release information of a software distribution.
+    - Common Usage: Software package management.
+
+11. **/ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e**:
+    - Purpose: Accessing specific package information by hash.
+    - Common Usage: Software package management.
+
+12. **/pub/ftp.openssl.org/source/**:
+    - Purpose: Accessing the directory listing of `/pub/ftp.openssl.org/source/`.
+    - Common Usage: Directory browsing on a web server.
+
+13. **/pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz**:
+    - Purpose: Downloading the tar.gz file.
+    - Common Usage: File download.
+
+14. **/pub/ftp.openssl.org/source/README**:
+    - Purpose: Accessing the README file.
+    - Common Usage: Reading documentation.
+
+15. **/pub/ftp.openssl.org/source/.message**:
+    - Purpose: Accessing the .message file.
+    - Common Usage: Reading a message or notice.
+
+#### POST Requests:
+1. **/wr2**:
+   - Purpose: Sending data (likely related to some form of web service or API call).
+   - Common Usage: Interaction with a web service or API.
+
+### Common Combinations (Method + URI):
+- **GET + /pub/**, **GET + /pub/ftp.openssl.org/**, **GET + /pub/ftp.openssl.org/snapshot/**, etc.**:
+  - These combinations are common for browsing directories and downloading files from a web server.
+- **POST + /wr2**:
+  - This is less common in typical browsing and is more likely associated with an API call or a form submission.
+
+### User Perspective Deductions:
+- **Common HTTP Traffic**: 
+  - Yes, the traffic patterns observed are common for browsing web directories, downloading files, and interacting with web services.
+  
+- **User Activities**:
+  - The user appears to be browsing various directories and files on an FTP server, specifically related to OpenSSL.
+  - The user is also interacting with a web service or API through a POST request.
+
+- **User Browsing Behavior**:
+  - The user accessed multiple directories and files related to OpenSSL, including downloading specific tar.gz files.
+  - The user also accessed software distribution metadata, likely related to package management for a Debian-based system (e.g., Ubuntu).
+
+### Conclusion:
+- The HTTP traffic observed is typical for a user engaged in technical activities such as browsing FTP directories, downloading software packages, and interacting with web services.
+- The user appears to be involved in activities related to software development or system administration, given the nature of the files and directories accessed.
+- There is no indication of unusual or suspicious behavior based on the HTTP methods and URIs observed.

@@ -1,0 +1,39 @@
+Based on the provided CSV content, I can identify a few URIs that contain parameters. Here are the details:
+
+1. **URI with Parameters**: `/?C=N;O=D`
+   - **Occurrences**:
+     - `2001:770:18:aa40::c101:c10a:80` to `2a02:2788:624:76f:314a:cdca:821b:6da5:34970`
+   - **Parameters**:
+     - `C=N`: This parameter likely refers to sorting by "Name".
+     - `O=D`: This parameter likely refers to ordering in "Descending" order.
+   - **Purpose**: These parameters are used to control the sorting of the directory listing. When a user is browsing a directory on a web server, these parameters allow the user to sort the files and folders by name in descending order.
+   - **User Experience**: The user can customize the view of the directory listing, making it easier to find specific files or directories based on their names.
+
+2. **URI with Parameters**: `/?C=M;O=A`
+   - **Occurrences**:
+     - `2001:770:18:aa40::c101:c10a:80` to `2a02:2788:624:76f:314a:cdca:821b:6da5:34970`
+   - **Parameters**:
+     - `C=M`: This parameter likely refers to sorting by "Modification date".
+     - `O=A`: This parameter likely refers to ordering in "Ascending" order.
+   - **Purpose**: These parameters are used to control the sorting of the directory listing by modification date in ascending order.
+   - **User Experience**: The user can view the files and directories sorted by their last modification date, which can be useful for finding the most recently or oldest updated files.
+
+3. **URI with Parameters**: `/?C=S;O=A`
+   - **Occurrences**:
+     - `2001:770:18:aa40::c101:c10a:80` to `2a02:2788:624:76f:314a:cdca:821b:6da5:34970`
+   - **Parameters**:
+     - `C=S`: This parameter likely refers to sorting by "Size".
+     - `O=A`: This parameter likely refers to ordering in "Ascending" order.
+   - **Purpose**: These parameters are used to control the sorting of the directory listing by file size in ascending order.
+   - **User Experience**: The user can view the files and directories sorted by their size, which can be useful for identifying the smallest or largest files.
+
+4. **URI with Parameters**: `/?C=D;O=A`
+   - **Occurrences**:
+     - `2001:770:18:aa40::c101:c10a:80` to `2a02:2788:624:76f:314a:cdca:821b:6da5:34970`
+   - **Parameters**:
+     - `C=D`: This parameter likely refers to sorting by "Description".
+     - `O=A`: This parameter likely refers to ordering in "Ascending" order.
+   - **Purpose**: These parameters are used to control the sorting of the directory listing by description in ascending order.
+   - **User Experience**: The user can view the files and directories sorted by their description, which can be useful for finding files based on their descriptive metadata.
+
+In summary, these parameters are used for sorting the directory listings on a web server. They enhance the user experience by providing options to sort files and directories based on different criteria, such as name, modification date, size, and description, in either ascending or descending order. This functionality is particularly useful when navigating large directories with many files.

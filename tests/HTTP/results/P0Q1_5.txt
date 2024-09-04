@@ -1,0 +1,45 @@
+### Methods Used in the File and Their Purposes
+1. **GET**:
+   - **Purpose**: Retrieve data from a server at the specified URI.
+   - **URIs**: 
+     - `/pub/`
+     - `/pub/ftp.openssl.org/`
+     - `/pub/ftp.openssl.org/snapshot/`
+     - `/pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz`
+     - `/proprietary/dists/jammy/InRelease`
+     - `/release/dists/jammy/InRelease`
+     - `/ubuntu/dists/jammy/InRelease`
+     - `/ubuntu/dists/jammy-security/InRelease`
+     - `/ubuntu/dists/jammy-updates/InRelease`
+     - `/ubuntu/dists/jammy-backports/InRelease`
+     - `/ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+     - `/pub/ftp.openssl.org/source/`
+     - `/pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz`
+     - `/pub/ftp.openssl.org/source/README`
+     - `/pub/ftp.openssl.org/source/.message`
+     - `/pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz`
+
+2. **POST**:
+   - **Purpose**: Send data to a server to create/update a resource.
+   - **URIs**:
+     - `/wr2`
+
+### Commonly Seen Combinations (Method + URI)
+- **GET + URI**: This is the most common combination in HTTP traffic. The GET method is used to request data from the specified resource.
+- **POST + URI**: This combination is used for submitting data to be processed to a specified resource, typically handled by web forms.
+
+### Deductions from a User Perspective
+- **Common HTTP Traffic**: The traffic observed is typical for a user browsing directories and downloading files from an FTP server. The GET requests are used to navigate through directories and download files, while the POST request might be related to an OCSP (Online Certificate Status Protocol) request, which is part of SSL/TLS certificate validation.
+- **User Activity**: The user appears to be browsing and downloading files from an FTP server, specifically related to OpenSSL. The user navigated through various directories, viewed file listings, and downloaded specific tar.gz files.
+- **Browsed Content**: The user browsed directories related to OpenSSL snapshots and source distributions. The user viewed the content of directories and downloaded specific versions of OpenSSL tarballs.
+
+### Is it Common HTTP Traffic in Protocol Perspective?
+- **Yes**: The observed HTTP traffic is typical for users interacting with web servers and FTP servers over HTTP. The use of GET requests for directory listings and file downloads, along with a POST request for certificate validation, is common in such scenarios.
+
+### Summary of User Actions
+- The user navigated through various directories on an FTP server.
+- The user viewed directory listings and specific files.
+- The user downloaded multiple OpenSSL tar.gz files.
+- The user performed a POST request, likely related to certificate validation.
+
+Overall, the traffic indicates typical browsing and downloading activities from an FTP server hosting OpenSSL files.

@@ -1,0 +1,48 @@
+### Summary of HTTP Methods Used and Their Purposes
+
+#### HTTP Methods Observed:
+1. **GET**: This method requests a representation of the specified resource. Requests using GET should only retrieve data and should have no other effect.
+2. **POST**: This method submits data to be processed to a specified resource.
+
+#### URIs and Their Related Methods:
+1. **GET Requests:**
+   - `/pub/`
+   - `/pub/ftp.openssl.org/`
+   - `/pub/ftp.openssl.org/snapshot/`
+   - `/pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz`
+   - `/pub/ftp.openssl.org/source/`
+   - `/pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz`
+   - `/pub/ftp.openssl.org/source/README`
+   - `/pub/ftp.openssl.org/source/.message`
+   - `/proprietary/dists/jammy/InRelease`
+   - `/release/dists/jammy/InRelease`
+   - `/ubuntu/dists/jammy/InRelease`
+   - `/ubuntu/dists/jammy-security/InRelease`
+   - `/ubuntu/dists/jammy-updates/InRelease`
+   - `/ubuntu/dists/jammy-backports/InRelease`
+   - `/ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+
+2. **POST Requests:**
+   - `/wr2`
+
+#### Commonality of Method + URI Combinations:
+- **GET Requests**: These are very common in HTTP traffic as they are used to retrieve resources from a server. The URIs indicate that the user is accessing directory listings and specific files on an FTP server, as well as checking for updates from various repositories.
+- **POST Requests**: This is less common compared to GET requests but is still a standard method used for submitting data to a server. The URI `/wr2` and the content type `application/ocsp-request` suggest that this POST request is related to an Online Certificate Status Protocol (OCSP) check.
+
+### Deductions from User Perspective:
+
+1. **Commonality in HTTP Traffic**:
+   - The observed traffic is typical for a user interacting with FTP directories and downloading files. The GET requests for various directory listings and specific files are standard behavior for browsing and downloading content.
+   - The POST request for OCSP is also a common operation performed by browsers to check the revocation status of SSL/TLS certificates.
+
+2. **User Actions**:
+   - The user appears to be browsing FTP directories and downloading files, specifically related to OpenSSL snapshots and source distributions.
+   - The user also seems to be updating or checking for updates in various software repositories, as indicated by the GET requests to URIs related to Debian APT.
+
+3. **Browsing Activity**:
+   - The user accessed various directories on an FTP server, particularly those related to OpenSSL.
+   - The user downloaded specific snapshot files from the OpenSSL directory.
+   - The user checked for updates in Debian-based repositories.
+
+### Conclusion:
+From a protocol perspective, the traffic observed is typical and expected for a user engaging in activities such as browsing FTP directories, downloading files, and checking for software updates. The combination of GET requests to retrieve directory listings and specific files, along with a POST request for an OCSP check, aligns with normal user behavior in these contexts.

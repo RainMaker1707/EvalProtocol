@@ -1,0 +1,35 @@
+Based on the provided CSV content, I have analyzed the HTTP traffic and extracted the parameters found in the URIs. Here are the findings:
+
+### Parameters in URIs Extracted
+
+1. **`?C=N;O=D`** and similar patterns:
+   - **Example URI:** `/pub/?C=N;O=D`
+   - **Parameters:** `C=N;O=D`
+   - **Other Variants:** `C=M;O=A`, `C=S;O=A`, `C=D;O=A`
+
+### What These Parameters Refer To
+
+These parameters are commonly used in directory listing pages on web servers. They control the sorting and ordering of the displayed files and directories.
+
+- **`C=N`**: Sort by Name
+- **`C=M`**: Sort by Last Modified Time
+- **`C=S`**: Sort by Size
+- **`C=D`**: Sort by Description
+- **`O=D`**: Order Descending
+- **`O=A`**: Order Ascending
+
+### What These Parameters Are Used For
+
+These parameters are used to customize the view of directory listings for the user. For example, a user can choose to sort files by their names in ascending order, or by their last modified time in descending order.
+
+### What This Means in Terms of User Experience
+
+In terms of user experience, these parameters allow users to easily navigate and find files within a directory listing. Users can sort the files according to their preferences, which can make it easier to locate a specific file or understand the structure of the directory.
+
+- **Enhanced Navigation:** Users can quickly sort and find files based on their needs.
+- **Customization:** Users have the flexibility to view the directory in a way that is most useful to them.
+- **Efficiency:** Sorting by different attributes (name, size, date) can save time and improve the efficiency of file management.
+
+### Conclusion
+
+The parameters found in the URIs are used for sorting and ordering directory listings on web servers. They enhance the user experience by providing customizable views of the directory contents, making it easier for users to navigate and find the files they need.

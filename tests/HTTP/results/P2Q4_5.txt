@@ -1,0 +1,27 @@
+Based on the provided CSV content, the URIs in the HTTP packets contain parameters that seem to be used for sorting and organizing the directory listings on the web server. Here are the parameters found in the URIs and their likely purposes:
+
+1. **Parameters in URIs:**
+   - `?C=N;O=D`
+   - `?C=M;O=A`
+   - `?C=S;O=A`
+   - `?C=D;O=A`
+
+2. **What do these parameters refer to?**
+   - `C=N`: Sort by Name.
+   - `O=D`: Order in Descending.
+   - `C=M`: Sort by Last Modified.
+   - `O=A`: Order in Ascending.
+   - `C=S`: Sort by Size.
+   - `C=D`: Sort by Description.
+
+3. **What are these parameters used for?**
+   - These parameters are used to sort and order the contents of a directory listing on the server. They modify the way files and directories are displayed in the web interface. For instance:
+     - `?C=N;O=D` would sort the files by name in descending order.
+     - `?C=M;O=A` would sort the files by last modified date in ascending order.
+     - `?C=S;O=A` would sort the files by size in ascending order.
+     - `?C=D;O=A` would sort the files by description in ascending order.
+
+4. **What does it mean in terms of user experience?**
+   - For the user, these parameters enhance the browsing experience by allowing them to customize the way they view the directory contents. This can be particularly useful when looking for files based on specific criteria such as the most recently modified files, the largest files, or files sorted alphabetically. It makes navigation and file retrieval more efficient and user-friendly.
+
+In summary, the parameters found in the URIs are used to control the sorting order of directory listings on the server, thereby improving the user's ability to find and organize files based on their preferences.

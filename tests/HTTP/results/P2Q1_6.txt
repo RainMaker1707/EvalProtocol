@@ -1,0 +1,50 @@
+### Summary of HTTP Methods and Their Purposes
+
+#### HTTP Methods Used:
+1. **GET**: This method is used to request data from a specified resource.
+2. **POST**: This method is used to send data to a server to create/update a resource.
+
+### URIs and Their Associated Methods:
+
+#### GET Requests:
+1. `/pub/`
+2. `/pub/ftp.openssl.org/`
+3. `/pub/ftp.openssl.org/snapshot/`
+4. `/pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz`
+5. `/proprietary/dists/jammy/InRelease`
+6. `/release/dists/jammy/InRelease`
+7. `/ubuntu/dists/jammy/InRelease`
+8. `/ubuntu/dists/jammy-security/InRelease`
+9. `/ubuntu/dists/jammy-updates/InRelease`
+10. `/ubuntu/dists/jammy-backports/InRelease`
+11. `/ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+12. `/pub/ftp.openssl.org/source/`
+13. `/pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz`
+14. `/pub/ftp.openssl.org/source/README`
+15. `/pub/ftp.openssl.org/source/.message`
+16. `/pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz`
+
+#### POST Requests:
+1. `/wr2`
+
+### Commonality of Method and URI Combinations:
+- **GET** method on URIs related to directories or files (e.g., `/pub/`, `/pub/ftp.openssl.org/`, `/ubuntu/dists/jammy/InRelease`) is very common in HTTP traffic, especially for downloading files or browsing directories.
+- **POST** method on `/wr2` is less common and suggests a form submission or an API call, often used for sending data to the server.
+
+### User Perspective Deductions:
+
+#### Common HTTP Traffic:
+From a protocol perspective, the traffic captured is typical for a user performing several browsing and downloading actions. The use of GET requests to access various directories and files is standard behavior for someone navigating through web directories and downloading files.
+
+#### User Actions:
+- The user browsed through several directories on a server, most notably under the `/pub/ftp.openssl.org/` path.
+- The user downloaded specific files, such as `openssl-3.2-SNAP-20231220.tar.gz` and `openssl-3.1-SNAP-20231223.tar.gz`.
+- The user also accessed several `InRelease` files, which are typically used in package management systems like Debian's APT.
+
+#### Browsed Content:
+- The user accessed multiple directories and likely viewed the contents of these directories.
+- The user downloaded tarball files related to OpenSSL snapshots.
+- The user accessed release files for a Debian-based distribution (likely Ubuntu, given the `ubuntu` paths).
+
+### Conclusion:
+The captured traffic shows a user engaging in typical browsing and downloading activities, particularly focused on accessing and downloading files from an OpenSSL directory and Debian-based distribution releases. This kind of traffic is standard and expected for someone managing or updating software packages or exploring available software distributions.

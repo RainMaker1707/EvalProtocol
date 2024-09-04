@@ -1,0 +1,48 @@
+Based on the CSV file content provided, we can observe a few HTTP GET requests with URIs that contain parameters. Here are the details:
+
+### Extracted URIs with Parameters:
+
+1. `/pub/?C=N;O=D`
+2. `/pub/?C=M;O=A`
+3. `/pub/?C=S;O=A`
+4. `/pub/?C=D;O=A`
+
+### Analysis of Parameters:
+
+1. **`C` Parameter:**
+   - **Possible Values:** `N`, `M`, `S`, `D`
+   - **Likely Meaning:**
+     - `N`: Name
+     - `M`: Last Modified
+     - `S`: Size
+     - `D`: Description
+
+2. **`O` Parameter:**
+   - **Possible Values:** `D`, `A`
+   - **Likely Meaning:**
+     - `D`: Descending
+     - `A`: Ascending
+
+### What These Parameters Are Used For:
+
+These parameters are typically used for sorting the contents of a directory listing on a web server. Here’s a breakdown of the usage:
+
+- `C=N;O=D`: Sort by **Name** in **Descending** order.
+- `C=M;O=A`: Sort by **Last Modified** date in **Ascending** order.
+- `C=S;O=A`: Sort by **Size** in **Ascending** order.
+- `C=D;O=A`: Sort by **Description** in **Ascending** order.
+
+### User Experience Implications:
+
+In terms of user experience, these parameters allow users to sort the contents of a directory listing in a way that is most useful to them. For example:
+
+- **Sorting by Name (Descending):** Useful for finding files that are alphabetically last in the list.
+- **Sorting by Last Modified (Ascending):** Helpful for identifying the oldest files in the directory.
+- **Sorting by Size (Ascending):** Allows users to quickly find the smallest files.
+- **Sorting by Description (Ascending):** If descriptions are available, this could help in organizing files based on their descriptions.
+
+These sorting options enhance the usability of directory listings by allowing users to customize the view according to their needs, making it easier to locate specific files or understand the contents of a directory.
+
+### Conclusion:
+
+The parameters in the extracted URIs are used for sorting the directory listing on a web server in various ways. This functionality improves the user experience by providing flexible options for viewing and organizing the directory contents.

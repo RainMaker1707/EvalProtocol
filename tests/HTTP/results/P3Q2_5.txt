@@ -1,0 +1,70 @@
+### Status Codes Observed
+
+From the provided CSV content, the following HTTP status codes were observed:
+
+1. **200**
+2. **304**
+
+### Requests Linked to These Status Codes
+
+#### Status Code: 200
+- **Request**: `GET /pub/`
+  - **Response**: HTML content listing directories and files.
+  
+- **Request**: `GET /pub/ftp.openssl.org/`
+  - **Response**: HTML content listing directories and files.
+  
+- **Request**: `GET /pub/ftp.openssl.org/snapshot/`
+  - **Response**: HTML content listing directories and files.
+  
+- **Request**: `GET /pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz`
+  - **Response**: Application/x-gzip file (snapshot tarball).
+  
+- **Request**: `GET /pub/ftp.openssl.org/source/`
+  - **Response**: HTML content listing directories and files.
+  
+- **Request**: `GET /pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz`
+  - **Response**: Application/x-gzip file (source tarball).
+  
+- **Request**: `GET /pub/ftp.openssl.org/source/README`
+  - **Response**: Text content providing information about the source distribution area.
+  
+- **Request**: `GET /pub/ftp.openssl.org/source/.message`
+  - **Response**: Text content providing a brief message about the source distribution area.
+
+#### Status Code: 304
+- **Request**: `GET /proprietary/dists/jammy/InRelease`
+  - **Response**: No content (Not Modified).
+  
+- **Request**: `GET /release/dists/jammy/InRelease`
+  - **Response**: No content (Not Modified).
+  
+- **Request**: `GET /ubuntu/dists/jammy/InRelease`
+  - **Response**: No content (Not Modified).
+  
+- **Request**: `GET /ubuntu/dists/jammy-security/InRelease`
+  - **Response**: No content (Not Modified).
+  
+- **Request**: `GET /ubuntu/dists/jammy-updates/InRelease`
+  - **Response**: No content (Not Modified).
+  
+- **Request**: `GET /ubuntu/dists/jammy-backports/InRelease`
+  - **Response**: No content (Not Modified).
+
+### Meaning of Each Status Code
+
+1. **200 OK**
+   - **Meaning**: The request has succeeded. The information returned with the response is dependent on the method used in the request.
+   - **User Experience**: The user gets the requested resource (web page, file, etc.) without any issues. This is a normal, successful transaction.
+
+2. **304 Not Modified**
+   - **Meaning**: There is no need to retransmit the requested resources. It informs the client that the cached version of the requested resource is still up to date.
+   - **User Experience**: The user’s browser uses the cached version of the resource, leading to faster load times as no new data needs to be downloaded. This improves performance and reduces bandwidth usage.
+
+### User Experience Implications
+
+- **200 OK**: Users receive the requested content directly from the server. This is the standard successful response and indicates that everything is working as expected. Users see the webpage or download the file they requested.
+  
+- **304 Not Modified**: Users experience faster load times because their browser uses the cached version of the resource. This is particularly beneficial for frequently accessed resources as it reduces the need for re-downloading unchanged resources, saving both time and bandwidth.
+
+In summary, both status codes indicate a positive user experience. The `200 OK` status ensures that users get the latest version of the resource, while the `304 Not Modified` status enhances performance by utilizing cached resources.

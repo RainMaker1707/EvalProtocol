@@ -1,0 +1,50 @@
+### Status Codes Used and Corresponding Requests:
+
+1. **200 OK**
+   - **Requests:**
+     - GET /pub/
+     - GET /pub/ftp.openssl.org/
+     - GET /pub/ftp.openssl.org/snapshot/
+     - GET /pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz
+     - GET /pub/ftp.openssl.org/source/
+     - GET /pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz
+     - GET /pub/ftp.openssl.org/source/README
+     - GET /pub/ftp.openssl.org/source/.message
+     - POST /wr2
+     - GET /ubuntu/dists/jammy-security/InRelease
+     - GET /ubuntu/dists/jammy-updates/InRelease
+     - GET /ubuntu/dists/jammy-backports/InRelease
+     - GET /ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e
+   - **Meaning:**
+     - The HTTP 200 OK status code indicates that the request has succeeded. The meaning of the success depends on the HTTP method:
+       - **GET:** The resource has been fetched and is transmitted in the message body.
+       - **POST:** The resource describing the result of the action is transmitted in the message body.
+   - **User Experience:**
+     - The user successfully receives the requested content. For example, the webpage loads correctly, the file starts downloading, or the form submission is successful.
+
+2. **304 Not Modified**
+   - **Requests:**
+     - GET /release/dists/jammy/InRelease
+     - GET /proprietary/dists/jammy/InRelease
+     - GET /ubuntu/dists/jammy/InRelease
+     - GET /ubuntu/dists/jammy-updates/InRelease
+   - **Meaning:**
+     - The HTTP 304 Not Modified status code indicates that there is no need to retransmit the requested resources. It essentially means that the cached version of the requested resource is still up to date.
+   - **User Experience:**
+     - The user does not notice any delay because the browser uses the cached version of the resource, leading to faster load times.
+
+3. **429 Too Many Requests**
+   - **Requests:**
+     - GET /pub/
+   - **Meaning:**
+     - The HTTP 429 Too Many Requests status code indicates that the user has sent too many requests in a given amount of time ("rate limiting").
+   - **User Experience:**
+     - The user might experience delays or be temporarily blocked from accessing the resource. They may see an error message indicating they have made too many requests.
+
+### Summary of Status Codes in Terms of User Experience:
+
+- **200 OK:** Positive user experience as the requested content is successfully retrieved or the action requested is successfully performed.
+- **304 Not Modified:** Positive user experience with faster load times due to the use of cached resources.
+- **429 Too Many Requests:** Negative user experience due to rate limiting, potentially causing delays or access issues. Users may need to wait before trying again.
+
+Understanding these status codes helps in diagnosing network issues and improving user experience by ensuring that resources are efficiently managed and accessed.

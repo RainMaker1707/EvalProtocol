@@ -1,0 +1,37 @@
+Based on the provided CSV content, I see a few URIs with parameters. Let's extract and analyze them:
+
+1. **URI: `/pub/?C=N;O=D`**
+    - **Parameters: `C=N;O=D`**
+    - **Meaning:**
+        - `C=N`: Sort by Name.
+        - `O=D`: Order Descending.
+    - **Used for:** These parameters are typically used to sort directory listings on a server. In this case, it sorts the directory contents by name in descending order.
+    - **User Experience:** The user experience is enhanced by allowing users to sort the directory contents according to their preferences, making it easier to find specific files or subdirectories.
+
+2. **URI: `/pub/?C=M;O=A`**
+    - **Parameters: `C=M;O=A`**
+    - **Meaning:**
+        - `C=M`: Sort by Last Modified.
+        - `O=A`: Order Ascending.
+    - **Used for:** These parameters are used to sort directory listings by the last modified date in ascending order.
+    - **User Experience:** Users can quickly identify the most recently updated files or directories, which is particularly useful for finding the latest versions of files.
+
+3. **URI: `/pub/?C=S;O=A`**
+    - **Parameters: `C=S;O=A`**
+    - **Meaning:**
+        - `C=S`: Sort by Size.
+        - `O=A`: Order Ascending.
+    - **Used for:** These parameters sort the directory contents by file size in ascending order.
+    - **User Experience:** This sorting option helps users find smaller files first, which might be useful if they are looking for files that are quicker to download or take up less space.
+
+4. **URI: `/pub/?C=D;O=A`**
+    - **Parameters: `C=D;O=A`**
+    - **Meaning:**
+        - `C=D`: Sort by Description.
+        - `O=A`: Order Ascending.
+    - **Used for:** These parameters sort the directory contents by description in ascending order.
+    - **User Experience:** This might be less common but could be useful if the directory contents include descriptions and the user wants to sort based on those descriptions.
+
+In summary, these parameters are used to sort the contents of a directory listing on a web server. They enhance the user experience by providing different ways to organize and view the contents, making it easier for users to find what they are looking for based on their preferences.
+
+If there are other URIs with parameters in the CSV that I missed, please point them out, and I can analyze those as well.

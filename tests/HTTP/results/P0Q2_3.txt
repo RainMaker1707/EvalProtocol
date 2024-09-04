@@ -1,0 +1,50 @@
+### Status Codes Used and Associated Requests
+
+#### Status Codes and Requests
+1. **200 (OK)**
+   - Request: `GET /pub/`
+   - Request: `GET /pub/ftp.openssl.org/`
+   - Request: `GET /pub/ftp.openssl.org/snapshot/`
+   - Request: `GET /pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz`
+   - Request: `GET /proprietary/dists/jammy/InRelease`
+   - Request: `GET /release/dists/jammy/InRelease`
+   - Request: `GET /ubuntu/dists/jammy/InRelease`
+   - Request: `GET /ubuntu/dists/jammy-security/InRelease`
+   - Request: `GET /ubuntu/dists/jammy-updates/InRelease`
+   - Request: `GET /ubuntu/dists/jammy-backports/InRelease`
+   - Request: `GET /ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+   - Request: `GET /pub/ftp.openssl.org/source/`
+   - Request: `GET /pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz`
+   - Request: `GET /pub/ftp.openssl.org/source/README`
+   - Request: `GET /pub/ftp.openssl.org/source/.message`
+   - Request: `GET /pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz`
+
+2. **304 (Not Modified)**
+   - Request: `GET /proprietary/dists/jammy/InRelease`
+   - Request: `GET /release/dists/jammy/InRelease`
+   - Request: `GET /ubuntu/dists/jammy/InRelease`
+   - Request: `GET /ubuntu/dists/jammy-security/InRelease`
+   - Request: `GET /ubuntu/dists/jammy-backports/InRelease`
+   - Request: `GET /ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+
+#### Meaning of Each Status Code
+- **200 (OK)**
+  - **Meaning:** The request has succeeded. The meaning of success depends on the HTTP method:
+    - `GET`: The resource has been fetched and is transmitted in the message body.
+    - `HEAD`: The entity headers are in the message body.
+    - `POST`: The resource describing the result of the action is transmitted in the message body.
+    - `TRACE`: The message body contains the request message as received by the server.
+  - **User Experience:** The user receives the requested resource (e.g., a webpage, file, or other data). This is the most common and expected status code when things are working correctly.
+
+- **304 (Not Modified)**
+  - **Meaning:** There is no need to retransmit the requested resources. It is an implicit redirection to a cached resource. This response is used for caching purposes.
+  - **User Experience:** The user's browser or client can use the cached version of the resource, leading to faster load times and reduced data usage, as no new data needs to be downloaded.
+
+### User Experience Implications
+- **200 (OK):** 
+  - The user successfully receives the requested data or webpage. The experience is smooth as the server has successfully processed the request and provided the necessary information.
+
+- **304 (Not Modified):**
+  - The user does not notice any difference because the browser uses the cached version of the resource. This results in faster load times and a more efficient use of network resources, enhancing the overall user experience by reducing latency and bandwidth usage.
+
+In summary, both status codes indicate successful interactions between the client and the server. The `200` status code means the resource is successfully delivered, while the `304` status code leverages caching to optimize performance and resource usage.

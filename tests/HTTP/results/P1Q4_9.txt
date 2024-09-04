@@ -1,0 +1,40 @@
+Based on the provided CSV content, the URIs extracted from the HTTP requests contain the following parameters:
+
+1. `?C=N;O=D`
+2. `?C=M;O=A`
+3. `?C=S;O=A`
+4. `?C=D;O=A`
+
+### Analysis of URI Parameters
+
+1. **`?C=N;O=D`**
+   - **Meaning**: This parameter is likely used to sort the directory listing by **Name** (`C=N`) in **Descending** order (`O=D`).
+   - **Usage**: When a user accesses a directory listing on a web server, this parameter sorts the files and directories by their names in descending order.
+   - **User Experience**: The user sees the files and directories sorted by name from Z to A.
+
+2. **`?C=M;O=A`**
+   - **Meaning**: This parameter is likely used to sort the directory listing by **Modification time** (`C=M`) in **Ascending** order (`O=A`).
+   - **Usage**: This parameter sorts the files and directories by their last modified time in ascending order.
+   - **User Experience**: The user sees the oldest files and directories first, with more recently modified files appearing later in the list.
+
+3. **`?C=S;O=A`**
+   - **Meaning**: This parameter is likely used to sort the directory listing by **Size** (`C=S`) in **Ascending** order (`O=A`).
+   - **Usage**: This parameter sorts the files and directories by their size in ascending order.
+   - **User Experience**: The user sees the smallest files and directories first, with larger files appearing later in the list.
+
+4. **`?C=D;O=A`**
+   - **Meaning**: This parameter is likely used to sort the directory listing by **Description** (`C=D`) in **Ascending** order (`O=A`).
+   - **Usage**: This parameter sorts the files and directories by their description in ascending order.
+   - **User Experience**: The user sees the files and directories sorted by description from A to Z.
+
+### Summary
+
+These parameters are used for sorting the directory listings in different orders based on criteria such as name, modification time, size, and description. This functionality is typically provided by web servers when displaying directory contents to users, allowing them to organize the view according to their preferences.
+
+In terms of user experience:
+- Sorting by name (`?C=N;O=D`) helps users quickly find files or directories with specific names.
+- Sorting by modification time (`?C=M;O=A`) helps users identify the most recently or least recently updated files.
+- Sorting by size (`?C=S;O=A`) helps users manage storage by identifying large or small files.
+- Sorting by description (`?C=D;O=A`) helps users find files based on their descriptions if such metadata is available.
+
+These sorting options enhance navigability and usability, especially when dealing with large sets of files and directories.

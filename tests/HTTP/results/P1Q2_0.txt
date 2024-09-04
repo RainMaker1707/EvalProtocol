@@ -1,0 +1,71 @@
+Based on the provided CSV content, the status codes used and their associated requests are as follows:
+
+### Status Codes and Associated Requests
+
+1. **200 OK**
+   - **Request**: `GET /pub/`
+     - **Response**: 200 OK
+   - **Request**: `GET /pub/ftp.openssl.org/`
+     - **Response**: 200 OK
+   - **Request**: `GET /pub/ftp.openssl.org/snapshot/`
+     - **Response**: 200 OK
+   - **Request**: `GET /pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz`
+     - **Response**: 200 OK
+   - **Request**: `GET /pub/ftp.openssl.org/source/`
+     - **Response**: 200 OK
+   - **Request**: `GET /pub/ftp.openssl.org/source/README`
+     - **Response**: 200 OK
+   - **Request**: `GET /pub/ftp.openssl.org/source/.message`
+     - **Response**: 200 OK
+   - **Request**: `GET /proprietary/dists/jammy/InRelease`
+     - **Response**: 200 OK
+   - **Request**: `GET /release/dists/jammy/InRelease`
+     - **Response**: 200 OK
+   - **Request**: `GET /ubuntu/dists/jammy/InRelease`
+     - **Response**: 200 OK
+   - **Request**: `GET /ubuntu/dists/jammy-security/InRelease`
+     - **Response**: 200 OK
+   - **Request**: `GET /ubuntu/dists/jammy-updates/InRelease`
+     - **Response**: 200 OK
+   - **Request**: `GET /ubuntu/dists/jammy-backports/InRelease`
+     - **Response**: 200 OK
+   - **Request**: `GET /ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+     - **Response**: 200 OK
+
+2. **304 Not Modified**
+   - **Request**: `GET /proprietary/dists/jammy/InRelease`
+     - **Response**: 304 Not Modified
+   - **Request**: `GET /release/dists/jammy/InRelease`
+     - **Response**: 304 Not Modified
+   - **Request**: `GET /ubuntu/dists/jammy/InRelease`
+     - **Response**: 304 Not Modified
+   - **Request**: `GET /ubuntu/dists/jammy-security/InRelease`
+     - **Response**: 304 Not Modified
+   - **Request**: `GET /ubuntu/dists/jammy-updates/InRelease`
+     - **Response**: 304 Not Modified
+   - **Request**: `GET /ubuntu/dists/jammy-backports/InRelease`
+     - **Response**: 304 Not Modified
+
+3. **429 Too Many Requests**
+   - **Request**: `GET /pub/`
+     - **Response**: 429 Too Many Requests
+
+### Meaning of Each Status Code
+
+1. **200 OK**
+   - **Meaning**: The request has succeeded. The information returned with the response is dependent on the method used in the request.
+   - **User Experience**: The user successfully receives the requested resource, such as a web page, file, or API response. This is the ideal outcome for a user's request.
+
+2. **304 Not Modified**
+   - **Meaning**: The requested resource has not been modified since the last time it was requested. This status code is returned to reduce network bandwidth usage by reusing cached content.
+   - **User Experience**: The user experiences faster loading times because the browser uses the cached version of the resource instead of downloading it again. There is no visible change for the user, but the performance is improved.
+
+3. **429 Too Many Requests**
+   - **Meaning**: The user has sent too many requests in a given amount of time ("rate limiting"). The server is refusing to process the request to prevent overload.
+   - **User Experience**: The user might experience delays or be temporarily unable to access the requested resource. This can be frustrating, especially if the user is in the middle of an important task. The user might need to wait before trying again.
+
+### Summary
+
+- **200 OK** indicates successful requests, providing the user with the desired resources.
+- **304 Not Modified** helps improve performance by utilizing cached resources, enhancing user experience with faster load times.
+- **429 Too Many Requests** indicates rate limiting, which can hinder user experience by temporarily blocking access due to excessive requests.

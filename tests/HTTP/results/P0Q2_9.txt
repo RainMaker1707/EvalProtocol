@@ -1,0 +1,62 @@
+### Status Codes Used and Associated Requests
+
+From the provided CSV content, the status codes used and their associated requests are as follows:
+
+1. **200 OK**
+   - **Requests:**
+     - `GET /pub/`
+     - `GET /pub/ftp.openssl.org/`
+     - `GET /pub/ftp.openssl.org/snapshot/`
+     - `GET /pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz`
+     - `POST /wr2`
+     - `GET /proprietary/dists/jammy/InRelease`
+     - `GET /release/dists/jammy/InRelease`
+     - `GET /ubuntu/dists/jammy/InRelease`
+     - `GET /ubuntu/dists/jammy-security/InRelease`
+     - `GET /ubuntu/dists/jammy-updates/InRelease`
+     - `GET /ubuntu/dists/jammy-backports/InRelease`
+     - `GET /ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+     - `GET /pub/ftp.openssl.org/source/`
+     - `GET /pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz`
+     - `GET /pub/ftp.openssl.org/source/README`
+     - `GET /pub/ftp.openssl.org/source/.message`
+     - `GET /pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz`
+     - `GET /pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231221.tar.gz`
+     - `GET /pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231222.tar.gz`
+     - `GET /pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231223.tar.gz`
+     - `GET /pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231224.tar.gz`
+     - `GET /pub/ftp.openssl.org/snapshot/openssl-SNAP-20231220.tar.gz`
+     - `GET /pub/ftp.openssl.org/snapshot/openssl-SNAP-20231221.tar.gz`
+     - `GET /pub/ftp.openssl.org/snapshot/openssl-SNAP-20231222.tar.gz`
+     - `GET /pub/ftp.openssl.org/snapshot/openssl-SNAP-20231223.tar.gz`
+     - `GET /pub/ftp.openssl.org/snapshot/openssl-SNAP-20231224.tar.gz`
+
+2. **304 Not Modified**
+   - **Requests:**
+     - `GET /proprietary/dists/jammy/InRelease`
+     - `GET /release/dists/jammy/InRelease`
+     - `GET /ubuntu/dists/jammy/InRelease`
+     - `GET /ubuntu/dists/jammy-security/InRelease`
+     - `GET /ubuntu/dists/jammy-backports/InRelease`
+
+### Meaning of Each Status Code
+
+1. **200 OK**
+   - **Meaning:** The request has succeeded. The information returned with the response is dependent on the method used in the request, for example:
+     - `GET`: The resource has been fetched and is transmitted in the message body.
+     - `POST`: The resource describing the result of the action is transmitted in the message body.
+   - **User Experience:** The user successfully receives the requested resource. For example, a webpage loads correctly, or a file download starts as expected.
+
+2. **304 Not Modified**
+   - **Meaning:** There is no need to retransmit the requested resources. This status code is used for caching purposes. It indicates that the resource has not been modified since the version specified by the request headers `If-Modified-Since` or `If-None-Match`.
+   - **User Experience:** The user will not see any changes because the content they have cached is still valid. This results in faster load times as the browser uses the cached version of the resource instead of downloading it again.
+
+### User Experience Implications
+
+- **200 OK:** 
+  - **Positive Impact:** The user gets what they requested without any issues. This status code ensures that the user's interaction with the web application is smooth, whether they are accessing a webpage, downloading a file, or submitting a form.
+  - **Example:** A user clicks on a link and the webpage loads successfully, or they download a file without any interruptions.
+
+- **304 Not Modified:**
+  - **Positive Impact:** This status code improves the user experience by reducing load times and saving bandwidth. Since the browser can use the cached version of the resource, it doesn't need to download the same resource again.
+  - **Example:** A user revisits a webpage, and it loads almost instantly because the resources are already cached in their browser.

@@ -1,0 +1,82 @@
+### Summary of HTTP Packets:
+
+1. **Initial Request to /pub/**
+   - **Request:** GET /pub/
+   - **Response:** 200 OK, HTML content listing directories and files (e.g., FreeBSD, OpenBSD, etc.)
+
+2. **Request to /pub/ftp.openssl.org/**
+   - **Request:** GET /pub/ftp.openssl.org/
+   - **Response:** 200 OK, HTML content listing directories and files (e.g., snapshot, source, etc.)
+
+3. **Request to /pub/ftp.openssl.org/snapshot/**
+   - **Request:** GET /pub/ftp.openssl.org/snapshot/
+   - **Response:** 200 OK, HTML content listing snapshot files (e.g., openssl-3.0-SNAP-20231224.tar.gz)
+
+4. **Request to /pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz**
+   - **Request:** GET /pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz
+   - **Response:** No response data captured, suggesting a download attempt.
+
+5. **Request to /proprietary/dists/jammy/InRelease**
+   - **Request:** GET /proprietary/dists/jammy/InRelease
+   - **Response:** 304 Not Modified, indicating the file hasn't changed since the last request.
+
+6. **Request to /release/dists/jammy/InRelease**
+   - **Request:** GET /release/dists/jammy/InRelease
+   - **Response:** 304 Not Modified.
+
+7. **Request to /ubuntu/dists/jammy/InRelease**
+   - **Request:** GET /ubuntu/dists/jammy/InRelease
+   - **Response:** 304 Not Modified.
+
+8. **Request to /ubuntu/dists/jammy-security/InRelease**
+   - **Request:** GET /ubuntu/dists/jammy-security/InRelease
+   - **Response:** 200 OK, application/octet-stream content.
+
+9. **Request to /ubuntu/dists/jammy-updates/InRelease**
+   - **Request:** GET /ubuntu/dists/jammy-updates/InRelease
+   - **Response:** 200 OK, application/octet-stream content.
+
+10. **Request to /ubuntu/dists/jammy-backports/InRelease**
+    - **Request:** GET /ubuntu/dists/jammy-backports/InRelease
+    - **Response:** 304 Not Modified.
+
+11. **Request to /ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e**
+    - **Request:** GET /ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e
+    - **Response:** No response data captured.
+
+12. **Request to /pub/ftp.openssl.org/source/**
+    - **Request:** GET /pub/ftp.openssl.org/source/
+    - **Response:** 200 OK, HTML content listing source files (e.g., openssl-1.1.1w.tar.gz, openssl-3.0.12.tar.gz, etc.)
+
+13. **Request to /pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz**
+    - **Request:** GET /pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz
+    - **Response:** No response data captured, suggesting a download attempt.
+
+14. **Request to /pub/ftp.openssl.org/source/README**
+    - **Request:** GET /pub/ftp.openssl.org/source/README
+    - **Response:** 200 OK, text content.
+
+15. **Request to /pub/ftp.openssl.org/source/.message**
+    - **Request:** GET /pub/ftp.openssl.org/source/.message
+    - **Response:** 200 OK, text content.
+
+16. **Request to /pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz**
+    - **Request:** GET /pub/ftp.openssl.org/snapshot/openssl-3.1-SNAP-20231223.tar.gz
+    - **Response:** 200 OK, application/x-gzip content.
+
+### Analysis:
+
+1. **Data Queried by HTTP Protocol:**
+   - The data queried includes directory listings, file details, and specific files (e.g., tar.gz files) from various directories related to OpenSSL and some Ubuntu distribution files.
+
+2. **Legitimacy of Browsing Behavior:**
+   - The browsing behavior appears to be focused on accessing and downloading files related to OpenSSL and Ubuntu distributions, which could be legitimate activities for a developer or system administrator.
+   - The presence of Debian APT-HTTP requests suggests that the user might be updating or installing software packages on a Debian-based system.
+
+3. **Correctness of HTTP Methods Used:**
+   - The HTTP methods used (GET and POST) are appropriate for the actions being performed:
+     - **GET** requests are used to retrieve directory listings, file details, and specific files.
+     - **POST** request is used for submitting data to the server (e.g., OCSP request).
+
+### Conclusion:
+The HTTP packets in the network flow indicate a user accessing and downloading resources from OpenSSL and Ubuntu repositories, which can be considered legitimate browsing behavior for someone involved in software development or system administration. The HTTP methods used are appropriate for the actions performed.

@@ -1,0 +1,47 @@
+Based on the provided CSV file content, here are the URIs extracted along with their parameters:
+
+1. `GET /pub/`
+2. `GET /pub/ftp.openssl.org/`
+3. `GET /pub/ftp.openssl.org/snapshot/`
+4. `GET /pub/ftp.openssl.org/snapshot/openssl-3.2-SNAP-20231220.tar.gz`
+5. `GET /pub/ftp.openssl.org/source/`
+6. `GET /pub/ftp.openssl.org/source/openssl-3.1.4.tar.gz`
+7. `GET /pub/ftp.openssl.org/source/README`
+8. `GET /pub/ftp.openssl.org/source/.message`
+9. `GET /proprietary/dists/jammy/InRelease`
+10. `GET /release/dists/jammy/InRelease`
+11. `GET /ubuntu/dists/jammy/InRelease`
+12. `GET /ubuntu/dists/jammy-security/InRelease`
+13. `GET /ubuntu/dists/jammy-updates/InRelease`
+14. `GET /ubuntu/dists/jammy-backports/InRelease`
+15. `GET /ubuntu/dists/jammy-updates/universe/cnf/by-hash/SHA256/ae6170bb819201d2fe94763f8171c491f71988cb093b6159632c45c5929f6c1e`
+16. `POST /wr2`
+
+From these URIs, the only one that contains parameters is the last one:
+
+- `GET /pub/?C=N;O=D`
+- `GET /pub/?C=M;O=A`
+- `GET /pub/?C=S;O=A`
+- `GET /pub/?C=D;O=A`
+
+### Analysis of Parameters
+
+1. **`C=N;O=D`**: This parameter likely refers to sorting the directory listing by "Name" in "Descending" order.
+2. **`C=M;O=A`**: This parameter likely refers to sorting the directory listing by "Modification date" in "Ascending" order.
+3. **`C=S;O=A`**: This parameter likely refers to sorting the directory listing by "Size" in "Ascending" order.
+4. **`C=D;O=A`**: This parameter likely refers to sorting the directory listing by "Description" in "Ascending" order.
+
+### Purpose of Parameters
+
+These parameters are typically used to control the sorting order of directory listings on a web server. They allow users to view the contents of a directory in a specific order based on different criteria such as name, modification date, size, or description.
+
+### User Experience Implications
+
+- **Sorting by Name**: Helps users quickly find files or directories when they know the name, especially useful in directories with many entries.
+- **Sorting by Modification Date**: Allows users to see the most recently updated files first, which is useful for finding recent changes or updates.
+- **Sorting by Size**: Helps users identify large files quickly, which can be useful for managing storage space or finding significant downloads.
+- **Sorting by Description**: Provides a way to sort entries based on their descriptions, which can be helpful if descriptive metadata is available and relevant.
+
+These sorting options enhance the user experience by providing flexibility in how directory contents are displayed, making it easier for users to find and manage files according to their needs.
+
+If there are any specific parameters or URIs you would like more detailed information on, please let me know!

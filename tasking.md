@@ -1,4 +1,5 @@
 **Friday**
+- [ ] Search on web to find not academic literature (video, blog, etc) related DIRECTLY to my study. + send it to supervisors.
 - [ ] Finish the assistant prompt.
 - [ ] Convert all PCAP in JSON.
 - [ ] Finish the evaluation pipeline.
@@ -11,14 +12,15 @@
 - [ ] Run the evaluation on all CSV.
 - [ ] Run evaluation on all JSON.
 - [ ] Write the Evaluation protocol part of the report.
-- [ ] Improve the Literature Review (as far as we known no one does the same kind of research)
-- [ ] Fill the results 
+- [ ] Improve the Literature Review (as far as we known no one does the same kind of research).
+- [ ] Fill the results.
+- [ ] Add a part on literature reviews, what people already done?
 
 **Sunday**
 - [ ] Write the scoring results in a table in the report.
 - [ ] Discuss the result on the discussion section of the report.
 - [ ] More realistic planning that fill the two last weeks!
-- [ ] Send the improved paper. Improve visualization of the results (graph, plot, table, etc)
+- [ ] Send the improved paper. Improve visualization of the results (graph, plot, table, etc) (**GOOD** to spend more time on it!)
 
 **Monday+**
 - [ ] Paper pre-print (results and evaluation protocol).

@@ -9,6 +9,7 @@
 
 **Sunday**
 - [x] More realistic planning that fill the two last weeks!
+- [ ] Convert all PCAP in JSON.
 - [ ] Finish the assistant prompt.
 - [ ] Finish the evaluation pipeline.
 - [ ] Separate the answer in part to score each part separately.
@@ -21,7 +22,6 @@
 - [ ] Add a part on literature reviews, what people already done?
 - [ ] Send the improved paper. Improve visualization of the results (graph, plot, table, etc) (**GOOD** to spend more time on it!)
     
-- [ ] Convert all PCAP in JSON.
 - [ ] Run the evaluation on all CSV.
 - [ ] Run evaluation on all JSON.
 - [ ] Write the Evaluation protocol part of the report.

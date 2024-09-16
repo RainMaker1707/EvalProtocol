@@ -29,13 +29,10 @@
 - [ ] Finish the evaluation pipeline.
 - [ ] Separate the answer in part to score each part separately.
 
-- [ ] Search on web to find not academic literature (video, blog, etc) related DIRECTLY to my study. + send it to supervisors.
-
-
-
-
 
 **Tuesday**
+- [ ] Search on web to find not academic literature (video, blog, etc) related DIRECTLY to my study. + send it to supervisors.
+      
 - [ ] Run the evaluation on all CSV.
 - [ ] Run evaluation on all JSON.
 

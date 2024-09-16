@@ -31,15 +31,19 @@
 
 - [ ] Search on web to find not academic literature (video, blog, etc) related DIRECTLY to my study. + send it to supervisors.
 
-- [ ] Run the evaluation on all CSV.
-- [ ] Run evaluation on all JSON.
+
 
 
 
 **Tuesday**
+- [ ] Run the evaluation on all CSV.
+- [ ] Run evaluation on all JSON.
+
 - [ ] Write the scoring results in a table in the report.
 - [ ] Fill the results (graph, plot, table).
+
 - [ ] Discuss the result on the discussion section of the report.
+      
 - [ ] Paper pre-print (results and evaluation protocol).
 
 

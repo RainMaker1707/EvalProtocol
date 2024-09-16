@@ -17,9 +17,8 @@
 **Monday**
 - [x] Visualization for Slimper
 - [x] Visualization for the evaluation protocol
-- [ ] Visualization for data forgery
+- [x] Visualization for data forgery
 
-- [ ] Search on web to find not academic literature (video, blog, etc) related DIRECTLY to my study. + send it to supervisors.
 - [x] Improve the Literature Review (as far as we known no one does the same kind of research).
 - [x] Add a part on literature reviews, what people already done?
 - [x] Send the improved paper. Improve visualization of the results (graph, plot, table, etc) (**GOOD** to spend more time on it!)
@@ -27,7 +26,9 @@
 - [ ] Finish the assistant prompt.
 - [ ] Finish the evaluation pipeline.
 - [ ] Separate the answer in part to score each part separately.
-    
+
+- [ ] Search on web to find not academic literature (video, blog, etc) related DIRECTLY to my study. + send it to supervisors.
+
 - [ ] Run the evaluation on all CSV.
 - [ ] Run evaluation on all JSON.
 - [ ] Write the Evaluation protocol part of the report.

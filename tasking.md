@@ -9,18 +9,24 @@
 
 **Sunday**
 - [x] More realistic planning that fill the two last weeks!
-- [ ] Convert all PCAP in JSON.
-- [ ] Finish the assistant prompt.
-- [ ] Finish the evaluation pipeline.
-- [ ] Separate the answer in part to score each part separately.
+- [x] Convert all PCAP in JSON.
       
 
 
+
 **Monday**
+- [x] Visualization for Slimper
+- [x] Visualization for the evaluation protocol
+- [ ] Visualization for data forgery
+
 - [ ] Search on web to find not academic literature (video, blog, etc) related DIRECTLY to my study. + send it to supervisors.
-- [ ] Improve the Literature Review (as far as we known no one does the same kind of research).
-- [ ] Add a part on literature reviews, what people already done?
-- [ ] Send the improved paper. Improve visualization of the results (graph, plot, table, etc) (**GOOD** to spend more time on it!)
+- [x] Improve the Literature Review (as far as we known no one does the same kind of research).
+- [x] Add a part on literature reviews, what people already done?
+- [x] Send the improved paper. Improve visualization of the results (graph, plot, table, etc) (**GOOD** to spend more time on it!)
+
+- [ ] Finish the assistant prompt.
+- [ ] Finish the evaluation pipeline.
+- [ ] Separate the answer in part to score each part separately.
     
 - [ ] Run the evaluation on all CSV.
 - [ ] Run evaluation on all JSON.
@@ -34,13 +40,10 @@
 - [ ] Paper pre-print (results and evaluation protocol).
 
 
-**Wednesday Online OR Friday Teams**
-- [ ] Meeting with Antoine.
-
-
 **Wednesday**
 - [ ] Writting Suricata documentation
 - [ ] First test with basic prompt
+- [ ] Meeting with Antoine 1pm
 
 
 **Thursday**

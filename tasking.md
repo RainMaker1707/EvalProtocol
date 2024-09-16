@@ -19,6 +19,8 @@
 - [x] Visualization for the evaluation protocol
 - [x] Visualization for data forgery
 
+- [x] Write the Evaluation protocol part of the report.
+
 - [x] Improve the Literature Review (as far as we known no one does the same kind of research).
 - [x] Add a part on literature reviews, what people already done?
 - [x] Send the improved paper. Improve visualization of the results (graph, plot, table, etc) (**GOOD** to spend more time on it!)
@@ -31,7 +33,7 @@
 
 - [ ] Run the evaluation on all CSV.
 - [ ] Run evaluation on all JSON.
-- [ ] Write the Evaluation protocol part of the report.
+
 
 
 **Tuesday**

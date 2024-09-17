@@ -28,13 +28,14 @@
 
 **Tuesday**
 - [ ] Finish the assistant prompt.
-- [ ] Finish the evaluation pipeline.
-- [ ] Separate the answer in part to score each part separately.
+- [x] Finish the evaluation pipeline.
+- [x] Separate the answer in part to score each part separately.
 
 - [ ] Search on web to find not academic literature (video, blog, etc) related DIRECTLY to my study. + send it to supervisors.
       
-- [ ] Run the evaluation on all CSV.
-- [ ] Run evaluation on all JSON.
+- [ ] Run evaluation on all CSV files.
+- [ ] Run evaluation on all JSON files.
+- [ ] Run evaluation on all Plain Text files
 
 - [ ] Write the scoring results in a table in the report.
 - [ ] Fill the results (graph, plot, table).

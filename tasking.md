@@ -25,12 +25,12 @@
 - [x] Add a part on literature reviews, what people already done?
 - [x] Send the improved paper. Improve visualization of the results (graph, plot, table, etc) (**GOOD** to spend more time on it!)
 
+
+**Tuesday**
 - [ ] Finish the assistant prompt.
 - [ ] Finish the evaluation pipeline.
 - [ ] Separate the answer in part to score each part separately.
 
-
-**Tuesday**
 - [ ] Search on web to find not academic literature (video, blog, etc) related DIRECTLY to my study. + send it to supervisors.
       
 - [ ] Run the evaluation on all CSV.

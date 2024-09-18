@@ -41,9 +41,6 @@
 - [ ] Run evaluation on all Plain Text files
 
 
-- [ ] Meeting with Antoine 1pm
-
-
 **Thursday**
 
 - [ ] Write the scoring results in a table in the report.

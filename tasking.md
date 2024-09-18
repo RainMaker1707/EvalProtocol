@@ -31,11 +31,20 @@
 - [x] Finish the evaluation pipeline.
 - [x] Separate the answer in part to score each part separately.
 
+
+**Wednesday**
+
 - [ ] Search on web to find not academic literature (video, blog, etc) related DIRECTLY to my study. + send it to supervisors.
       
 - [ ] Run evaluation on all CSV files.
-- [ ] Run evaluation on all JSON files.
+- [x] Run evaluation on all JSON files.
 - [ ] Run evaluation on all Plain Text files
+
+
+- [ ] Meeting with Antoine 1pm
+
+
+**Thursday**
 
 - [ ] Write the scoring results in a table in the report.
 - [ ] Fill the results (graph, plot, table).
@@ -45,18 +54,14 @@
 - [ ] Paper pre-print (results and evaluation protocol).
 
 
-**Wednesday**
+
+**Friday**
 - [ ] Writting Suricata documentation
 - [ ] First test with basic prompt
-- [ ] Meeting with Antoine 1pm
 
-
-**Thursday**
 - [ ] Enhance the basic prompt to specilaized prompt
 - [ ] Create defense rules following from LLMs.
 
-
-**Friday**
 - [ ] Defense rules evaluation
     - Evaluate from predefined rules against generated rules.
     - Evaluate from testing the generated rules against the file tested.

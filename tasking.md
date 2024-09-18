@@ -62,6 +62,8 @@
 - [ ] Enhance the basic prompt to specilaized prompt
 - [ ] Create defense rules following from LLMs.
 
+
+**Saturday**
 - [ ] Defense rules evaluation
     - Evaluate from predefined rules against generated rules.
     - Evaluate from testing the generated rules against the file tested.

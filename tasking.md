@@ -27,7 +27,7 @@
 
 
 **Tuesday**
-- [ ] Finish the assistant prompt.
+- [x] Finish the assistant prompt.
 - [x] Finish the evaluation pipeline.
 - [x] Separate the answer in part to score each part separately.
 

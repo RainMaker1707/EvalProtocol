@@ -99,7 +99,6 @@ def answer(question):
         thread = client.beta.threads.create(
             messages=[{"role":"user", "content": question}]
         )
-        print(thread.id)
         run = client.beta.threads.runs.create(
             thread_id=thread.id,
             assistant_id=assistant_id
@@ -115,6 +114,7 @@ def retrieve(thread_id):
     messages = client.beta.threads.messages.list(thread_id=thread_id)
     final_msg = messages.data[0].content[0].text.value
     final_msg = final_msg[6:-4]
+    print(final_msg)
     return final_msg
 
 def fake_answer(filename):
@@ -144,15 +144,32 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('filename')
     parser.add_argument('-t', '--thread-id', type=str)
+    parser.add_argument('-r', '--retrieve', action='store_true')
+    parser.add_argument('-s', '--send', action='store_true')
 
     args = parser.parse_args()
+    warnings.simplefilter("ignore")
+
+    files_list = [
+            "../data/json/slimper/full_local.json",
+            "../data/json/slimper/idle.json",
+            "../data/json/slimper/idle_ls_kill.json",
+            "../data/json/slimper/ls_kill.json",
+            "../data/json/new/httpbin.json",
+            "../data/json/new/httpheanet.json",
+            "../data/json/new/http.json",
+        ]
     
-    if not args.thread_id:
+    if not args.thread_id and not args.retrieve and not args.send:
+        # in this case filename is the data file in the question in the thread. No response comes directly
         question = f'Analyze the file {args.filename.split("/")[-1]} to detect infection of Slimper C2 framework.'
         
         ID = answer(question)
+        with open("thread_id.csv", "a") as file:
+            file.write(f'I00007,{ID}\n')
         print(ID)  
-    else:
+    elif not args.retrieve and not args.send:
+        # in this cas args.filename is the filename of the file containing a list of thread IDs
         ans = retrieve(args.thread_id)
 
         infected_template = Template("BERT/template/infected.md")
@@ -163,10 +180,55 @@ if __name__ == "__main__":
         candidates = splitter(filled)
         answers = splitter(ans)
 
-        warnings.simplefilter("ignore")
-
         P, R, F1 = score(candidates, answers, model_type='roberta-large', lang='en', verbose=False, rescale_with_baseline=True)
 
         print(f'Precision: {P}')
         print(f'Recall: {R}')
         print(f'F1: {F1}')
+
+    elif args.thread_id and args.retrieve:
+        print("Not implemented")
+
+    elif not args.send and args.retrieve: # if not args.thread_id and args.recursive
+        """
+        # KEY pattern: I/S (infected or safe) 0-6 data file representation, 0-3 prompt ID, 0-5 Documentation version, 00-20 Temperature
+        # Example: 
+                - I02310 Infected ,file full_local.json, Prompt 2, Documentation 3, Temperature=1.0, 
+                - S30105 Safe, file ls_kill.json, prompt 0, documentation 1, Temperature = 0.5 
+        """
+        df = pd.read_csv("BERT/thread_id.csv")
+        threads_id_list = df["Value"].to_list()
+        key_list = df["Key"].to_list()
+        # Read and parse the saved thread_id
+        for i in range(len(threads_id_list)):
+            thread_id = threads_id_list[i]
+            key = key_list[i]
+            # retrieve thread answer.
+            ans = retrieve(thread_id)
+            # template part
+            if "I" in key:
+                template = Template("BERT/template/infected.md")
+            else:
+                template = Template("BERT/template/safe.md")
+            filled = template.fill(files_list[int(key[1])])
+            # score them
+            candidates = splitter(filled)
+            answers = splitter(ans)
+            P, R, F1 = score(candidates, answers, model_type='roberta-large', lang='en', verbose=False, rescale_with_baseline=True)
+            with open("BERT/json_score.csv", "a") as file:
+                # TestID,ThreadID,HeadScoreP,HeadScoreR,HeadScore,F1,URLScoreP,URLScoreR,URLScoreF1,ExScoreP,ExScoreR,ExScoreF1 
+                file.write('đ{key},{thread_id},{P[0]},{R[0]},{F1[0]},{P[1]},{R[1]},{F1[1]},{P[2]},{R[2]},{F1[2]}\n')
+            print("Done " + i)
+
+    elif args.send and not args.retrieve:
+        print("here")
+        idx = 0
+        for filename in files_list:
+            # in this case filename is the data file in the question in the thread. No response comes directly
+            question = f'Analyze the file {filename.split("/")[-1]} to detect a potential infection of Slimper C2 framework.'
+            
+            ID = answer(question)
+            with open("BERT/thread_id.csv", "a") as file:
+                file.write(f'I{idx}0007,{ID}\n')
+            idx += 1
+            print(ID)  

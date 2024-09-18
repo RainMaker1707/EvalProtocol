@@ -1,14 +1,14 @@
 # Device infected
 ## Matching URLs
 	- /assets/bootstrap.js
-	- /jscript/app.js
-	- /scripts/bootstrap.min.js
-	- /upload/register
 	- /assets/script.js
+	- /jscript/app.js
 	- /jscript/backbone.js
+	- /scripts/bootstrap.min
 	- /static/background.png
+	- /upload/register
 
 ## Explanations
 	- Command(s) spotted
-		- ls
 		- kill
+		- ls

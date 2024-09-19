@@ -1,1 +1,1 @@
-TestID,ThreadID,HeadScoreP,HeadScoreR,HeadScore,F1,URLScoreP,URLScoreR,URLScoreF1,ExScoreP,ExScoreR,ExScoreF1
+TestID,ThreadID,HeadScoreP,HeadScoreR,HeadScoreF1,URLScoreP,URLScoreR,URLScoreF1,ExScoreP,ExScoreR,ExScoreF1

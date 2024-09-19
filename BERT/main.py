@@ -14,11 +14,14 @@ with open("BERT/configs/config.json", "r") as file:
     config = json.loads(file.read())
     file.close()
 
+PROMPT_ID = 2
+prompt_id = PROMPT_ID
+temp = 10
 
-assistant_id = "asst_09zKFUlfy4UDUx7c5SCKg4Gq"
+
 client = OpenAI(api_key=config.get("api_key"))
 
-
+assistant_id = "asst_H901WiVOTk7IrrejU2hQM22j"
 
 class Template():
     def __init__(self, filename):
@@ -106,7 +109,6 @@ def answer(question):
         return thread.id
     except OpenAIError as e:
         print(f'An error occurred: \n{e}')
-        sleep(60)
         return answer(question, thread_id)
 
 
@@ -114,7 +116,6 @@ def retrieve(thread_id):
     messages = client.beta.threads.messages.list(thread_id=thread_id)
     final_msg = messages.data[0].content[0].text.value
     final_msg = final_msg[6:-4]
-    print(final_msg)
     return final_msg
 
 def fake_answer(filename):
@@ -156,9 +157,10 @@ if __name__ == "__main__":
             "../data/json/slimper/idle_ls_kill.json",
             "../data/json/slimper/ls_kill.json",
             "../data/json/new/httpbin.json",
-            "../data/json/new/httpheanet.json",
             "../data/json/new/http.json",
+            # "../data/json/new/httpheanet.json"
         ]
+    
     
     if not args.thread_id and not args.retrieve and not args.send:
         # in this case filename is the data file in the question in the thread. No response comes directly
@@ -166,7 +168,7 @@ if __name__ == "__main__":
         
         ID = answer(question)
         with open("thread_id.csv", "a") as file:
-            file.write(f'I00007,{ID}\n')
+            file.write(f'Ixyz{temp:02d},{ID}\n')
         print(ID)  
     elif not args.retrieve and not args.send:
         # in this cas args.filename is the filename of the file containing a list of thread IDs
@@ -199,12 +201,14 @@ if __name__ == "__main__":
         df = pd.read_csv("BERT/thread_id.csv")
         threads_id_list = df["Value"].to_list()
         key_list = df["Key"].to_list()
+        print("key, value retrieved")
         # Read and parse the saved thread_id
         for i in range(len(threads_id_list)):
             thread_id = threads_id_list[i]
             key = key_list[i]
             # retrieve thread answer.
             ans = retrieve(thread_id)
+            print(ans)
             # template part
             if "I" in key:
                 template = Template("BERT/template/infected.md")
@@ -212,23 +216,64 @@ if __name__ == "__main__":
                 template = Template("BERT/template/safe.md")
             filled = template.fill(files_list[int(key[1])])
             # score them
-            candidates = splitter(filled)
-            answers = splitter(ans)
-            P, R, F1 = score(candidates, answers, model_type='roberta-large', lang='en', verbose=False, rescale_with_baseline=True)
-            with open("BERT/json_score.csv", "a") as file:
-                # TestID,ThreadID,HeadScoreP,HeadScoreR,HeadScore,F1,URLScoreP,URLScoreR,URLScoreF1,ExScoreP,ExScoreR,ExScoreF1 
-                file.write('đ{key},{thread_id},{P[0]},{R[0]},{F1[0]},{P[1]},{R[1]},{F1[1]},{P[2]},{R[2]},{F1[2]}\n')
-            print("Done " + i)
+            try:
+                candidates = splitter(filled)
+                answers = splitter(ans)
+                P, R, F1 = score(candidates, answers, model_type='roberta-large', lang='en', verbose=False, rescale_with_baseline=True)
+                with open("BERT/json_score.csv", "a") as file:
+                    # TestID,ThreadID,HeadScoreP,HeadScoreR,HeadScoreF1,URLScoreP,URLScoreR,URLScoreF1,ExScoreP,ExScoreR,ExScoreF1 
+                    file.write(f'{key},{thread_id},{P[0]:.3f},{R[0]:.3f},{F1[0]:.3f},{P[1]:.3f},{R[1]:.3f},{F1[1]:.3f},{P[2]:.3f},{R[2]:.3f},{F1[2]:.3f}\n')
+            except:
+                print("Error in splitter for thread: " + thread_id + ", file: " + key)
 
     elif args.send and not args.retrieve:
         print("here")
+        for _ in range(3):
+            idx = 0
+            for filename in files_list:
+                # in this case filename is the data file in the question in the thread. No response comes directly
+                question = f'Analyze the file {filename.split("/")[-1]} to detect a potential infection of Slimper C2 framework.'
+                
+                ID = answer(question)
+                sleep(30)
+                with open("BERT/thread_id.csv", "a") as file:
+                    if "slimper" in filename:
+                        file.write(f'I{idx}{prompt_id}0{temp:02d},{ID}\n')
+                    else:
+                        file.write(f'S{idx}{prompt_id}0{temp:02d},{ID}\n')
+                idx += 1
+                print(ID)  
+    else:
+        print("else")
         idx = 0
         for filename in files_list:
             # in this case filename is the data file in the question in the thread. No response comes directly
             question = f'Analyze the file {filename.split("/")[-1]} to detect a potential infection of Slimper C2 framework.'
             
             ID = answer(question)
+            if "slimper" in filename:
+                key = f'I{idx}{prompt_id}0{temp:02d}'
+            else:
+                key = f'S{idx}{prompt_id}0{temp:02d}'
             with open("BERT/thread_id.csv", "a") as file:
-                file.write(f'I{idx}0007,{ID}\n')
+                file.write(f'{key},{ID}\n')
+            sleep(20)
+            ans = retrieve(ID)
             idx += 1
-            print(ID)  
+            print(ID)
+            if "I" in key:
+                template = Template("BERT/template/infected.md")
+            else:
+                template = Template("BERT/template/safe.md")
+            filled = template.fill(files_list[int(key[1])])
+            # score them
+            try:
+                candidates = splitter(filled)
+                answers = splitter(ans)
+                P, R, F1 = score(candidates, answers, model_type='roberta-large', lang='en', verbose=False, rescale_with_baseline=True)
+                with open("BERT/json_score.csv", "a") as file:
+                    # TestID,ThreadID,HeadScoreP,HeadScoreR,HeadScore,F1,URLScoreP,URLScoreR,URLScoreF1,ExScoreP,ExScoreR,ExScoreF1 
+                    file.write(f'{key},{thread_id},{P[0]:.3f},{R[0]:.3f},{F1[0]:.3f},{P[1]:.3f},{R[1]:.3f},{F1[1]:.3f},{P[2]:.3f},{R[2]:.3f},{F1[2]:.3f}\n')
+                print("Done " + idx)
+            except:
+                print("Error for thread: " + ID + ", file: " + key)

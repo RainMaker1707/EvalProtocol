@@ -34,33 +34,53 @@
 
 **Wednesday**
 
-- [ ] Search on web to find not academic literature (video, blog, etc) related DIRECTLY to my study. + send it to supervisors.
-      
-- [ ] Run evaluation on all CSV files.
-- [x] Run evaluation on all JSON files.
-- [ ] Run evaluation on all Plain Text files
+- [x] Search on web to find not academic literature (video, blog, etc) related DIRECTLY to my study. + send it to supervisors.
+
+- [x] Run evaluation on all JSON files. prompt0 
+- [x] Run evaluation on all JSON files. prompt1
+- [x] Run evaluation on all JSON files. prompt2
 
 
 **Thursday**
+- [x] Run evaluation for temperature 0.5
+- [x] Run evaluation for temperature 0.7
+- [x] Run evaluation for temperature 1
+- [x] Write non academic documentation research report
+
+
+
+**Friday**
+- [ ] Convert all PCAP in Plain Text.
+
 
 - [ ] Write the scoring results in a table in the report.
 - [ ] Fill the results (graph, plot, table).
 
+- [x] Refine the prompt.
+- [ ] Try with HTTP handmade documentation.
+- [ ] Evaluate the different answers.
+
+- [ ] Run evaluation on all Plain Text files
+- [ ] Run evaluation on all CSV files.
+
+
+
+
+**Saturday**
+- [ ] Write the scoring results in a table in the report.
+- [ ] Fill the results (graph, plot, table).
 - [ ] Discuss the result on the discussion section of the report.
       
 - [ ] Paper pre-print (results and evaluation protocol).
 
 
-
-**Friday**
+**Sunday**
 - [ ] Writting Suricata documentation
 - [ ] First test with basic prompt
 
 - [ ] Enhance the basic prompt to specilaized prompt
 - [ ] Create defense rules following from LLMs.
 
-
-**Saturday**
 - [ ] Defense rules evaluation
     - Evaluate from predefined rules against generated rules.
     - Evaluate from testing the generated rules against the file tested.

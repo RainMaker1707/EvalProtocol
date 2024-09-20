@@ -14,9 +14,9 @@ with open("BERT/configs/config.json", "r") as file:
     config = json.loads(file.read())
     file.close()
 
-PROMPT_ID = 2
+PROMPT_ID = 3
 prompt_id = PROMPT_ID
-temp = 10
+temp = 5
 
 
 client = OpenAI(api_key=config.get("api_key"))
@@ -164,7 +164,7 @@ if __name__ == "__main__":
     
     if not args.thread_id and not args.retrieve and not args.send:
         # in this case filename is the data file in the question in the thread. No response comes directly
-        question = f'Analyze the file {args.filename.split("/")[-1]} to detect infection of Slimper C2 framework.'
+        question = f'Analyze the file {args.filename} stored in the vector vs_JeBhp9BB9JtuAXUBDBak7LOb to detect any infection'
         
         ID = answer(question)
         with open("thread_id.csv", "a") as file:
@@ -232,7 +232,7 @@ if __name__ == "__main__":
             idx = 0
             for filename in files_list:
                 # in this case filename is the data file in the question in the thread. No response comes directly
-                question = f'Analyze the file {filename.split("/")[-1]} to detect a potential infection of Slimper C2 framework.'
+                question = f'Analyze the file {filename} stored in the vector vs_JeBhp9BB9JtuAXUBDBak7LOb to detect any infection'
                 
                 ID = answer(question)
                 sleep(30)
@@ -248,7 +248,7 @@ if __name__ == "__main__":
         idx = 0
         for filename in files_list:
             # in this case filename is the data file in the question in the thread. No response comes directly
-            question = f'Analyze the file {filename.split("/")[-1]} to detect a potential infection of Slimper C2 framework.'
+            question = f'Analyze the file {filename} stored in the vector vs_JeBhp9BB9JtuAXUBDBak7LOb to detect any infection'
             
             ID = answer(question)
             if "slimper" in filename:

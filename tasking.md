@@ -55,10 +55,16 @@
 - [x] Refine the prompt.
 - [x] Evaluate the different answers.
 
-- [-] Write report sections about the parameters tested.
-- [-] Plot the results for temperature impact.
-- [-] Plot the result for prompt impact.
-- [-] Add plot to the report.
+- [x] Write report sections about the parameters tested.
+- [x] Plot the results for temperature impact.
+- [x] Plot the result for prompt impact.
+
+- [-] Add plots to the report.
+
+- [ ] Run evaluation for different documentations.
+- [ ] Write documentation environment part in report.
+
+- [ ] Write final configuration part in report.
 
 - [ ] Run evaluation on all Plain Text files
 - [ ] Run evaluation on all CSV files.

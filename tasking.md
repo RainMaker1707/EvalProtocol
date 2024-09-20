@@ -59,7 +59,9 @@
 - [x] Plot the results for temperature impact.
 - [x] Plot the result for prompt impact.
 
-- [-] Add plots to the report.
+- [ ] Correct the template filler URLs
+
+- [ ] Add plots to the report.
 
 - [ ] Run evaluation for different documentations.
 - [ ] Write documentation environment part in report.

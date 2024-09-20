@@ -56,6 +56,11 @@ class Template():
             with open(filename, "r") as file:
                 content = file.read()
                 urls = re.findall(r'((\/[a-z]+){2,3}(\.[a-z]{2,4})?)+', content)
+                final = list()
+                for url in urls:
+                    if self.is_slimper_url(url[0]):
+                        final.append(url)
+                urls = final
                 commands = re.findall(r'(ls|kill)', content)
                 file.close()
             urls = np.unique(np.array([e[0] for e in urls]))
@@ -65,6 +70,16 @@ class Template():
         with open("test.md", "w") as file:
             file.write(self.filled)
         return self.filled
+
+    def is_slimper_url(self, url):
+        # URL as two to three parts
+        if len(url.split("/")) < 2 or len(url.split('/')) > 3: 
+            return False
+        # URL finish with no extension or .js / .png 
+        if not ("." not in url or url.split("/")[-1].split(".")[-1] == ".js" or url.split("/")[-1].split(".")[-1] == ".png"):
+            return False
+        # TODO: URL use the correct dictionaries depending on extension
+        return True
 
 
     def fill_default(self, urls, commands):

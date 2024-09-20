@@ -50,18 +50,21 @@
 
 
 **Friday**
-- [ ] Convert all PCAP in Plain Text.
-
-
-- [ ] Write the scoring results in a table in the report.
-- [ ] Fill the results (graph, plot, table).
+- [x] Convert all PCAP in Plain Text.
 
 - [x] Refine the prompt.
-- [ ] Try with HTTP handmade documentation.
-- [ ] Evaluate the different answers.
+- [x] Evaluate the different answers.
+
+- [-] Write report sections about the parameters tested.
+- [-] Plot the results for temperature impact.
+- [-] Plot the result for prompt impact.
+- [-] Add plot to the report.
 
 - [ ] Run evaluation on all Plain Text files
 - [ ] Run evaluation on all CSV files.
+
+- [ ] Write the scoring results in a table in the report.
+- [ ] Fill the results (graph, plot, table).
 
 
 

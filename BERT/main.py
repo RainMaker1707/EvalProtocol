@@ -89,11 +89,6 @@ class Template():
             text += elem
         return text
 
-
-# TODO API batch
-def batch_answer():
-    return
-
     
 
 # TODO API

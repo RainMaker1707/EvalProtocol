@@ -123,7 +123,7 @@ def graph_temp(save=False):
                 "URL F1": [float(f'{e:.2f}') for e in df['UF1'][0:3].values]
         }
         title = 'URL scores against temperature for prompt 0'
-        draw_bar_chart(temperatures, y2, title, 'URL scores', limit=0.1)
+        draw_bar_chart(temperatures, y2, title, 'URL scores', limit=1.1)
 
         y2 = {
                 "URL Precision":[float(f'{e:.2f}') for e in df['UP'][3:6].values],
@@ -131,7 +131,7 @@ def graph_temp(save=False):
                 "URL F1": [float(f'{e:.2f}') for e in df['UF1'][3:6].values]
         }
         title = 'URL scores against temperature for prompt 1'
-        draw_bar_chart(temperatures, y2, title, 'URL scores', limit=0.1)
+        draw_bar_chart(temperatures, y2, title, 'URL scores', limit=1.1)
 
         y2 = {
                 "URL Precision":[float(f'{e:.2f}') for e in df['UP'][6:9].values],
@@ -139,7 +139,7 @@ def graph_temp(save=False):
                 "URL F1": [float(f'{e:.2f}') for e in df['UF1'][6:9].values]
         }
         title = 'URL against temperature for prompt 2'
-        draw_bar_chart(temperatures, y2, title, 'URL scores', limit=0.1)
+        draw_bar_chart(temperatures, y2, title, 'URL scores', limit=1.1)
 
 
 def graph_prompt(save=False):
@@ -160,7 +160,7 @@ def graph_prompt(save=False):
                 "URL Recall": [float(f'{e:.2f}')for e in df.loc[df["Temp"] == 0.5]['UR'].values] + [np.mean(df2['UR'].values)],
                 "URL F1 score": [float(f'{e:.2f}')for e in df.loc[df["Temp"] == 0.5]['UF1'].values] + [np.mean(df2['UF1'].values)] 
         }
-        draw_bar_chart(labels, y, "URL scores for the different prompts", 'Score', limit=0.1)
+        draw_bar_chart(labels, y, "URL scores for the different prompts", 'Score', limit=1.1)
         
 
 def draw_bar_chart(labels, y, title, y_label, low=0, limit=1.0, save=True):

@@ -13,6 +13,11 @@ from time import sleep
 with open("BERT/configs/config.json", "r") as file:
     config = json.loads(file.read())
     file.close()
+    
+with open("BERT/dictionaries.json", "r") as file:
+    dictionaries = json.loads(file.read())
+    file.close()
+
 
 PROMPT_ID = 3
 prompt_id = PROMPT_ID
@@ -76,8 +81,22 @@ class Template():
         if len(url.split("/")) < 2 or len(url.split('/')) > 3: 
             return False
         # URL finish with no extension or .js / .png 
-        if not ("." not in url or url.split("/")[-1].split(".")[-1] == ".js" or url.split("/")[-1].split(".")[-1] == ".png"):
+        poll_paths = dictionaries.get("poll_paths")
+        paths = dictionaries.get("paths")
+        kill_paths = dictionaries.get("kill_paths")
+        
+
+        poll_files = dictionaries.get("poll_files")
+        files = dictionaries.get("files")
+        kill_files = dictionaries.get("kill_files")
+
+        splitted = url.split("/")[1:]
+
+        if not splitted[0] in poll_paths + paths + kill_paths:
             return False
+        if not splitted[1] in [f'{e}.js' for e in poll_files] + files + [f'{e}.png' for e in kill_files]:
+            return False
+        
         # TODO: URL use the correct dictionaries depending on extension
         return True
 
@@ -181,13 +200,15 @@ if __name__ == "__main__":
             file.write(f'Ixyz{temp:02d},{ID}\n')
         print(ID)  
     elif not args.retrieve and not args.send:
+        print(args.thread_id)
         # in this cas args.filename is the filename of the file containing a list of thread IDs
         ans = retrieve(args.thread_id)
 
         infected_template = Template("BERT/template/infected.md")
         safe_template = Template("BERT/template/safe.md")
 
-        filled = infected_template.fill(args.filename)
+        filled = safe_template.fill(args.filename)
+        print(filled)
 
         candidates = splitter(filled)
         answers = splitter(ans)
@@ -225,6 +246,7 @@ if __name__ == "__main__":
             else:
                 template = Template("BERT/template/safe.md")
             filled = template.fill(files_list[int(key[1])])
+            print(filled)
             # score them
             try:
                 candidates = splitter(filled)

@@ -1,0 +1,54 @@
+{
+    "poll_ext": ".js",
+    "poll_files": [
+       "bootstrap",
+       "bootstrap.min",
+       "app",
+       "array",
+       "backbone",
+       "script",
+       "tracker"
+    ],
+    "poll_paths": [
+       "assets",
+       "scripts",
+       "script",
+       "javascripts",
+       "javascript",
+       "jscript",
+       "embedded"
+    ],
+    "ext": "",
+    "files": [
+       "login",
+       "signin",
+       "api",
+       "index",
+       "admin",
+       "register",
+       "sign-up"
+    ],
+    "paths": [
+       "api",
+       "upload",
+       "authenticate",
+       "oauth",
+       "oauth2",
+       "database",
+       "namespaces"
+    ],
+    "kill_ext": ".png",
+    "kill_files": [
+       "favicon",
+       "mountain",
+       "background"
+    ],
+    "kill_paths": [
+       "static",
+       "assets",
+       "images",
+       "icons",
+       "image",
+       "pictures"
+    ]
+ }

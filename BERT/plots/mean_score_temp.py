@@ -44,14 +44,14 @@ def fileID_to_filename(id):
         return files_list[id]
 
 
-def parse_data(filename, save=True, output_name="out"):
+def parse_data(filename, save=True, output_name="out", temp=True):
         df = pd.read_csv(filename)
         data = list()
         idx = 0
         for _ in df["TestID"]:
                 data.append(df.iloc[idx].to_dict())
                 idx += 1
-        save_file(data, output_name)
+        save_file(data, output_name, temp)
         return data
 
 
@@ -61,7 +61,13 @@ def get_all_same_temp(dictionaries, temp):
                 if np.isclose(decode(elem.get('TestID')).get("temperature"), temp/10):
                         data.append(elem)
         return data
-
+        
+def get_all_infected(dictionaries):
+        data = list()
+        for elem in dictionaries:
+                if "I" in elem.get('TestID'):
+                        data.append(elem)
+        return data
 
 def mean_head_score(test):
         means = {
@@ -70,14 +76,17 @@ def mean_head_score(test):
                 "HeaderF1": np.mean([1 if e.get('HeadScoreF1') == 1.0 else 0 for e in test]),
                 "UP": np.mean([e.get('URLScoreP') for e in test]),
                 "UR": np.mean([e.get('URLScoreR') for e in test]),
-                "UF1": np.mean([e.get('URLScoreF1') for e in test])
+                "UF1": np.mean([e.get('URLScoreF1') for e in test]),
+                "UN": np.mean([e.get('URLNewScore') for e in test]),
+                "UT1": np.mean([e.get('UT1') for e in test]),
+                "UT2": np.mean([e.get('UT2') for e in test])
         }
         return means
 
 
-def save_file(data, output_name):
+def save_file(data, output_name, p):
         with open(f'BERT/data/{output_name}.csv', "w") as file:
-                file.write("PromptID,Temp,HP,HR,HF1,UP,UR,UF1\n")
+                file.write("PromptID,Temp,HP,HR,HF1,UP,UR,UF1,UN,UT1,UT2\n")
                 for prompt_id in range(3):
                         for temp in [5, 7, 10]:
                                 split = get_all_same_temp(data, temp)
@@ -85,10 +94,11 @@ def save_file(data, output_name):
                                         means = mean_head_score(split)
                                         P, R, F1 = means.get('HeaderP'), means.get("HeaderR"), means.get('HeaderF1')
                                         UP, UR, UF1 = means.get('UP'), means.get('UR'), means.get('UF1')
-                                        file.write(f'{prompt_id},{temp/10},{P},{R},{F1},{UP},{UR},{UF1}\n')
+                                        UN, UT1, UT2 = means.get('UN'), means.get('UT1'), means.get('UT2')
+                                        file.write(f'{prompt_id},{temp/10},{P},{R},{F1},{UP},{UR},{UF1},{UN},{UT1},{UT2}\n')
 
 
-def graph_temp(save=False):
+def graph_temp(save=True):
         ### Plotting
         df = pd.read_csv("BERT/data/result_temp.csv")
         
@@ -98,51 +108,54 @@ def graph_temp(save=False):
                 "Recall": [float(f'{e:.2f}') for e in df['HR'][0:3].values],
                 "F1": [float(f'{e:.2f}') for e in df['HF1'][0:3].values],
         }
-        title = 'Header scores against temperature for prompt 0'
-        draw_bar_chart(temperatures, y, title, 'Header scores')
+        title = 'Header BERT scores against temperature for prompt 0'
+        draw_bar_chart(temperatures, y, title, 'Header scores', save=save)
 
         y = {
                 "Precision": [float(f'{e:.2f}') for e in df["HP"][3:6].values],
                 "Recall": [float(f'{e:.2f}') for e in df['HR'][3:6].values],
                 "F1": [float(f'{e:.2f}') for e in df['HF1'][3:6].values],
         }
-        title = 'Header scores against temperature for prompt 1'
-        draw_bar_chart(temperatures, y, title, 'Header scores')
+        title = 'Header BERT scores against temperature for prompt 1'
+        draw_bar_chart(temperatures, y, title, 'Header scores', save=save)
 
         y = {
                 "Precision": [float(f'{e:.2f}') for e in df["HP"][6:9].values],
                 "Recall": [float(f'{e:.2f}') for e in df['HR'][6:9].values],
                 "F1": [float(f'{e:.2f}') for e in df['HF1'][6:9].values],
         }
-        title = 'Header scores against temperature for prompt 2'
-        draw_bar_chart(temperatures, y, title, 'Header scores')
+        title = 'Header BERT scores against temperature for prompt 2'
+        draw_bar_chart(temperatures, y, title, 'Header scores', save=save)
 
         y2 = {
                 "URL Precision":[float(f'{e:.2f}') for e in df['UP'][0:3].values],
                 "URL Recall": [float(f'{e:.2f}') for e in df['UR'][0:3].values],
-                "URL F1": [float(f'{e:.2f}') for e in df['UF1'][0:3].values]
+                "URL F1": [float(f'{e:.2f}') for e in df['UF1'][0:3].values],
+                "URL new score": [float(f'{e:.2f}')for e in df['UN'][3:6].values] 
         }
-        title = 'URL scores against temperature for prompt 0'
-        draw_bar_chart(temperatures, y2, title, 'URL scores', limit=1.1)
+        title = 'URL BERT scores against temperature for prompt 0'
+        draw_bar_chart(temperatures, y2, title, 'URL scores', limit=1.1, save=save)
 
         y2 = {
                 "URL Precision":[float(f'{e:.2f}') for e in df['UP'][3:6].values],
                 "URL Recall": [float(f'{e:.2f}') for e in df['UR'][3:6].values],
-                "URL F1": [float(f'{e:.2f}') for e in df['UF1'][3:6].values]
+                "URL F1": [float(f'{e:.2f}') for e in df['UF1'][3:6].values],
+                "URL new score": [float(f'{e:.2f}')for e in df['UN'][3:6].values] 
         }
-        title = 'URL scores against temperature for prompt 1'
-        draw_bar_chart(temperatures, y2, title, 'URL scores', limit=1.1)
+        title = 'URL BERT scores against temperature for prompt 1'
+        draw_bar_chart(temperatures, y2, title, 'URL scores', limit=1.1, save=save)
 
         y2 = {
-                "URL Precision":[float(f'{e:.2f}') for e in df['UP'][6:9].values],
-                "URL Recall": [float(f'{e:.2f}') for e in df['UR'][6:9].values],
-                "URL F1": [float(f'{e:.2f}') for e in df['UF1'][6:9].values]
+                "URL Precision": [float(f'{e:.2f}')for e in df['UP'][3:6].values],
+                "URL Recall": [float(f'{e:.2f}')for e in df['UR'][3:6].values],
+                "URL F1 score": [float(f'{e:.2f}')for e in df['UF1'][3:6].values],
+                "URL new score": [float(f'{e:.2f}')for e in df['UN'][3:6].values]
         }
-        title = 'URL against temperature for prompt 2'
-        draw_bar_chart(temperatures, y2, title, 'URL scores', limit=1.1)
+        title = 'URL BERT against temperature for prompt 2'
+        draw_bar_chart(temperatures, y2, title, 'URL scores', limit=1.1, save=save)
 
 
-def graph_prompt(save=False):
+def graph_prompt(save=True):
         df = pd.read_csv("BERT/data/result_temp.csv")
         data = parse_data("BERT/data/json_score_prompt3.csv", output_name="result_prompt3")
         df2 = pd.read_csv("BERT/data/result_prompt3.csv")
@@ -153,20 +166,35 @@ def graph_prompt(save=False):
                 "Recall": [float(f'{e:.2f}')for e in df.loc[df["Temp"] == 0.5]['HR'].values] + [np.mean(df2['HR'].values)],
                 "F1 score": [float(f'{e:.2f}')for e in df.loc[df["Temp"] == 0.5]['HF1'].values] + [np.mean(df2['HF1'].values)],
         }
-        draw_bar_chart(labels, y, 'Header scores of the different prompts', 'Score', low= 0.5, limit=1.1)
+        draw_bar_chart(labels, y, 'Header BERT scores of the different prompts', 'Score', low= 0.5, limit=1.1, n=4, save=save)
         
         y = {
                 "URL Precision": [float(f'{e:.2f}')for e in df.loc[df["Temp"] == 0.5]['UP'].values] + [np.mean(df2['UP'].values)],
                 "URL Recall": [float(f'{e:.2f}')for e in df.loc[df["Temp"] == 0.5]['UR'].values] + [np.mean(df2['UR'].values)],
-                "URL F1 score": [float(f'{e:.2f}')for e in df.loc[df["Temp"] == 0.5]['UF1'].values] + [np.mean(df2['UF1'].values)] 
+                "URL F1 score": [float(f'{e:.2f}')for e in df.loc[df["Temp"] == 0.5]['UF1'].values] + [np.mean(df2['UF1'].values)],
+                "URL new score": [float(f'{e:.2f}')for e in df.loc[df["Temp"] == 0.5]['UN'].values] + [np.mean(df2['UN'].values)] 
         }
-        draw_bar_chart(labels, y, "URL scores for the different prompts", 'Score', limit=1.1)
+        draw_bar_chart(labels, y, "URL BERT scores for the different prompts", 'Score', limit=1.1, n=4, save=save)
+
+
+def graph_new_score(save=True):
+        df = pd.read_csv("BERT/data/result_temp.csv")
+        data = parse_data("BERT/data/json_score_prompt3.csv", output_name="result_prompt3")
+        df2 = pd.read_csv("BERT/data/result_prompt3.csv")
+        labels = ["Prompt 0", "Prompt 1", "Prompt 2", "Prompt 3"]
+        y = {
+                "URL New score": [float(f'{e:.2f}')for e in df.loc[df["Temp"] == 0.5]['UN'].values] + [np.mean(df2['UN'].values)],
+                "URL T1 score": [float(f'{e:.2f}')for e in df.loc[df["Temp"] == 0.5]['UT1'].values] + [np.mean(df2['UT1'].values)],
+                "URL T2 score": [float(f'{e:.2f}')for e in df.loc[df["Temp"] == 0.5]['UT2'].values] + [np.mean(df2['UT2'].values)] 
+        }
+        draw_bar_chart(labels, y, "URL scores for the different prompts T=0.5", 'Score', limit=1.1, n=4, save=save)
+
+
         
 
-def draw_bar_chart(labels, y, title, y_label, low=0, limit=1.0, save=True):
-        for key in y.keys():
-                x = np.arange(len(y.get(key)))  # the label locations
-        width = 0.25  # the width of the bars
+def draw_bar_chart(labels, y, title, y_label, low=0, limit=1.0, save=True, n=3):
+        x = np.arange(n)
+        width = 0.15  # the width of the bars
         multiplier = 0
 
         fig, ax = plt.subplots(layout='constrained')
@@ -174,7 +202,7 @@ def draw_bar_chart(labels, y, title, y_label, low=0, limit=1.0, save=True):
         for attribute, measurement in y.items():
                 offset = width * multiplier
                 rectangle = ax.bar(x + offset, measurement, width, label=attribute)
-                ax.bar_label(rectangle, padding=3)
+                ax.bar_label(rectangle, padding=5)
                 multiplier += 1
 
         # Add some text for labels, title and custom x-axis tick labels, etc.
@@ -198,6 +226,7 @@ if __name__ =="__main__":
         print("Plotting...")
 
         data = parse_data(args.filename, output_name="result_temp")
-        # graph_temp(True)
+        graph_temp(True)
         graph_prompt(True)
+        graph_new_score(True)
         plt.show()

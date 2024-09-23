@@ -96,7 +96,6 @@ class Template():
             return False
         if not splitted[1] in [f'{e}.js' for e in poll_files] + files + [f'{e}.png' for e in kill_files]:
             return False
-        
         # TODO: URL use the correct dictionaries depending on extension
         return True
 
@@ -170,6 +169,65 @@ def splitter(text):
 
 
 
+def filter(ls, pat):
+    nl = list()
+    for e in ls:
+        if e != pat:
+            nl.append(e)
+    return nl
+
+
+"""
+This function will return a score based on how many urls in the answer are in the templates too.
+But if we just count the url present in ans the score will be biaised as the answer can contains all possibilities to achieve a perfect score.
+N: The number of good unique URLs in both urls and ans.
+T1: The total of URLs in urls.
+T2: The total of URLs in the answer.
+S = T/((T1+T2)/2) 
+If the answer is perfect it has the same len as the urls list. then (T1 + T2)/2 = T1 = T2 and if all urls are good T = T1 = T2
+-> It ensures the score to reaches S = 1
+If T2 is greater than T1 then at least one urls is false, same if all the other are good the score will decrease.
+-> T = T1 < T2 --> S < 1
+If T1 is greater than T2, at least one URLs is missing then T < T1 --> S < 1
+If no URL matches then T = 0 and the score reach 0
+-> 0 / ((T1+T2)/2) with T1 et T2 random positive and different then S = 0.
+
+If T1 = T2 = 0 then S = 1
+If T1 = 0 and T1 != T2 then S = 0
+As T1 and T2 are len Dom(T1) = Dom(T2) = [0, +inf] 
+
+"""
+def url_score(urls, ans, test_id="I00000"):
+    urls = urls[15:].split("\n")
+    urls = [ u.replace("\t- ", "") for u in urls ]
+    ans = ans[15:].split("\n")
+    urls = filter(urls, '')
+    ans = filter(ans, '')
+    print("URL: ", urls)
+    print("ANS: ", ans)
+    T1 = len(urls)
+    T2 = len(ans)
+    if T1 == 0 and T2 == 0:
+        return 1.0, 1.0, 1.0
+    if (T1 == 0 and T2 != 0) or (T1 != 0 and T2 == 0):
+        return 0.0, 0.0, 0.0
+    T = matching_urls(urls, ans)
+    return T / ((T1+T2)/2), T/T1, T/T2
+
+
+def matching_urls(urls, ans):
+    T = 0
+    matched = dict()
+    for u in urls:
+        for e in ans:
+            if u in e and not u in matched.keys():
+                T += 1
+                matched[u] = T
+    print(matched, "\n")
+    return T
+
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('filename')
@@ -198,9 +256,7 @@ if __name__ == "__main__":
         ID = answer(question)
         with open("thread_id.csv", "a") as file:
             file.write(f'Ixyz{temp:02d},{ID}\n')
-        print(ID)  
     elif not args.retrieve and not args.send:
-        print(args.thread_id)
         # in this cas args.filename is the filename of the file containing a list of thread IDs
         ans = retrieve(args.thread_id)
 
@@ -208,7 +264,6 @@ if __name__ == "__main__":
         safe_template = Template("BERT/template/safe.md")
 
         filled = safe_template.fill(args.filename)
-        print(filled)
 
         candidates = splitter(filled)
         answers = splitter(ans)
@@ -239,22 +294,22 @@ if __name__ == "__main__":
             key = key_list[i]
             # retrieve thread answer.
             ans = retrieve(thread_id)
-            print(ans)
             # template part
             if "I" in key:
                 template = Template("BERT/template/infected.md")
             else:
                 template = Template("BERT/template/safe.md")
             filled = template.fill(files_list[int(key[1])])
-            print(filled)
             # score them
+            candidates = splitter(filled)
+            answers = splitter(ans)
+            UN, UT1, UT2 = url_score(candidates[1], answers[1], test_id=key)
+            print(UN, "\n", UT1, "\n", UT2)
             try:
-                candidates = splitter(filled)
-                answers = splitter(ans)
                 P, R, F1 = score(candidates, answers, model_type='roberta-large', lang='en', verbose=False, rescale_with_baseline=True)
                 with open("BERT/json_score.csv", "a") as file:
                     # TestID,ThreadID,HeadScoreP,HeadScoreR,HeadScoreF1,URLScoreP,URLScoreR,URLScoreF1,ExScoreP,ExScoreR,ExScoreF1 
-                    file.write(f'{key},{thread_id},{P[0]:.3f},{R[0]:.3f},{F1[0]:.3f},{P[1]:.3f},{R[1]:.3f},{F1[1]:.3f},{P[2]:.3f},{R[2]:.3f},{F1[2]:.3f}\n')
+                    file.write(f'{key},{thread_id},{P[0]:.3f},{R[0]:.3f},{F1[0]:.3f},{P[1]:.3f},{R[1]:.3f},{F1[1]:.3f},{P[2]:.3f},{R[2]:.3f},{F1[2]:.3f},{UN:.3f},{UT1:.3f},{UT2:.3f}\n')
             except:
                 print("Error in splitter for thread: " + thread_id + ", file: " + key)
 
@@ -305,7 +360,7 @@ if __name__ == "__main__":
                 P, R, F1 = score(candidates, answers, model_type='roberta-large', lang='en', verbose=False, rescale_with_baseline=True)
                 with open("BERT/json_score.csv", "a") as file:
                     # TestID,ThreadID,HeadScoreP,HeadScoreR,HeadScore,F1,URLScoreP,URLScoreR,URLScoreF1,ExScoreP,ExScoreR,ExScoreF1 
-                    file.write(f'{key},{thread_id},{P[0]:.3f},{R[0]:.3f},{F1[0]:.3f},{P[1]:.3f},{R[1]:.3f},{F1[1]:.3f},{P[2]:.3f},{R[2]:.3f},{F1[2]:.3f}\n')
+                    file.write(f'{key},{thread_id},{P[0]:.3f},{R[0]:.3f},{F1[0]:.3f},{P[1]:.3f},{R[1]:.3f},{F1[1]:.3f},{P[2]:.3f},{R[2]:.3f},{F1[2]:.3f},{url_score(candidates[1], answers[1]):.3f}\n')
                 print("Done " + idx)
             except:
                 print("Error for thread: " + ID + ", file: " + key)

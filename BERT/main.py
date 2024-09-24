@@ -96,7 +96,6 @@ class Template():
             return False
         if not splitted[1] in [f'{e}.js' for e in poll_files] + files + [f'{e}.png' for e in kill_files]:
             return False
-        # TODO: URL use the correct dictionaries depending on extension
         return True
 
 
@@ -231,10 +230,20 @@ def matching_urls(urls, ans):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('filename')
-    parser.add_argument('-t', '--thread-id', type=str)
     parser.add_argument('-r', '--retrieve', action='store_true')
-    parser.add_argument('-s', '--send', action='store_true')
 
+
+    parser.add_argument('-o', '--output', type=str, required=True)
+
+    
+    parser.add_argument('-c', '--custom', action='store_true')
+    parser.add_argument('-p', '--prompt', type=int)
+    parser.add_argument('-f', '--file', type=int)
+    parser.add_argument('-t', '--temp', type=float)
+    parser.add_argument('-n', '--number-of-test', type=int, required=True)
+    parser.add_argument('-q', '--question', type=str)
+
+    parser.add_argument('-s', '--score-test', action='store_true')
     args = parser.parse_args()
     warnings.simplefilter("ignore")
 
@@ -249,35 +258,12 @@ if __name__ == "__main__":
         ]
     
     
-    if not args.thread_id and not args.retrieve and not args.send:
-        # in this case filename is the data file in the question in the thread. No response comes directly
-        question = f'Analyze the file {args.filename} stored in the vector vs_JeBhp9BB9JtuAXUBDBak7LOb to detect any infection'
-        
-        ID = answer(question)
-        with open("thread_id.csv", "a") as file:
-            file.write(f'Ixyz{temp:02d},{ID}\n')
-    elif not args.retrieve and not args.send:
-        # in this cas args.filename is the filename of the file containing a list of thread IDs
-        ans = retrieve(args.thread_id)
 
-        infected_template = Template("BERT/template/infected.md")
-        safe_template = Template("BERT/template/safe.md")
+    if args.retrieve and args.custom:
+        print("Error incompatible option retrieve and custom.")
+        exit(1)
 
-        filled = safe_template.fill(args.filename)
-
-        candidates = splitter(filled)
-        answers = splitter(ans)
-
-        P, R, F1 = score(candidates, answers, model_type='roberta-large', lang='en', verbose=False, rescale_with_baseline=True)
-
-        print(f'Precision: {P}')
-        print(f'Recall: {R}')
-        print(f'F1: {F1}')
-
-    elif args.thread_id and args.retrieve:
-        print("Not implemented")
-
-    elif not args.send and args.retrieve: # if not args.thread_id and args.recursive
+    elif args.retrieve:
         """
         # KEY pattern: I/S (infected or safe) 0-6 data file representation, 0-3 prompt ID, 0-5 Documentation version, 00-20 Temperature
         # Example: 
@@ -307,60 +293,79 @@ if __name__ == "__main__":
             print(UN, "\n", UT1, "\n", UT2)
             try:
                 P, R, F1 = score(candidates, answers, model_type='roberta-large', lang='en', verbose=False, rescale_with_baseline=True)
-                with open("BERT/json_score.csv", "a") as file:
+                with open(args.output, "a") as file:
                     # TestID,ThreadID,HeadScoreP,HeadScoreR,HeadScoreF1,URLScoreP,URLScoreR,URLScoreF1,ExScoreP,ExScoreR,ExScoreF1 
                     file.write(f'{key},{thread_id},{P[0]:.3f},{R[0]:.3f},{F1[0]:.3f},{P[1]:.3f},{R[1]:.3f},{F1[1]:.3f},{P[2]:.3f},{R[2]:.3f},{F1[2]:.3f},{UN:.3f},{UT1:.3f},{UT2:.3f}\n')
             except:
                 print("Error in splitter for thread: " + thread_id + ", file: " + key)
-
-    elif args.send and not args.retrieve:
-        print("here")
-        for _ in range(3):
-            idx = 0
-            for filename in files_list:
-                # in this case filename is the data file in the question in the thread. No response comes directly
-                question = f'Analyze the file {filename} stored in the vector vs_JeBhp9BB9JtuAXUBDBak7LOb to detect any infection'
-                
-                ID = answer(question)
-                sleep(30)
-                with open("BERT/thread_id.csv", "a") as file:
-                    if "slimper" in filename:
-                        file.write(f'I{idx}{prompt_id}0{temp:02d},{ID}\n')
-                    else:
-                        file.write(f'S{idx}{prompt_id}0{temp:02d},{ID}\n')
-                idx += 1
-                print(ID)  
-    else:
-        print("else")
-        idx = 0
-        for filename in files_list:
-            # in this case filename is the data file in the question in the thread. No response comes directly
-            question = f'Analyze the file {filename} stored in the vector vs_JeBhp9BB9JtuAXUBDBak7LOb to detect any infection'
+ 
+    elif args.custom:
+        print(f'Pid: {args.prompt}')
+        print(f'Fid: {args.file}')
+        print(f'Temp: {args.temp}')
+        print(f'N: {args.number_of_test}')
+        print(f'Out: {args.output}')
+        print(f'Q: {args.question}')
+        arg_check = True
+        if not args.prompt:
+            print("Require prompt id (one digit int).")
+            arg_check = False
+        if not args.file:
+            print("Required file id (one digit int).")
+            arg_check = False
+        if not args.number_of_test:
+            print("Required number of test (int)")
+            arg_check = False
+        if not args.temp:
+            print("Required temperature to use (float 2 digits (0.5), [0.1, 2])")
+            arg_check = False
+        if not args.question:
+            print("Required question to send. (string \"example of string\")")
+            arg_check = False
+        if not arg_check:
+            exit(1)
             
-            ID = answer(question)
-            if "slimper" in filename:
-                key = f'I{idx}{prompt_id}0{temp:02d}'
+        
+        state = "I" if 'slimper' in args.filename else "S"
+        encode_test_id = f'{state}{args.file}{args.prompt}0{int(args.temp*10):02d}'
+        print(f'TestID: {encode_test_id}')
+
+        for i in range(args.number_of_test):
+            
+            thread_id = answer(args.question)
+            sleep(10)
+            with open(args.output, "a"):
+                file.write(f'{2},{1}\n')
+        
+    elif args.score_test:
+        from random import choices
+
+        urls = ['/abc/123', '/azeeert/ézaeavez123', '/erte/aeeev/123', '/ert/3453/ced', '/ert/1234/ced', '/abc/124', '/azeeer2t/ézaeavez123', '/erte/a2eeev/123', '/ert/34523/ced', '/ert/12234/ced']
+        with open(args.output, 'w+') as file:
+            file.write("T, T1, T2, UT, UT1, UT2\n")
+            file.close()
+        for i in range(args.number_of_test):
+            ans = choices(urls, k=i%(int(len(urls)*1.5)))
+            T = 0
+            T1 = len(urls)
+            T2 = len(ans)
+            if T1 == 0 and T2 == 0:
+                with open(args.output, 'a') as file:
+                    file.write(f'{T},{T1},{T2},1.0,1.0,1.0\n')
+                    file.close()
+            elif (T1 == 0 and T2 != 0) or (T1 != 0 and T2 == 0):
+                with open(args.output, 'a') as file:
+                    file.write(f'{T},{T1},{T2},0.0,0.0,0.0\n')
+                    file.close()
             else:
-                key = f'S{idx}{prompt_id}0{temp:02d}'
-            with open("BERT/thread_id.csv", "a") as file:
-                file.write(f'{key},{ID}\n')
-            sleep(20)
-            ans = retrieve(ID)
-            idx += 1
-            print(ID)
-            if "I" in key:
-                template = Template("BERT/template/infected.md")
-            else:
-                template = Template("BERT/template/safe.md")
-            filled = template.fill(files_list[int(key[1])])
-            # score them
-            try:
-                candidates = splitter(filled)
-                answers = splitter(ans)
-                P, R, F1 = score(candidates, answers, model_type='roberta-large', lang='en', verbose=False, rescale_with_baseline=True)
-                with open("BERT/json_score.csv", "a") as file:
-                    # TestID,ThreadID,HeadScoreP,HeadScoreR,HeadScore,F1,URLScoreP,URLScoreR,URLScoreF1,ExScoreP,ExScoreR,ExScoreF1 
-                    file.write(f'{key},{thread_id},{P[0]:.3f},{R[0]:.3f},{F1[0]:.3f},{P[1]:.3f},{R[1]:.3f},{F1[1]:.3f},{P[2]:.3f},{R[2]:.3f},{F1[2]:.3f},{url_score(candidates[1], answers[1]):.3f}\n')
-                print("Done " + idx)
-            except:
-                print("Error for thread: " + ID + ", file: " + key)
+                matched = dict()
+                for u in urls:
+                    for e in ans:
+                        if u in e and not u in matched.keys():
+                            T += 1
+                            matched[u] = T
+                UT, UT1, UT2 = T / ((T1+T2)/2), T/T1, T/T2
+                with open(args.output, 'a') as file:
+                    file.write(f'{T},{T1},{T2},{UT},{UT1},{UT2}\n')
+                    file.close()
+        print("All done")

@@ -179,7 +179,7 @@ def filter(ls, pat):
 def filter_none(ls):
     nl = list()
     for e in ls:
-        if not ("None" in e):
+        if not ("None" in e) and not ("[]" in e) and not ("[ ]" in e):
             nl.append(e)
     return nl
 
@@ -342,12 +342,8 @@ if __name__ == "__main__":
         encode_test_id = f'{state}{args.file}{args.prompt}0{int(args.temp*10):02d}'
         print(f'TestID: {encode_test_id}')
 
-        vector = "vs_GiYu27kdezRBJ3OlVgQAhSgc"
-        question =  f'Analyze the json file in the file vector {vector} to detect a potential C2 framework infection.'
-
-        # with open(args.output, "w") as file:
-        #     file.write('Key,Value\n')
-        #     file.close()
+        vector = "vs_UiEEoktDa6dFPU4MFhcsBUDF"
+        question =  f'Analyze the file {args.file}.json file stored in the vector {vector} to detect a potential infection.'
 
         for i in range(args.number_of_test):
             

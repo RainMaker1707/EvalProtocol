@@ -308,7 +308,7 @@ if __name__ == "__main__":
                     P, R, F1 = score(candidates, answers, model_type='roberta-large', lang='en', verbose=False, rescale_with_baseline=True)
                     with open(args.output, "a") as file:
                         # TestID,ThreadID,HeadScoreP,URLScoreP,URLScoreR,URLScoreF1,ExScoreP,ExScoreR,ExScoreF1,UN,UT1,UT2 
-                        file.write(f'{key},{thread_id},{head_score(candidates[0], answers[0])},{P[2]:.3f},{R[2]:.3f},{F1[2]:.3f},{UN:.3f},{UT1:.3f},{UT2:.3f}\n')
+                        file.write(f'{key[0]},{key[1]},{key[2]},{key[3]},{key[4]}.{key[5]},{thread_id},{head_score(candidates[0], answers[0])},{P[2]:.3f},{R[2]:.3f},{F1[2]:.3f},{UN:.3f},{UT1:.3f},{UT2:.3f}\n')
                 except:
                     print("Error in splitter for thread: " + thread_id + ", file: " + key)
             except:

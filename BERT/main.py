@@ -158,13 +158,14 @@ def list_to_text(l):
 
 
 def splitter(text):   
+    print(text)
     if type(text) == type(list()):
         text = list_to_text(text)
     text_split = text.split('#')
     header = text_split[1]
     urls_part = text_split[3]
     commands_part = text_split[-1]
-    return header, urls_part, commands_part
+    return [header, urls_part, commands_part]
 
 
 
@@ -175,6 +176,12 @@ def filter(ls, pat):
             nl.append(e)
     return nl
 
+def filter_none(ls):
+    nl = list()
+    for e in ls:
+        if not ("None" in e):
+            nl.append(e)
+    return nl
 
 """
 This function will return a score based on how many urls in the answer are in the templates too.
@@ -201,47 +208,48 @@ def url_score(urls, ans, test_id="I00000"):
     urls = [ u.replace("\t- ", "") for u in urls ]
     ans = ans[15:].split("\n")
     urls = filter(urls, '')
-    ans = filter(ans, '')
+    ans = filter_none(filter(ans, ''))
     print("URL: ", urls)
     print("ANS: ", ans)
+    T = 0
     T1 = len(urls)
     T2 = len(ans)
     if T1 == 0 and T2 == 0:
         return 1.0, 1.0, 1.0
-    if (T1 == 0 and T2 != 0) or (T1 != 0 and T2 == 0):
+    elif (T1 == 0 and T2 != 0) or (T1 != 0 and T2 == 0):
         return 0.0, 0.0, 0.0
-    T = matching_urls(urls, ans)
-    return T / ((T1+T2)/2), T/T1, T/T2
+    else:
+        matched = dict()
+        for u in urls:
+            for e in ans:
+                if u in e and not u in matched.keys():
+                    T += 1
+                    matched[u] = T
+        UT, UT1, UT2 = T / ((T1+T2)/2), T/T1, T/T2
+        return UT, UT1, UT2
 
 
-def matching_urls(urls, ans):
-    T = 0
-    matched = dict()
-    for u in urls:
-        for e in ans:
-            if u in e and not u in matched.keys():
-                T += 1
-                matched[u] = T
-    print(matched, "\n")
-    return T
+def head_score(a, b):
+    if "infected" in a and "infected" in b:
+        return 1.0
+    if "safe" in a and "safe" in b:
+        return 1.0
+    return 0.0
 
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('filename')
     parser.add_argument('-r', '--retrieve', action='store_true')
-
-
     parser.add_argument('-o', '--output', type=str, required=True)
 
+    parser.add_argument('-i', '--input-file', type=str)
     
     parser.add_argument('-c', '--custom', action='store_true')
     parser.add_argument('-p', '--prompt', type=int)
     parser.add_argument('-f', '--file', type=int)
     parser.add_argument('-t', '--temp', type=float)
-    parser.add_argument('-n', '--number-of-test', type=int, required=True)
-    parser.add_argument('-q', '--question', type=str)
+    parser.add_argument('-n', '--number-of-test', type=int)
 
     parser.add_argument('-s', '--score-test', action='store_true')
     args = parser.parse_args()
@@ -264,13 +272,16 @@ if __name__ == "__main__":
         exit(1)
 
     elif args.retrieve:
+        if not args.input_file:
+            print("Input file required.")
+            exit(1)
         """
         # KEY pattern: I/S (infected or safe) 0-6 data file representation, 0-3 prompt ID, 0-5 Documentation version, 00-20 Temperature
         # Example: 
                 - I02310 Infected ,file full_local.json, Prompt 2, Documentation 3, Temperature=1.0, 
                 - S30105 Safe, file ls_kill.json, prompt 0, documentation 1, Temperature = 0.5 
         """
-        df = pd.read_csv("BERT/thread_id.csv")
+        df = pd.read_csv(args.input_file)
         threads_id_list = df["Value"].to_list()
         key_list = df["Key"].to_list()
         print("key, value retrieved")
@@ -287,56 +298,68 @@ if __name__ == "__main__":
                 template = Template("BERT/template/safe.md")
             filled = template.fill(files_list[int(key[1])])
             # score them
-            candidates = splitter(filled)
-            answers = splitter(ans)
-            UN, UT1, UT2 = url_score(candidates[1], answers[1], test_id=key)
-            print(UN, "\n", UT1, "\n", UT2)
             try:
-                P, R, F1 = score(candidates, answers, model_type='roberta-large', lang='en', verbose=False, rescale_with_baseline=True)
-                with open(args.output, "a") as file:
-                    # TestID,ThreadID,HeadScoreP,HeadScoreR,HeadScoreF1,URLScoreP,URLScoreR,URLScoreF1,ExScoreP,ExScoreR,ExScoreF1 
-                    file.write(f'{key},{thread_id},{P[0]:.3f},{R[0]:.3f},{F1[0]:.3f},{P[1]:.3f},{R[1]:.3f},{F1[1]:.3f},{P[2]:.3f},{R[2]:.3f},{F1[2]:.3f},{UN:.3f},{UT1:.3f},{UT2:.3f}\n')
+                candidates = splitter(filled)
+                answers = splitter(ans)
+                print(answers[0])
+                UN, UT1, UT2 = url_score(candidates[1], answers[1], test_id=key)
+                print(UN, "\n", UT1, "\n", UT2)
+                try:
+                    P, R, F1 = score(candidates, answers, model_type='roberta-large', lang='en', verbose=False, rescale_with_baseline=True)
+                    with open(args.output, "a") as file:
+                        # TestID,ThreadID,HeadScoreP,URLScoreP,URLScoreR,URLScoreF1,ExScoreP,ExScoreR,ExScoreF1,UN,UT1,UT2 
+                        file.write(f'{key},{thread_id},{head_score(candidates[0], answers[0])},{P[2]:.3f},{R[2]:.3f},{F1[2]:.3f},{UN:.3f},{UT1:.3f},{UT2:.3f}\n')
+                except:
+                    print("Error in splitter for thread: " + thread_id + ", file: " + key)
             except:
-                print("Error in splitter for thread: " + thread_id + ", file: " + key)
- 
+                print(thread_id)
+
+
     elif args.custom:
         print(f'Pid: {args.prompt}')
         print(f'Fid: {args.file}')
         print(f'Temp: {args.temp}')
         print(f'N: {args.number_of_test}')
         print(f'Out: {args.output}')
-        print(f'Q: {args.question}')
         arg_check = True
-        if not args.prompt:
+        if not args.prompt and not args.prompt == 0:
             print("Require prompt id (one digit int).")
             arg_check = False
-        if not args.file:
+        if not args.file and not args.file == 0:
             print("Required file id (one digit int).")
             arg_check = False
-        if not args.number_of_test:
-            print("Required number of test (int)")
+        if not args.number_of_test or args.number_of_test < 1:
+            print("Required number of test (positive non nul int)")
             arg_check = False
         if not args.temp:
             print("Required temperature to use (float 2 digits (0.5), [0.1, 2])")
             arg_check = False
-        if not args.question:
-            print("Required question to send. (string \"example of string\")")
-            arg_check = False
         if not arg_check:
             exit(1)
             
-        
-        state = "I" if 'slimper' in args.filename else "S"
+        filename = files_list[args.file]
+        state = "I" if 'slimper' in filename else "S"
         encode_test_id = f'{state}{args.file}{args.prompt}0{int(args.temp*10):02d}'
         print(f'TestID: {encode_test_id}')
 
+        vector = "vs_GiYu27kdezRBJ3OlVgQAhSgc"
+        question =  f'Analyze the json file in the file vector {vector} to detect a potential C2 framework infection.'
+
+        # with open(args.output, "w") as file:
+        #     file.write('Key,Value\n')
+        #     file.close()
+
         for i in range(args.number_of_test):
             
-            thread_id = answer(args.question)
+            thread_id = answer(question)
             sleep(10)
-            with open(args.output, "a"):
-                file.write(f'{2},{1}\n')
+            with open(args.output, "a") as file:
+                file.write(f'{encode_test_id},{thread_id}\n')
+                file.close()
+        print("All done")
         
+
+
     elif args.score_test:
         from random import choices
 
@@ -369,3 +392,7 @@ if __name__ == "__main__":
                     file.write(f'{T},{T1},{T2},{UT},{UT1},{UT2}\n')
                     file.close()
         print("All done")
+
+
+    else:
+        print("Not recognized arguments.")

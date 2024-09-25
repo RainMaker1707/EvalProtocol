@@ -342,7 +342,7 @@ if __name__ == "__main__":
         encode_test_id = f'{state}{args.file}{args.prompt}0{int(args.temp*10):02d}'
         print(f'TestID: {encode_test_id}')
 
-        vector = "vs_UiEEoktDa6dFPU4MFhcsBUDF"
+        vector = "vs_Dd5dCajPfgj7NnNU2m8aUPih"
         question =  f'Analyze the file {args.file}.json file stored in the vector {vector}.'
 
         for i in range(args.number_of_test):

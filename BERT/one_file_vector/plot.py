@@ -24,7 +24,7 @@ plt.xlabel('Prompt ID')
 plt.ylabel('HeadScore')
 
 # Save the plot
-plt.savefig("BERT/one_file_vector/plots/HeadScoreP2.pdf", format="pdf")
+plt.savefig("BERT/one_file_vector/plots/HeadScoreP4.pdf", format="pdf")
 
 # Let's create boxplots for UT, UT1, and UT2 by Temp with the new dataset including Temp = 0.6
 
@@ -55,4 +55,4 @@ plt.ylabel('UT2')
 
 # Adjust layout to avoid overlap
 plt.tight_layout()
-plt.savefig("BERT/one_file_vector/plots/UTP2.pdf", format="pdf")
+plt.savefig("BERT/one_file_vector/plots/UTP4.pdf", format="pdf")

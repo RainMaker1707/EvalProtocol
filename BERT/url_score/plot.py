@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Load the data from the provided file
-file_path = 'BERT/url_score.csv'
+file_path = 'BERT/url_score/url_score.csv'
 data = pd.read_csv(file_path)
 
 # Clean up column names (if needed)

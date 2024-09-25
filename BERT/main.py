@@ -343,7 +343,7 @@ if __name__ == "__main__":
         print(f'TestID: {encode_test_id}')
 
         vector = "vs_UiEEoktDa6dFPU4MFhcsBUDF"
-        question =  f'Analyze the file {args.file}.json file stored in the vector {vector} to detect a potential infection.'
+        question =  f'Analyze the file {args.file}.json file stored in the vector {vector}.'
 
         for i in range(args.number_of_test):
             

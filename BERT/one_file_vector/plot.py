@@ -16,7 +16,7 @@ data = pd.read_csv(args.filename)
 
 # Replotting the boxplot for HeadScore (binary) by Temp with the new data including Temp = 0.6
 plt.figure(figsize=(10, 6))
-sns.violinplot(x='PromptID', y='HeadScore', data=data)
+sns.violinplot(x='DocID', y='HeadScore', data=data)
 
 # Set the title and labels
 plt.title('HeadScore  vs prompt, Temp = 0.4')
@@ -33,21 +33,21 @@ plt.figure(figsize=(12, 8))
 
 
 plt.subplot(3, 1, 1)
-sns.violinplot(x='PromptID', y='UT', data=data)
+sns.violinplot(x='DocID', y='UT', data=data)
 plt.title('UT vs prompt, Temp = 0.4')
 plt.xlabel('Prompt ID')
 plt.ylabel('UT')
 
 # Plot the boxplot for UT1 by Temp
 plt.subplot(3, 1, 2)
-sns.violinplot(x='PromptID', y='UT1', data=data)
+sns.violinplot(x='DocID', y='UT1', data=data)
 plt.title('UT1 vs prompt, Temp=0.4')
 plt.xlabel('Prompt ID')
 plt.ylabel('UT1')
 
 # Plot the boxplot for UT2 by Temp
 plt.subplot(3, 1, 3)
-sns.violinplot(x='PromptID', y='UT2', data=data)
+sns.violinplot(x='DocID', y='UT2', data=data)
 plt.title('UT2 vs prompt, Temp=0.4')
 plt.xlabel('Prompt ID')
 plt.ylabel('UT2')

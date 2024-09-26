@@ -1,105 +1,33 @@
-**Friday**
-- [x] Explain in paper: Separate the answer in part to score each part separately.
-- [x] Links in the literature review. *Coherent text*!! Cite only authors not full title.
+# Thursday
+- [x] Meeting 11am 12am
+- [x] Evaluate Documentation
+ - Without Heartbeat 2
+ - Without traffic explanation 1
+ - Without both 3
+ - With both 0
+- [x] Score each documentation
+- [x] Plots and understand results
+- [x] Choose best documentation (0 or 1)
 
 
-**Saturday**
-- [x] Write the evaluation protocol in the paper. Why this protocol, why the BERTScore? Paper citation + add it in the literature reviews. 
+# Friday
+- [ ] Evaluate Plain Text files
+- [ ] Score Plain Text vs Json with Prompt 3 & Doc 1 & Temp 0.4 
+- [ ] Rewrite in report 
+- [ ] More Figure on results
+- [ ] Add figure in report
+- [ ] Presentation draft
+- [ ] Send presentation draft to Christophe
+
+# Saturday
+- [ ] Improve report
+- [ ] Learn presentation
+- [ ] Improve slides
+
+# Sunday
+- [ ] 
+- [ ] Send the reviewed presentation to Joren
 
 
-**Sunday**
-- [x] More realistic planning that fill the two last weeks!
-- [x] Convert all PCAP in JSON.
-      
-
-
-
-**Monday**
-- [x] Visualization for Slimper
-- [x] Visualization for the evaluation protocol
-- [x] Visualization for data forgery
-
-- [x] Write the Evaluation protocol part of the report.
-
-- [x] Improve the Literature Review (as far as we known no one does the same kind of research).
-- [x] Add a part on literature reviews, what people already done?
-- [x] Send the improved paper. Improve visualization of the results (graph, plot, table, etc) (**GOOD** to spend more time on it!)
-
-
-**Tuesday**
-- [x] Finish the assistant prompt.
-- [x] Finish the evaluation pipeline.
-- [x] Separate the answer in part to score each part separately.
-
-
-**Wednesday**
-
-- [x] Search on web to find not academic literature (video, blog, etc) related DIRECTLY to my study. + send it to supervisors.
-
-- [x] Run evaluation on all JSON files. prompt0 
-- [x] Run evaluation on all JSON files. prompt1
-- [x] Run evaluation on all JSON files. prompt2
-
-
-**Thursday**
-- [x] Run evaluation for temperature 0.5
-- [x] Run evaluation for temperature 0.7
-- [x] Run evaluation for temperature 1
-- [x] Write non academic documentation research report
-
-
-
-**Friday**
-- [x] Convert all PCAP in Plain Text.
-
-- [x] Refine the prompt.
-- [x] Evaluate the different answers.
-
-- [x] Write report sections about the parameters tested.
-- [x] Plot the results for temperature impact.
-- [x] Plot the result for prompt impact.
-
-- [ ] Correct the template filler URLs
-
-- [ ] Add plots to the report.
-
-- [ ] Run evaluation for different documentations.
-- [ ] Write documentation environment part in report.
-
-- [ ] Write final configuration part in report.
-
-- [ ] Run evaluation on all Plain Text files
-- [ ] Run evaluation on all CSV files.
-
-- [ ] Write the scoring results in a table in the report.
-- [ ] Fill the results (graph, plot, table).
-
-
-
-
-**Saturday**
-- [ ] Write the scoring results in a table in the report.
-- [ ] Fill the results (graph, plot, table).
-- [ ] Discuss the result on the discussion section of the report.
-      
-- [ ] Paper pre-print (results and evaluation protocol).
-
-
-**Sunday**
-- [ ] Writting Suricata documentation
-- [ ] First test with basic prompt
-
-- [ ] Enhance the basic prompt to specilaized prompt
-- [ ] Create defense rules following from LLMs.
-
-- [ ] Defense rules evaluation
-    - Evaluate from predefined rules against generated rules.
-    - Evaluate from testing the generated rules against the file tested.
-
-
-
-**Weekend and rest of the internship**
-- [ ] Fill the paper with the new results
-- [ ] Plot graph etc
-- [ ] Review and enhance paper
-- [ ] Finish report
+# Monday
+- [ ] Improve slides based on Joren feedback

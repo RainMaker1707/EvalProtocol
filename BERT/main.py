@@ -250,6 +250,7 @@ if __name__ == "__main__":
     parser.add_argument('-f', '--file', type=int)
     parser.add_argument('-t', '--temp', type=float)
     parser.add_argument('-n', '--number-of-test', type=int)
+    parser.add_argument('-d', '--document-id', type=int)
 
     parser.add_argument('-s', '--score-test', action='store_true')
     args = parser.parse_args()
@@ -318,6 +319,7 @@ if __name__ == "__main__":
     elif args.custom:
         print(f'Pid: {args.prompt}')
         print(f'Fid: {args.file}')
+        print(f'Temp: {args.document_id}')
         print(f'Temp: {args.temp}')
         print(f'N: {args.number_of_test}')
         print(f'Out: {args.output}')
@@ -339,10 +341,10 @@ if __name__ == "__main__":
             
         filename = files_list[args.file]
         state = "I" if 'slimper' in filename else "S"
-        encode_test_id = f'{state}{args.file}{args.prompt}0{int(args.temp*10):02d}'
+        encode_test_id = f'{state}{args.file}{args.prompt}{args.document_id}{int(args.temp*10):02d}'
         print(f'TestID: {encode_test_id}')
 
-        vector = "vs_Dd5dCajPfgj7NnNU2m8aUPih"
+        vector = "vs_BHMIHHWlDaOuRemXAcSReDL6"
         question =  f'Analyze the file {args.file}.json file stored in the vector {vector}.'
 
         for i in range(args.number_of_test):

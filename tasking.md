@@ -1,10 +1,10 @@
 # Thursday
 - [x] Meeting 11am 12am
 - [x] Evaluate Documentation
- - Without Heartbeat 2
- - Without traffic explanation 1
- - Without both 3
- - With both 0
+  * Without Heartbeat 2
+  * Without traffic explanation 1
+  * Without both 3
+  * With both 0
 - [x] Score each documentation
 - [x] Plots and understand results
 - [x] Choose best documentation (0 or 1)
@@ -27,7 +27,6 @@
 - [ ] Improve slides
 
 # Sunday
-- [ ] 
 - [ ] Send the reviewed presentation to Joren
 
 

@@ -8,14 +8,16 @@
 - [x] Score each documentation
 - [x] Plots and understand results
 - [x] Choose best documentation (0 or 1)
+- [x] Improve report
 
 
 # Friday
+- [x] Rewrite in report 
+- [x] More Figure on results
+- [x] Add figure in report
+
 - [ ] Evaluate Plain Text files
 - [ ] Score Plain Text vs Json with Prompt 3 & Doc 1 & Temp 0.4 
-- [ ] Rewrite in report 
-- [ ] More Figure on results
-- [ ] Add figure in report
 - [ ] Presentation draft
 - [ ] Send presentation draft to Christophe
 

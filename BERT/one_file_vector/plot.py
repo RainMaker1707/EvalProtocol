@@ -16,15 +16,16 @@ data = pd.read_csv(args.filename)
 
 # Replotting the boxplot for HeadScore (binary) by Temp with the new data including Temp = 0.6
 plt.figure(figsize=(10, 6))
-sns.violinplot(x='DocID', y='HeadScore', data=data)
+ax = sns.violinplot(x='PromptID', y='HeadScore', data=data)
+ax.set_xticklabels(['Basic', 'Context', 'Constrained', 'Few Shot GPT-4o', "Few shot GPT-4o-mini"])
 
 # Set the title and labels
-plt.title('HeadScore  vs prompt, Temp = 0.4')
-plt.xlabel('Prompt ID')
+plt.title('HeadScore  vs Prompts, Temp = 0.4')
+plt.xlabel('Prompts')
 plt.ylabel('HeadScore')
 
 # Save the plot
-plt.savefig("BERT/one_file_vector/plots/HeadScoreP4.pdf", format="pdf")
+plt.savefig("BERT/one_file_vector/plots/HeadScorePrompt.pdf", format="pdf")
 
 # Let's create boxplots for UT, UT1, and UT2 by Temp with the new dataset including Temp = 0.6
 
@@ -33,26 +34,29 @@ plt.figure(figsize=(12, 8))
 
 
 plt.subplot(3, 1, 1)
-sns.violinplot(x='DocID', y='UT', data=data)
-plt.title('UT vs prompt, Temp = 0.4')
-plt.xlabel('Prompt ID')
+ax = sns.violinplot(x='PromptID', y='UT', data=data)
+ax.set_xticklabels(['Basic', 'Context', 'Constrained', 'Few Shot GPT-4o', "Few shot GPT-4o-mini"])
+plt.title('UT vs Prompts, Temp = 0.4')
+plt.xlabel('Prompt')
 plt.ylabel('UT')
 
 # Plot the boxplot for UT1 by Temp
 plt.subplot(3, 1, 2)
-sns.violinplot(x='DocID', y='UT1', data=data)
-plt.title('UT1 vs prompt, Temp=0.4')
-plt.xlabel('Prompt ID')
+ax = sns.violinplot(x='PromptID', y='UT1', data=data)
+ax.set_xticklabels(['Basic', 'Context', 'Constrained', 'Few Shot GPT-4o', "Few shot GPT-4o-mini"])
+plt.title('UT1 vs Prompts, Temp=0.4')
+plt.xlabel('Prompt')
 plt.ylabel('UT1')
 
 # Plot the boxplot for UT2 by Temp
 plt.subplot(3, 1, 3)
-sns.violinplot(x='DocID', y='UT2', data=data)
-plt.title('UT2 vs prompt, Temp=0.4')
+ax = sns.violinplot(x='PromptID', y='UT2', data=data)
+ax.set_xticklabels(['Basic', 'Context', 'Constrained', 'Few Shot GPT-4o', "Few shot GPT-4o-mini"])
+plt.title('UT2 vs Prompts, Temp=0.4')
 plt.xlabel('Prompt ID')
 plt.ylabel('UT2')
 
 
 # Adjust layout to avoid overlap
 plt.tight_layout()
-plt.savefig("BERT/one_file_vector/plots/UTP4.pdf", format="pdf")
+plt.savefig("BERT/one_file_vector/plots/UTPrompt.pdf", format="pdf")
